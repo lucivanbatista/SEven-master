@@ -124,7 +124,7 @@ public class CmdAddOrganizadorNovo implements Comando {
         u.setNome(nome);
         u.setInstituicao(instituicao);
         u.setEmail(email);
-        u.setSenha(senha);
+        u.setSenha(UtilSeven.criptografar(senha));
         u.setNumero(numero);
         u.setSexo(sexo);
         return u;
