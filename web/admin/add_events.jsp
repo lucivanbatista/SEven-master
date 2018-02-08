@@ -1,13 +1,3 @@
-<%--
-    Document   : index
-    Created on : 26/03/2010, 16:35:48
-    Author     : fernando
---%>
-<%-- 
-    Document   : add_events
-    Modified in : 25/04/2017, 18:02:49
-    Author     : Fagner Pinheiro
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.Evento" %>
 <%@page import=" br.ufc.pet.util.UtilSeven" %>
@@ -109,10 +99,9 @@
                 <%}%>
                  <%@include file="/error.jsp" %>
                 <!-- Adicionar Evento -->
+                 <form action="../ServletCentral?comando=CmdAdicionarEvento&operacao_evento=<%=evento == null ? 0 : evento.getId()%>" method="post">
                 <div class="row">
                    <div class = "col-lg-5 col-lg-offset-1">
-                    <form action="../ServletCentral?comando=CmdAdicionarEvento&operacao_evento=<%=evento == null ? 0 : evento.getId()%>" method="post">
-       
                          <div class="form-group">
                             <input class="form-control" type="text" name="nome_evento" placeholder="Nome" value="<%=nome%>" />
                          </div>

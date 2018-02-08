@@ -1,13 +1,3 @@
-<%--
-    Document   : part_buscar_evento
-    Created on : 26/03/2010, 16:35:48
-    Author     : fernando
---%>
-<%-- 
-    Document   : part_buscar_evento
-    Modified in : 04/05/2017, 20:55:07
-    Author     : João Mateus 
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
 <%@page import="br.ufc.pet.evento.Evento"%>

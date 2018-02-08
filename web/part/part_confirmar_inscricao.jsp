@@ -1,13 +1,3 @@
-<%-- 
-    Document   : part_confirmar_inscricao
-    Created on : 25/05/2010, 15:35:29
-    Author     : Caio
---%>
-<%-- 
-    Document   : part_confirmar_inscricao
-    Modified in : 04/05/2017, 21:18:01
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
 <%@page import="br.ufc.pet.evento.Atividade"%>

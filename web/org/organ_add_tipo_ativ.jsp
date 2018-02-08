@@ -1,13 +1,3 @@
-<%-- 
-    Document   : organ_add_tipo_ativ
-    Created on : 03/09/2010, 15:56:35
-    Author     : Escritorio projetos
---%>
-<%-- 
-    Document   : organ_add_tipo_ativ
-    Modified in : 07/05/2017, 16:28:57
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <%@page import="java.util.ArrayList,br.ufc.pet.evento.TipoAtividade,br.ufc.pet.evento.ModalidadeInscricao"%>

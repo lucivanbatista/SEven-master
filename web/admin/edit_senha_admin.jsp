@@ -1,8 +1,3 @@
-<%-- 
-    Document   : gerencia_conta
-    Created on : 02/07/2013, 10:26:01
-    Author     : mardson
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.Participante" %>
 <%@page import="br.ufc.pet.util.UtilSeven" %>

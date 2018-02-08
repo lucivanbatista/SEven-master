@@ -1,8 +1,3 @@
-<%-- 
-    Document   : ErroAutenticacaoUser
-    Created on : 15/03/2011, 15:20:52
-    Author     : ismaily
---%>
 <%@page import="br.ufc.pet.evento.Perfil" %>
 
 <%

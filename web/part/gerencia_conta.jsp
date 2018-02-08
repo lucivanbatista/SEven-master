@@ -1,13 +1,3 @@
-<%-- 
-    Document   : gerencia_conta
-    Created on : 02/02/2011, 22:26:01
-    Author     : ismaily
---%>
-<%-- 
-    Document   : gerencia_conta
-    Modified in : 04/05/2017, 13:56:25
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.Participante" %>
 <%@page import="br.ufc.pet.util.UtilSeven" %>

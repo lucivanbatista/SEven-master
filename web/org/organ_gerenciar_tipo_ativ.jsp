@@ -1,14 +1,3 @@
-<%-- 
-    Document   : organ_gerenciar_tipo_ativ
-    Created on : 03/09/2010, 15:44:32
-    Author     : Escritorio projetos
---%>
-<%-- 
-    Document   : organ_gerenciar_tipo_ativ
-    Modified in : 07/05/2017, 16:23:57
-    Author     : João Mateus
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList" %>
 <%@page import="br.ufc.pet.evento.TipoAtividade, br.ufc.pet.util.UtilSeven" %>

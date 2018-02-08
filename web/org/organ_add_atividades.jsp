@@ -1,13 +1,3 @@
-<%--
-    Document   : organ_add_atividades
-    Created on : 26/03/2010, 16:35:48
-    Author     : fernando
---%>
-<%-- 
-    Document   : organ_add_atividades
-    Modified in : 07/05/2017, 01:57:34
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList,java.util.List, br.ufc.pet.evento.TipoAtividade,br.ufc.pet.evento.ResponsavelAtividade,br.ufc.pet.evento.Horario,br.ufc.pet.evento.Atividade,br.ufc.pet.evento.Evento" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">

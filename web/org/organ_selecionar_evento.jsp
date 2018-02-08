@@ -1,13 +1,3 @@
-<%-- 
-    Document   : organ_selecionar_evento
-    Created on : 07/03/2011, 23:04:07
-    Author     : Caio
---%>
-<%-- 
-    Document   : organ_selecionar_evento
-    Modified in : 06/05/2017, 19:58:57
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.Organizador"%>
 <%@page import="br.ufc.pet.evento.Organizacao"%>

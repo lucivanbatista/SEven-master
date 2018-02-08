@@ -1,13 +1,3 @@
-<%-- 
-    Document   : organ_gerenciar_horario
-    Created on : 02/08/2010, 22:41:58
-    Author     : Escritorio projetos
---%>
-<%-- 
-    Document   : organ_gerenciar_horario
-    Modified in : 07/05/2017, 15:15:57
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList" %>
 <%@page import="br.ufc.pet.evento.Horario,br.ufc.pet.util.UtilSeven" %>

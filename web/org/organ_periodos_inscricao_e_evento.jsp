@@ -1,13 +1,3 @@
-<%-- 
-    Document   : organ_periodos_inscricao_e_evento
-    Created on : 09/03/2011, 17:36:31
-    Author     : Franklin
---%>
-<%-- 
-    Document   : organ_periodos_inscricao_e_evento
-    Modified in : 07/05/2017, 01:35:57
-    Author     : João Mateus
---%>
 <%@page import="br.ufc.pet.util.UtilSeven"%>
 <%@page import="br.ufc.pet.evento.Evento"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

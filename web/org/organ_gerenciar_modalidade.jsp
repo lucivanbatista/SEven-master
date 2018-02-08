@@ -1,14 +1,3 @@
-<%-- 
-    Document   : organ_gerenciar_modalidade
-    Created on : 14/09/2010, 15:57:09
-    Author     : Franklin
---%>
-<%-- 
-    Document   : organ_gerenciar_modalidade
-    Modified in : 07/05/2017, 14:57:57
-    Author     : João Mateus
---%>
-
 <%@page import="java.util.ArrayList"%>
 <%@page import="br.ufc.pet.evento.ModalidadeInscricao"%>
 <%@page import="br.ufc.pet.evento.Evento"%>

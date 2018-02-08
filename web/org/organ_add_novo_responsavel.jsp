@@ -1,13 +1,3 @@
-<%--
-    Document   : orga_add_novo_responsavel
-    Created on : 26/03/2010, 16:35:48
-    Author     : fernando
---%>
-<%-- 
-    Document   : orga_add_novo_responsavel
-    Modified in : 07/05/2017, 04:27:57
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.Usuario"%>
 <%@include file="../ErroAutenticacaoUser.jsp" %>

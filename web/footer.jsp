@@ -1,9 +1,3 @@
-<%-- 
-    Document   : footer
-    Created on : 14/03/2017, 19:14:23
-    Author     : luisfernando
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <footer  class="navbar-fixed-bottom">

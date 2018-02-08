@@ -1,14 +1,3 @@
-<%-- 
-    Document   : contato
-    Created on : 05/03/2011, 14:54:25
-    Author     : Gleyson
---%>
-<%-- 
-    Document   : Contato
-    Modified in : 27/04/2017, 20:04:49
-    Author     : Fagner Pinheiro
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">

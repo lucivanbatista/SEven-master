@@ -1,13 +1,3 @@
-<%-- 
-    Document   : part_conta
-    Created on : 31/01/2011, 18:36:28
-    Author     : ismaily
---%>
-<%-- 
-    Document   : part_conta
-    Modified in : 04/05/2017, 15:59:59
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.Participante" %>
 <%@page import="br.ufc.pet.util.UtilSeven" %>

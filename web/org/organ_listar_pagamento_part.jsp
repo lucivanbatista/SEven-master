@@ -1,13 +1,3 @@
-<%--
-    Document   : organ_listar_pagamento_part
-    Created on : 26/03/2010, 16:35:48
-    Author     : fernando
---%>
-<%-- 
-    Document   : organ_listar_pagamento_part
-    Modified in : 06/05/2017, 00:08:39
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.Inscricao"%>
 <%@page import="br.ufc.pet.evento.Evento"%>

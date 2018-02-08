@@ -1,13 +1,3 @@
-<%-- 
-    Document   : visualizar_dados_participante
-    Created on : 02/02/2011, 22:28:03
-    Author     : ismaily
---%>
-<%-- 
-    Document   : visualizar_dados_participante
-    Modified in : 04/05/2017, 21:56:45
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">

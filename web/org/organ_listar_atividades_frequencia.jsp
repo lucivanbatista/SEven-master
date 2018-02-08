@@ -1,13 +1,3 @@
-<%--
-    Document   : organ_listar_atividades_frequencia
-    Created on : 26/03/2010, 16:35:48
-    Author     : ismaily
---%>
-<%-- 
-    Document   : organ_listar_atividades_frequencia
-    Modified in : 07/05/2017, 23:18:57
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.Atividade" %>
 <%@page import="java.util.*"%>

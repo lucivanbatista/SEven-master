@@ -1,13 +1,3 @@
-<%-- 
-    Document   : part_visualizar_inscricao
-    Created on : 16/07/2010, 00:01:24
-    Author     : Caio
---%>
-<%-- 
-    Document   : part_visualizar_inscricao
-    Modified in : 04/05/2017, 21:47:35
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
 <%@page import="br.ufc.pet.evento.Atividade"%>

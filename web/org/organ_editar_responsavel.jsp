@@ -1,8 +1,3 @@
-<%-- 
-    Document   : organ_editar_responsavel
-    Modified in : 07/05/2017, 03:36:57
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.ResponsavelAtividade, br.ufc.pet.evento.Usuario" %>
 <%@include file="../ErroAutenticacaoUser.jsp" %>

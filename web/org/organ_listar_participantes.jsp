@@ -1,13 +1,3 @@
-<%-- 
-    Document   : org_listar_participantes
-    Created on : 05/03/2011, 17:08:45
-    Author     : Escritorio projetos
---%>
-<%-- 
-    Document   : organ_listar_participantes
-    Modified in : 08/05/2017, 00:02:57
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList, br.ufc.pet.evento.Participante,br.ufc.pet.evento.Evento,br.ufc.pet.evento.Atividade" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"

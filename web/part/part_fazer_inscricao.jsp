@@ -1,13 +1,3 @@
-<%--
-    Document   : part_fazer_inscricao
-    Created on : 26/03/2010, 16:35:48
-    Author     : Caio
---%>
-<%-- 
-    Document   : part_fazer_inscricao
-    Modified in : 04/05/2017, 20:53:43
-    Author     : Joao Mateus, Fagner Pinheiro
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
 <%@page import="br.ufc.pet.util.UtilSeven"%>

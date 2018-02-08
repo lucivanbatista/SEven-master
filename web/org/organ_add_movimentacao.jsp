@@ -1,13 +1,3 @@
-<%--
-    Document   : organ_add_movimentacao
-    Created on : 26/03/2010, 16:35:48
-    Author     : fernando
---%>
-<%-- 
-    Document   : organ_add_movimentacao
-    Modified in : 06/05/2017, 22:21:30
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.MovimentacaoFinanceira"%>
 <%@page import="java.util.*"%>

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : organ_participante_certificado
-    Created on : 08/03/2011, 12:19:01
-    Author     : Welligton
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.Participante" %>
 <%@page import="java.util.*"%>

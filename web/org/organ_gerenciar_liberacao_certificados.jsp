@@ -1,8 +1,3 @@
-<%--
-    Document   : index
-    Created on : 27/08/2014
-    Author     : Anderson
---%>
 <%@page import="br.ufc.pet.evento.Inscricao"%>
 <%@page import="br.ufc.pet.evento.Participante"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

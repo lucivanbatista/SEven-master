@@ -1,13 +1,3 @@
-<%-- 
-    Document   : organ_gerenciar_inscricoes
-    Created on : 08/03/2011, 18:27:02
-    Author     : Caio
---%>
-<%-- 
-    Document   : organ_gerenciar_inscricoes
-    Modified in : 07/05/2017, 21:47:34
-    Author     : João Mateus
---%>
 <%@page import="br.ufc.pet.evento.ResponsavelAtividade"%>
 <%@page import="br.ufc.pet.evento.Atividade"%>
 <%@page import="br.ufc.pet.evento.Inscricao"%>

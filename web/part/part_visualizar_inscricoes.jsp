@@ -1,13 +1,3 @@
-<%--
-    Document   : part_visualizar_inscricoes
-    Created on : 26/03/2010, 16:35:48
-    Author     : Caio
---%>
-<%-- 
-    Document   : part_visualizar_inscricoes
-    Modified in : 
-    Author     : 
---%>
 <%@page import="br.ufc.pet.services.UsuarioService"%>
 <%@page import="br.ufc.pet.evento.InscricaoAtividade"%>
 <%@page import="br.ufc.pet.services.AtividadeService"%>

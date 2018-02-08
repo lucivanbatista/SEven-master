@@ -1,13 +1,3 @@
-<%-- 
-    Document   : orga_add_responsavel
-    Created on : 15/07/2010, 16:52:42
-    Author     : Escritorio projetos
---%>
-<%-- 
-    Document   : orga_add_responsavel
-    Modified in : 07/05/2017, 04:02:57
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">

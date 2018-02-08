@@ -1,13 +1,3 @@
-<%-- 
-    Document   : organ_add_horario
-    Created on : 01/08/2010, 16:52:59
-    Author     : Escritorio projetos
---%>
-<%-- 
-    Document   : organ_add_horario
-    Modified in : 07/05/2017, 15:15:57
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <%@page 

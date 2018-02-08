@@ -1,13 +1,3 @@
-<%-- 
-    Document   : organ_add_modalidade
-    Created on : 21/09/2010, 15:27:53
-    Author     : Franklin
---%>
-<%-- 
-    Document   : organ_gerenciar_modalidade
-    Modified in : 07/05/2017, 15:02:57
-    Author     : João Mateus
---%>
 <%@page import="br.ufc.pet.evento.PrecoAtividade"%>
 <%@page import="br.ufc.pet.evento.ModalidadeInscricao"%>
 <%@page import="br.ufc.pet.util.UtilSeven"%>

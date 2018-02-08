@@ -1,13 +1,3 @@
-<%--
-    Document   : index
-    Created on : 26/03/2010, 16:35:48
-    Author     : fernando
---%>
-<%-- 
-    Document   : index
-    Modified in : 04/05/2017, 21:40:57
-    Author     : João Mateus
---%>
 <%@page import="br.ufc.pet.evento.Participante"%>
 <%
     java.util.ArrayList<br.ufc.pet.evento.Evento> eventos = (java.util.ArrayList<br.ufc.pet.evento.Evento>) session.getAttribute("eventosAbertos");

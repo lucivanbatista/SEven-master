@@ -1,13 +1,3 @@
-<%--
-    Document   : index
-    Created on : 23/07/2013, 02:35:48
-    Author     : Mardson
---%>
-<%-- 
-    Document   : organ_gerenciar_inscricoes
-    Modified in : 07/05/2017, 22:41:34
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
 <%@page import="br.ufc.pet.util.UtilSeven"%>

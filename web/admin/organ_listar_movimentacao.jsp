@@ -1,15 +1,3 @@
- 
-<%--
-    Document   : index
-    Created on : 26/03/2010, 16:35:48
-    Author     : fernando
---%>
-<%-- 
-    Document   : organ_listar_movimentacao
-    Modified in : 24/04/2017, 16:42:49
-    Author     : Fagner Pinheiro
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.Evento" %>
 <%@page import="br.ufc.pet.services.EventoService"%>

@@ -1,13 +1,3 @@
-<%--
-    Document   : organ_listar_movimentacao
-    Created on : 26/03/2010, 16:35:48
-    Author     : fernando
---%>
-<%-- 
-    Document   : organ_listar_movimentacao
-    Modified in : 06/05/2017, 21:37:57
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.MovimentacaoFinanceira"%>
 <%@page import="java.util.*"%>

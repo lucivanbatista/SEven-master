@@ -1,13 +1,3 @@
-<%--
-    Document   : index
-    Created on : 23/07/2014, 16:35:48
-    Author     : Junior
---%>
-<%-- 
-    Document   : organ_gerenciar_upload_certificados
-    Modified in : 07/05/2017, 16:40:57
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList" %>
 <%@page import="br.ufc.pet.evento.Atividade,br.ufc.pet.evento.Organizador,br.ufc.pet.evento.Organizacao,br.ufc.pet.evento.ResponsavelAtividade" %>

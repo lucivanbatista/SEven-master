@@ -1,14 +1,3 @@
-<%--
-    Document   : organ_receber_pagamento
-    Created on : 26/03/2010, 16:35:48
-    Author     : fernando
---%>
-<%-- 
-    Document   : organ_receber_pagamento
-    Modified in : 06/05/2017, 23:39:39
-    Author     : João Mateus
---%>
-
 <%@page import="br.ufc.pet.services.InscricaoService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.Inscricao"%>
