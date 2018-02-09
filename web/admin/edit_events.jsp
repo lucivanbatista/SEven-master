@@ -11,7 +11,7 @@
             session.removeAttribute("evento");
             String men = (String) session.getAttribute("men");
             session.removeAttribute("men");
-            String comando = "Adicionar";
+            String comando = "Alterar";
 
             String sigla = (String)session.getAttribute("siglaEvento");
             session.removeAttribute("siglaEvento");
@@ -98,56 +98,55 @@
                 <div class="alert alert-danger text-center" role="alert"><%=men%></div>
                 <%}%>
                  <%@include file="/error.jsp" %>
-                <div class="row">
-                  <div class = "col-lg-5 col-lg-offset-1">
-                    <form action="../ServletCentral?comando=CmdAdicionarEvento&operacao_evento=<%=evento == null ? 0 : evento.getId()%>" method="post">
-       
-                         <div class="form-group">
-                            <input class="form-control" type="text" name="nome_evento" placeholder="Nome" value="<%=nome%>" />
-                         </div>
-                          <div class="form-group">
-                            <input class="form-control" type="text" name="sigla_evento" placeholder="Sigla" value="<%=sigla%>" />
-                         </div>
-                         <div class="form-group">
-                            <input class="form-control" type="text" name="tema_evento" placeholder="Tema" value="<%=tema%>" />
-                         </div>
-                         <div class="form-group">
-                             <input class="form-control" type="text" id="data_initial" name="inicio_evento" placeholder="Inicio do evento" maxlength="10" value="<%=inicioEvento%>" onkeypress="return formataData(this,event)"/>
-                         </div>
-                         <div class="form-group">
-                            <input class="form-control" id="data_finish" type="text" name="fim_evento" placeholder="Fim do evento " maxlength="10" value="<%=fimEvento%>" onkeypress="return formataData(this,event)"/>
-                         </div>
-                         <div class="form-group">
-                            <input class="form-control" id="data_initial_pi" type="text" name="inicio_periodo_inscricao" placeholder="Inicio do periodo de inscrição" maxlength="10" value="<%=inicioIn%>" onkeypress="return formataData(this,event)"/>
-                         </div>
-                         <div class="form-group">
-                            <input class="form-control" id="data_finish_pi" type="text" name="fim_periodo_inscricao" placeholder="Fim do periodo de inscrição" maxlength="10" value="<%=fimIn%>" onkeypress="return formataData(this,event)"/>
-                         </div>
-                         <div class="form-group">
-                            <input class="form-control" id="max_at" type="text" name="limite_de_atividades_por_participante" placeholder="Maximo de atividades por participante"  value="<%=limiteDeAtividadesPorParticipante%>" onkeypress="return validaNumerosSilencioso(event)"/>
-                            <label for="max_at"><span class="text-uppercase label label-warning">Digite 0 (zero) para ilimitado</span></label>
-                         </div>
-                   </div>
-                   <div class="col-lg-6">  
-                       <div class="form-group">
-                            <label for="text_a">Descrição</label>
-                            <textarea id="text_a" class="form-control" cols="1" rows="10" name="descricao"><%=descricao%></textarea>  
-                       </div> 
-                        <label>O evento é gratuito?</label><br />
-                        <label class="radio-inline">
-                            <input type="radio" name="gratuito" value="true" id="inlineRadio1"> Sim
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="gratuito" value="false" id="inlineRadio2" checked> Não
-                        </label><br><br>                                              
-                  </div>  
-                   <div class="text-center">  
-                       <a href="javascript:history.back();" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
-                       <button type="submit" class="btn btn-default" onclick="return confirmarCadastrado()">Alterar</button>
-                  </div> 
+                <form action="../ServletCentral?comando=CmdAdicionarEvento&operacao_evento=<%=evento == null ? 0 : evento.getId()%>" method="post">
+                    <div class="row">
+                      <div class = "col-lg-5 col-lg-offset-1">
+                             <div class="form-group">
+                                <input class="form-control" type="text" name="nome_evento" placeholder="Nome" value="<%=nome%>" />
+                             </div>
+                              <div class="form-group">
+                                <input class="form-control" type="text" name="sigla_evento" placeholder="Sigla" value="<%=sigla%>" />
+                             </div>
+                             <div class="form-group">
+                                <input class="form-control" type="text" name="tema_evento" placeholder="Tema" value="<%=tema%>" />
+                             </div>
+                             <div class="form-group">
+                                 <input class="form-control" type="text" id="data_initial" name="inicio_evento" placeholder="Inicio do evento" maxlength="10" value="<%=inicioEvento%>" onkeypress="return formataData(this,event)"/>
+                             </div>
+                             <div class="form-group">
+                                <input class="form-control" id="data_finish" type="text" name="fim_evento" placeholder="Fim do evento " maxlength="10" value="<%=fimEvento%>" onkeypress="return formataData(this,event)"/>
+                             </div>
+                             <div class="form-group">
+                                <input class="form-control" id="data_initial_pi" type="text" name="inicio_periodo_inscricao" placeholder="Inicio do periodo de inscrição" maxlength="10" value="<%=inicioIn%>" onkeypress="return formataData(this,event)"/>
+                             </div>
+                             <div class="form-group">
+                                <input class="form-control" id="data_finish_pi" type="text" name="fim_periodo_inscricao" placeholder="Fim do periodo de inscrição" maxlength="10" value="<%=fimIn%>" onkeypress="return formataData(this,event)"/>
+                             </div>
+                             <div class="form-group">
+                                <input class="form-control" id="max_at" type="text" name="limite_de_atividades_por_participante" placeholder="Maximo de atividades por participante"  value="<%=limiteDeAtividadesPorParticipante%>" onkeypress="return validaNumerosSilencioso(event)"/>
+                                <label for="max_at"><span class="text-uppercase label label-warning">Digite 0 (zero) para ilimitado</span></label>
+                             </div>
+                       </div>
+                       <div class="col-lg-6">  
+                           <div class="form-group">
+                                <label for="text_a">Descrição</label>
+                                <textarea id="text_a" class="form-control" cols="1" rows="10" name="descricao"><%=descricao%></textarea>  
+                           </div> 
+                            <label>O evento é gratuito?</label><br />
+                            <label class="radio-inline">
+                                <input type="radio" name="gratuito" value="true" id="inlineRadio1"> Sim
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="gratuito" value="false" id="inlineRadio2" checked> Não
+                            </label><br><br>                                              
+                      </div>  
+                       <div class="text-center">  
+                           <a href="javascript:history.back();" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
+                           <button type="submit" class="btn btn-default" onclick="return confirmarCadastrado()">Alterar</button>
+                      </div> 
+                    </div>
                 </form>
-              </div>
-         </div>        
+             </div>
         <%@include file="../footer.jsp"%>
     </body>
 </html>

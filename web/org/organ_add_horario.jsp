@@ -10,10 +10,19 @@
         <link href="../css/estilo.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon"/>
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="../css/ripples.min.css" />
+        <link rel="stylesheet" href="../css/bootstrap-material-datetimepicker.css" />
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <title>SEven</title>
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
         <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script src="../js/ripples.min.js"></script>
+        <script src="../js/material.min.js"></script>
+        <script type="text/javascript" src="../js/moment-with-locales.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap-material-datetimepicker.js"></script>
+	<script type="text/javascript" src="../js/datetimepicker.js"></script>
         <script type="text/javascript" src="../Script.js"></script>
     </head>
     <body>
@@ -51,18 +60,21 @@
                  <%@include file="/error.jsp" %>
                 <form action="../ServletCentral?comando=CmdAdicionarHorario" method="post" class="text-center">
                     <div class="form-group form-inline">
-                        <label>Hora inicial:</label><br/>
-                        <input maxlength="2" type="text" onkeypress="return validaNumerosSilencioso(event)" name="hora_inicial" value="<%=hi%>" class="form-control"/>:
-                        <input maxlength="2"type="text" onkeypress="return validaNumerosSilencioso(event)"name="min_inicial" value="<%=mi%>" class="form-control"/>
+                        <label>Hora Inicial:</label><br/>
+                        <input type="text" id="timeI" name="inicial" class="form-control" />
+                        <!--<input maxlength="2" type="text" onkeypress="return validaNumerosSilencioso(event)" name="hora_inicial" value="<%=hi%>" class="form-control"/>:-->
+                        <!--<input maxlength="2" type="text" onkeypress="return validaNumerosSilencioso(event)" name="min_inicial" value="<%=mi%>" class="form-control"/>-->
                     </div>
                     <div class="form-group form-inline">
                         <label>Hora Final:</label><br/>
-                        <input maxlength="2" type="text"  onkeypress="return validaNumerosSilencioso(event)"name="hora_final" value="<%=hf%>" class="form-control"/> :
-                        <input maxlength="2" type="text"  onkeypress="return validaNumerosSilencioso(event)"name="min_final" value="<%=mf%>" class="form-control"/>
+                        <input type="text" id="timeF" name="final" class="form-control" />
+<!--                        <input maxlength="2" type="text"  onkeypress="return validaNumerosSilencioso(event)" name="hora_final" value="<%=hf%>" class="form-control"/> :
+                        <input maxlength="2" type="text"  onkeypress="return validaNumerosSilencioso(event)" name="min_final" value="<%=mf%>" class="form-control"/>-->
                     </div>
                     <div class="form-group form-inline">
                         <label>Data:</label><br/>
-                        <input type="text" onkeypress="return formataData(this,event)" maxlength="10" name="dia" value="<%=data%>" class="form-control"/>
+                        <input type="text" id="date" name="data_completa" class="form-control" />
+                        <!--<input type="text" onkeypress="return formataData(this,event)" maxlength="10" name="dia" value="<%=data%>" class="form-control"/>-->
                     </div>
                     <div class="form-group">
                         <label>Data do Evento - De: <strong><%=dataInicio%></strong></label> 
