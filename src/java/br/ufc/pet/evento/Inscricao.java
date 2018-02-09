@@ -13,6 +13,7 @@ public class Inscricao extends Bean {
     private Participante participante;
     private ModalidadeInscricao modalidade;
     private String codigoValidacaoCertificado;
+    private String emailP;
 
     public Inscricao() {
         this.confirmada = false;
@@ -20,6 +21,7 @@ public class Inscricao extends Bean {
         this.modalidade = new ModalidadeInscricao();
         this.participante = new Participante();
         this.atividades=new ArrayList<Atividade>();
+        this.emailP = participante.getUsuario().getEmail();
 
     }
 
