@@ -472,13 +472,11 @@ footer img{
     margin: 0 0 20px;
 }
 #img-centro{
-     width:170px;
-      height:140px;
-      position:absolute;
-      top:50%;
-      left:50%;
-      margin-top: -140px;
-      margin-left: 20px;
+    width:170px;
+    height:140px;
+    position:absolute;
+    margin-top: -140px;
+    margin-left: 20px;
    
 }
 .panel-cor{
@@ -519,8 +517,6 @@ footer img{
       width:200px;
       height:200px;
       position:absolute;
-      top:50%;
-      left:50%;
       margin-top: -160px;
       margin-left: -220px;
 }
@@ -616,6 +612,7 @@ a{
 .titulo-manege{
     font-size: 25px !important;
 }
+
 h1{
     font-size: 28px !important;
 }
@@ -627,6 +624,20 @@ h1{
 
 .margin-contato{
     margin-top: 90px;
+    top: 50%;
+    left: 50%;
+    position:absolute;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+.margin-contato-address{
+    margin-top: 90px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: -150px;
 }
 
 .dataTables_wrapper .dataTables_filter input {
