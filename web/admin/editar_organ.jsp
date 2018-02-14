@@ -28,6 +28,10 @@
         <link href="../css/estilo.css" rel="stylesheet" type="text/css" />
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <title>SEven</title>
+        <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
+        <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Script.js"> </script>
         
     </head>
     <body>
@@ -56,7 +60,7 @@
                    </div>
                   </div>   
                     <div class="text-center">
-                     <button type="submit" class="btn btn-default">Incluir organizador</button> 
+                     <button data-toggle="tooltip" title="Incluir Organizador" type="submit" class="btn btn-default">Incluir organizador</button> 
                     </div>
                 </form> 
                    

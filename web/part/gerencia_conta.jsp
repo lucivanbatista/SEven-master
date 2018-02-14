@@ -54,7 +54,9 @@
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <title>SEven</title>
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
+        <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript"  language="javascript" src="../Script.js"></script> 
     </head>
     <body>
         <div id="container">
@@ -85,8 +87,8 @@
                 <div class="center-block">
                     <form action="../ServletCentral" method="post">
                         <a href="" title="" onclick="history.back(); return false;" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
-                        <a class="btn btn-default margin-btn-left" href="part_conta.jsp">Editar Dados</a>
-                        <a class="btn btn-default pull-right " href="../ServletCentral?comando=CmdExcluirParticipante" onclick="return confirm('Tem certeza que deseja excluir conta?')" title="">Excluir Conta</a>
+                        <a data-toggle="tooltip" title="Editar Dados" class="btn btn-default margin-btn-left" href="part_conta.jsp">Editar Dados</a>
+                        <a data-toggle="tooltip" title="Excluir Conta" class="btn btn-default pull-right " href="../ServletCentral?comando=CmdExcluirParticipante" onclick="return confirm('Tem certeza que deseja excluir conta?')" title="">Excluir Conta</a>
                     </form>
                 </div>
             </div>

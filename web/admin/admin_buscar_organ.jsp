@@ -14,13 +14,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link href="../css/estilo.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon"/>
-        <script type="text/javascript" src="../Script.js"></script>
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <title>SEven</title>
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
         <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
         <script language="javascript" src="../jquery/jquery.dataTables.js"></script>
         <script language="javascript" src="../jquery/initDataTable.js"></script>
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Script.js"> </script>
+               
     </head>
     <body>
         <div id="container">
@@ -40,11 +42,11 @@
                              <form action="../ServletCentral" method="post" class=" col-lg-12 space-top">
                               <input type="hidden" name="comando" value="CmdBuscarUsuario"/>
                                  <div class="form-group">
-                                     <input type="text" name="nome" class="form-control" placeholder="Nome" selected />
+                                     <input data-toggle="tooltip" title="Nome do Organizador" type="text" name="nome" class="form-control" placeholder="Nome" selected />
                                  </div> 
                                    <div class="form-group">
-                                     <input type="submit" value="Buscar" class="btn btn-default"  /> 
-                                     <a  href="admin_add_organ_novo.jsp" title="Criar Organizador ainda não cadastrado" class="btn btn-default pull-right">Criar Organizador ainda não cadastrado</a>
+                                     <input data-toggle="tooltip" title="Buscar Organizador" type="submit" value="Buscar" class="btn btn-default"  /> 
+                                     <a data-toggle="tooltip" href="admin_add_organ_novo.jsp" title="Criar Organizador ainda não cadastrado" class="btn btn-default pull-right">Criar Organizador ainda não cadastrado</a>
                                    </div>
                             </form>     
                                 

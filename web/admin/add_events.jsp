@@ -73,7 +73,6 @@
 %>
 <html>
     <head>
-        <script type="text/javascript"  language="javascript" src="../Script.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link href="../css/estilo.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon"/>
@@ -82,8 +81,7 @@
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
         <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
-      
-        <title>SEven</title>
+        <script type="text/javascript"  language="javascript" src="../Script.js"></script>        
     </head>
     <body>
               
@@ -103,36 +101,36 @@
                 <div class="row">
                    <div class = "col-lg-5 col-lg-offset-1">
                          <div class="form-group">
-                            <input class="form-control" type="text" name="nome_evento" placeholder="Nome" value="<%=nome%>" />
+                            <input data-toggle="tooltip" title="Nome do Evento" class="form-control" type="text" name="nome_evento" placeholder="Nome" value="<%=nome%>" />
                          </div>
                           <div class="form-group">
-                            <input class="form-control" type="text" name="sigla_evento" placeholder="Sigla" value="<%=sigla%>" />
+                            <input data-toggle="tooltip" title="Sigla do Evento" class="form-control" type="text" name="sigla_evento" placeholder="Sigla" value="<%=sigla%>" />
                          </div>
                          <div class="form-group">
-                            <input class="form-control" type="text" name="tema_evento" placeholder="Tema" value="<%=tema%>" />
+                            <input data-toggle="tooltip" title="Tema do Evento" class="form-control" type="text" name="tema_evento" placeholder="Tema" value="<%=tema%>" />
                          </div>
                          
                          <div class="form-group">
-                            <input class="form-control" type="text" id="data_initial"  placeholder="Início do evento" maxlength="10" name="inicio_evento" value="<%=inicioEvento%>" onkeypress="return formataData(this,event)"/>
+                            <input data-toggle="tooltip" title="Data de Início do Evento" class="form-control" type="text" id="data_initial"  placeholder="Início do evento" maxlength="10" name="inicio_evento" value="<%=inicioEvento%>" onkeypress="return formataData(this,event)"/>
                          </div>
                          <div class="form-group">
-                            <input class="form-control" id="data_finish" type="text" placeholder="Fim do evento" maxlength="10" name="fim_evento" value="<%=fimEvento%>" onkeypress="return formataData(this,event)"/>
+                            <input data-toggle="tooltip" title="Data de Fim do Evento" class="form-control" id="data_finish" type="text" placeholder="Fim do evento" maxlength="10" name="fim_evento" value="<%=fimEvento%>" onkeypress="return formataData(this,event)"/>
                          </div>
                          <div class="form-group">
-                            <input class="form-control" id="data_initial_pi" type="text" placeholder="Início do periodo de inscrição" maxlength="10" name="inicio_periodo_inscricao" value="<%=inicioIn%>" onkeypress="return formataData(this,event)"/>
+                            <input data-toggle="tooltip" title="Data de Início das Inscrições" class="form-control" id="data_initial_pi" type="text" placeholder="Início do periodo de inscrição" maxlength="10" name="inicio_periodo_inscricao" value="<%=inicioIn%>" onkeypress="return formataData(this,event)"/>
                          </div>
                          <div class="form-group">
-                            <input class="form-control" id="data_finish_pi" type="text" placeholder="Fim do periodo de inscrição" maxlength="10" name="fim_periodo_inscricao" value="<%=fimIn%>" onkeypress="return formataData(this,event)"/>
+                            <input data-toggle="tooltip" title="Data de Fim das Inscrições" class="form-control" id="data_finish_pi" type="text" placeholder="Fim do periodo de inscrição" maxlength="10" name="fim_periodo_inscricao" value="<%=fimIn%>" onkeypress="return formataData(this,event)"/>
                          </div>
                          <div class="form-group">
-                            <input class="form-control" id="max_at" type="text" name="limite_de_atividades_por_participante" placeholder="Maximo de atividades por participante"  value="<%=limiteDeAtividadesPorParticipante%>" onkeypress="return validaNumerosSilencioso(event)"/>
+                            <input data-toggle="tooltip" title="Limite de Atividades por Participante" class="form-control" id="max_at" type="text" name="limite_de_atividades_por_participante" placeholder="Maximo de atividades por participante"  value="<%=limiteDeAtividadesPorParticipante%>" onkeypress="return validaNumerosSilencioso(event)"/>
                             <label for="max_at"><span class="label label-warning text-uppercase">Digite 0 (zero) para ilimitado</span></label>
                          </div>
                     </div>
                     <div class="col-lg-6">  
                         <div class="form-group">
                             <label for="text_a">Descrição</label>
-                            <textarea id="text_a" class="form-control" cols="1" rows="10" name="descricao"><%=descricao%></textarea>  
+                            <textarea data-toggle="tooltip" title="Descrição Geral do Evento" id="text_a" class="form-control" cols="1" rows="10" name="descricao"><%=descricao%></textarea>  
                        </div>                          
                         <label>O evento é gratuito?</label><br />
                         <label class="radio-inline">
@@ -144,7 +142,7 @@
                    
                    <div class="text-center">
                      <a href="javascript:history.back();" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
-                     <button type="submit" class="btn btn-default" onclick="return confirmarCadastrado()">Cadastrar</button>
+                     <button data-toggle="tooltip" title="Cadastrar" type="submit" class="btn btn-default" onclick="return confirmarCadastrado()">Cadastrar</button>
                    </div>
                  </div>  
                 </div> 
