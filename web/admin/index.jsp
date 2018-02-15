@@ -15,7 +15,6 @@
         <title>SEven</title>
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
         <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
-
         <script src="../bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript"  language="javascript" src="../Script.js"></script>
 
@@ -57,7 +56,7 @@
                     </tbody>
                 </table>
             </div>
-            <div align="right"><a class="btn btn-default space-top" href="add_events.jsp" role="button">Criar novo evento</a></div>
+            <div align="right"><a data-toggle="tooltip" title="Criar Novo Evento" class="btn btn-default space-top" href="add_events.jsp" role="button">Criar novo evento</a></div>
         </div>          
         <div class="footer-top">
             <%@include file="../footer.jsp" %>

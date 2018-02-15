@@ -77,11 +77,20 @@
         <link href="../css/estilo.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon"/>
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="../css/ripples.min.css" />
+        <link rel="stylesheet" href="../css/bootstrap-material-datetimepicker.css" />
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <title>SEven</title>
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
         <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript"  language="javascript" src="../Script.js"></script>        
+        <script src="../js/ripples.min.js"></script>
+        <script src="../js/material.min.js"></script>
+        <script type="text/javascript" src="../js/moment-with-locales.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap-material-datetimepicker.js"></script>
+	<script type="text/javascript" src="../js/datetimepicker.js"></script>
+        <script type="text/javascript"  language="javascript" src="../Script.js"></script> 
     </head>
     <body>
               
@@ -111,16 +120,20 @@
                          </div>
                          
                          <div class="form-group">
-                            <input data-toggle="tooltip" title="Data de Início do Evento" class="form-control" type="text" id="data_initial"  placeholder="Início do evento" maxlength="10" name="inicio_evento" value="<%=inicioEvento%>" onkeypress="return formataData(this,event)"/>
+                            <input type="text" id="date-start-event" name="inicio_evento" value="<%=inicioEvento%>" class="form-control" data-toggle="tooltip" title="Data de Início do Evento" placeholder="Início do evento"/>
+                            <!--<input data-toggle="tooltip" title="Data de Início do Evento" class="form-control" type="text" id="data_initial"  placeholder="Início do evento" maxlength="10" name="inicio_evento" value="<%=inicioEvento%>" onkeypress="return formataData(this,event)"/>-->
                          </div>
                          <div class="form-group">
-                            <input data-toggle="tooltip" title="Data de Fim do Evento" class="form-control" id="data_finish" type="text" placeholder="Fim do evento" maxlength="10" name="fim_evento" value="<%=fimEvento%>" onkeypress="return formataData(this,event)"/>
+                            <input type="text" id="date-end-event" name="fim_evento" value="<%=fimEvento%>" class="form-control" data-toggle="tooltip" title="Data de Fim do Evento" placeholder="Fim do evento"/>
+                            <!--<input data-toggle="tooltip" title="Data de Fim do Evento" class="form-control" id="data_finish" type="text" placeholder="Fim do evento" maxlength="10" name="fim_evento" value="<%=fimEvento%>" onkeypress="return formataData(this,event)"/>-->
                          </div>
                          <div class="form-group">
-                            <input data-toggle="tooltip" title="Data de Início das Inscrições" class="form-control" id="data_initial_pi" type="text" placeholder="Início do periodo de inscrição" maxlength="10" name="inicio_periodo_inscricao" value="<%=inicioIn%>" onkeypress="return formataData(this,event)"/>
+                             <input type="text" id="date-start-in" name="inicio_periodo_inscricao" value="<%=inicioIn%>" class="form-control" data-toggle="tooltip" title="Data de Início das Inscrições" placeholder="Início do periodo de inscrição"/>
+                            <!--<input data-toggle="tooltip" title="Data de Início das Inscrições" class="form-control" id="data_initial_pi" type="text" placeholder="Início do periodo de inscrição" maxlength="10" name="inicio_periodo_inscricao" value="<%=inicioIn%>" onkeypress="return formataData(this,event)"/>-->
                          </div>
                          <div class="form-group">
-                            <input data-toggle="tooltip" title="Data de Fim das Inscrições" class="form-control" id="data_finish_pi" type="text" placeholder="Fim do periodo de inscrição" maxlength="10" name="fim_periodo_inscricao" value="<%=fimIn%>" onkeypress="return formataData(this,event)"/>
+                             <input type="text" id="date-end-in" name="fim_periodo_inscricao" value="<%=fimIn%>" class="form-control" data-toggle="tooltip" title="Data de Fim das Inscrições" placeholder="Fim do periodo de inscrição"/>
+                            <!--<input data-toggle="tooltip" title="Data de Fim das Inscrições" class="form-control" id="data_finish_pi" type="text" placeholder="Fim do periodo de inscrição" maxlength="10" name="fim_periodo_inscricao" value="<%=fimIn%>" onkeypress="return formataData(this,event)"/>-->
                          </div>
                          <div class="form-group">
                             <input data-toggle="tooltip" title="Limite de Atividades por Participante" class="form-control" id="max_at" type="text" name="limite_de_atividades_por_participante" placeholder="Maximo de atividades por participante"  value="<%=limiteDeAtividadesPorParticipante%>" onkeypress="return validaNumerosSilencioso(event)"/>
