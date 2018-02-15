@@ -13,6 +13,7 @@
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
         <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Script.js"></script>
     </head>
     <body>
         <%            br.ufc.pet.evento.Evento e = (br.ufc.pet.evento.Evento) session.getAttribute("evento");
@@ -32,8 +33,8 @@
                         <%} else {%>
                     <thead>
                         <tr>
-                            <th>Hora Inicial</th>
-                            <th>Hora Final</th>                       
+                            <th>Horário Inicial</th>
+                            <th>Horário Final</th>                       
                             <th>Dia</th>
                             <th>Alterar</th> 
                             <th>Excluir</th>
@@ -54,7 +55,7 @@
 
                 </table>
                 <a href="../ServletCentral?comando=CmdListarAtividades" title=""  class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
-                <a href="organ_add_horario.jsp" title="Adicionar um novo Horario" class="btn btn-default">Adicionar Horario</a>
+                <a data-toggle="tooltip" title="Adicionar um Novo Horário" href="organ_add_horario.jsp" class="btn btn-default">Adicionar Horario</a>
             </div>          
             <div class="footer-top">
                 <%@include file="../footer.jsp" %>

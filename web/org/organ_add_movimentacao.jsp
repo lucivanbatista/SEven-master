@@ -25,7 +25,19 @@
         <link href="../css/estilo.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon"/>
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="../css/ripples.min.css" />
+        <link rel="stylesheet" href="../css/bootstrap-material-datetimepicker.css" />
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <title>SEven</title>
+        <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
+        <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script src="../js/ripples.min.js"></script>
+        <script src="../js/material.min.js"></script>
+        <script type="text/javascript" src="../js/moment-with-locales.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap-material-datetimepicker.js"></script>
+	<script type="text/javascript" src="../js/datetimepicker.js"></script>
         <script type="text/javascript" src="../Script.js"></script>
     </head>
     <body>
@@ -35,9 +47,10 @@
             <div id="content">
                 <h1 class="titulo"><%=comand%></h1>
                 <form action="../ServletCentral?comando=CmdAddMovimentacaoFinanceira" method="post">
-                    <div class="form-group"><input type="text" name="valor" value="<%=valor%>" placeholder="Valor" class="form-control"/></div>
-                    <div class="form-group"><input type="text" maxlength="10" name="data" onkeypress="return formataData(this, event)" value="<%=data%>" placeholder="Data" class="form-control"/></div>
-                    <div class="form-group"><input type="text" name="descrição" value="<%=descricao%>" placeholder="Descrição" class="form-control"/></div>
+                    <div class="form-group"><input data-toggle="tooltip" title="Valor da Movimentação" type="text" name="valor" value="<%=valor%>" placeholder="Valor" class="form-control"/></div>
+                    <div class="form-group"><input data-toggle="tooltip" title="Data da Movimentação" type="text" name="data" value="<%=data%>" placeholder="Data" class="date form-control"/></div>
+                    <!--<input type="text" maxlength="10" name="data" onkeypress="return formataData(this, event)" value="<%=data%>" placeholder="Data" class="form-control"/></div>-->
+                    <div class="form-group"><input data-toggle="tooltip" title="Descrição da Movimentação" type="text" name="descrição" value="<%=descricao%>" placeholder="Descrição" class="form-control"/></div>
                     
                     <div class="form-group form-inline">
                         <label>Tipo:</label>
@@ -64,7 +77,7 @@
                             <%session.setAttribute("addmovimentacaofinanceira", null);%>
                     <div class="space-top">
                     <a href="../ServletCentral?comando=CmdListarMovimentacaoFinanceira" title="" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
-                    <input type="submit" value="Enviar" class="btn btn-default pull-right" />
+                    <input data-toggle="tooltip" title="Confirmar Movimentação" type="submit" value="Confirmar" class="btn btn-default pull-right" />
                     </div>
                 </form>
             </div>

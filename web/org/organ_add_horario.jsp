@@ -64,28 +64,30 @@
                  <%@include file="/error.jsp" %>
                 <form action="../ServletCentral?comando=CmdAdicionarHorario" method="post" class="text-center">
                     <div class="form-group form-inline">
-                        <label>Hora Inicial:</label><br/>
-                        <input type="text" name="inicial" value="<%=timeI%>" class="time form-control" />
+                        <label>Horário Inicial:</label><br/>
+                        <input data-toggle="tooltip" title="Horário Inicial" type="text" name="inicial" value="<%=timeI%>" class="time form-control" />
                         <!--<input maxlength="2" type="text" onkeypress="return validaNumerosSilencioso(event)" name="hora_inicial" value="<%=hi%>" class="form-control"/>:-->
                         <!--<input maxlength="2" type="text" onkeypress="return validaNumerosSilencioso(event)" name="min_inicial" value="<%=mi%>" class="form-control"/>-->
                     </div>
                     <div class="form-group form-inline">
-                        <label>Hora Final:</label><br/>
-                        <input type="text" name="final" value="<%=timeF%>" class="time form-control" />
+                        <label>Horário Final:</label><br/>
+                        <input data-toggle="tooltip" title="Horário Final" type="text" name="final" value="<%=timeF%>" class="time form-control" />
 <!--                        <input maxlength="2" type="text"  onkeypress="return validaNumerosSilencioso(event)" name="hora_final" value="<%=hf%>" class="form-control"/> :
                         <input maxlength="2" type="text"  onkeypress="return validaNumerosSilencioso(event)" name="min_final" value="<%=mf%>" class="form-control"/>-->
                     </div>
-                    <div class="form-group form-inline">
-                        <label>Data:</label><br/>
-                        <input type="text" name="data_completa" value="<%=data%>" class="date form-control" />
-                        <!--<input type="text" onkeypress="return formataData(this,event)" maxlength="10" name="dia" value="<%=data%>" class="form-control"/>-->
-                    </div>
+                    <br>
                     <div class="form-group">
                         <label>Data do Evento - De: <strong><%=dataInicio%></strong></label> 
                         <label> até: <strong><%=dataFim%></strong> </label> 
                     </div>
+                    <div class="form-group form-inline">
+                        <label>Data do Horário:</label><br/>
+                        <input data-toggle="tooltip" title="Data do Horário Escolhido" type="text" name="data_completa" value="<%=data%>" class="date form-control" />
+                        <!--<input type="text" onkeypress="return formataData(this,event)" maxlength="10" name="dia" value="<%=data%>" class="form-control"/>-->
+                    </div>
+                    
                     <a href="../ServletCentral?comando=CmdListarHorarios" title="" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
-                    <input type="submit" value="Enviar" class="btn btn-default" onclick="return confirm('Deseja realmente enviar esses dados?')" />
+                    <input data-toggle="tooltip" title="Adicionar Horário" type="submit" value="Adicionar" class="btn btn-default" onclick="return confirm('Deseja realmente confirmar esses dados?')" />
                 </form>
             </div>
             <div class="footer-top">

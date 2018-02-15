@@ -12,6 +12,7 @@
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
         <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>        
         <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Script.js"></script>
         <script type="text/javascript">
             function forceSubmitListarRelatoriosAtividades(formName) {
                 document.forms[formName].action = "organ_add_responsavel.jsp";
@@ -85,7 +86,7 @@
                         </div>
                     </div>
 
-                    <a href="#" onclick="forceSubmitListarRelatoriosAtividades('formAddAtividade')" class="btn btn-default pull-right">Adicionar Responsável</a><br/><br/>
+                    <a data-toggle="tooltip" title="Adicionar um Responsável" href="#" onclick="forceSubmitListarRelatoriosAtividades('formAddAtividade')" class="btn btn-default pull-right">Adicionar Responsável</a><br/><br/>
 
                     <div class="panel panel-default space-top">
                         <div class="panel-cor panel-heading text-center">Dados da atividade</div>
@@ -93,15 +94,15 @@
                             <div class="col-lg-12 space-top">
                                 <div class="form-group">
                                     <label>Nome:</label>
-                                    <input type="text" name="nome_atividade" value="<%=nome%>" class="form-control"/>
+                                    <input data-toggle="tooltip" title="Nome da Atividade" type="text" name="nome_atividade" value="<%=nome%>" class="form-control"/>
                                 </div>
                                 <div class="form-group">
                                     <label>Local:</label>
-                                    <input type="text" name="local" value="<%=local%>" class="form-control"/>
+                                    <input data-toggle="tooltip" title="Local da Atividade" type="text" name="local" value="<%=local%>" class="form-control"/>
                                 </div>
                                 <div class="form-group">
                                     <label>Vagas:</label><br />
-                                    <input type="text" maxlength="5" onkeypress="return validaNumerosSilencioso(event)" name="vagas" value="<%=vagas%>" class="form-control"/>
+                                    <input data-toggle="tooltip" title="Quantidade de Vagas Disponibilizadas" type="text" maxlength="5" onkeypress="return validaNumerosSilencioso(event)" name="vagas" value="<%=vagas%>" class="form-control"/>
                                 </div>
 
                                 <label>É inscritível? (Aceitará inscrições de participantes?):</label><br/>
@@ -186,7 +187,7 @@
                             </div>
                         </div>
                     </div>
-                    <input type="submit" value="Enviar" class="btn btn-default pull-right" onclick="return confirm('Deseja realmente enviar esses dados?')" />
+                    <input data-toggle="tooltip" title="Confirmar Atividade" type="submit" value="Confirmar" class="btn btn-default pull-right" onclick="return confirm('Deseja realmente confirmar esses dados?')" />
                     <a href="" title="" onclick="history.back();return false;" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
                 </form>
             </div>

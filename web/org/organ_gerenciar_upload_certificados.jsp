@@ -10,6 +10,10 @@
         <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon"/>
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <title>SEven</title>
+        <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
+        <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Script.js"></script>
         <script type="text/javascript">
             function checkFile() {
                 var fileElement = document.getElementById("uploadFile");
@@ -53,9 +57,10 @@
                 </div>  
                 <form action="../ServletCentral?comando=CmdUploadModeloCertificado&id_evento=<%=e.getId()%>" method="post" enctype="multipart/form-data" onsubmit="return checkFile();">
                     <div class="form-group">
-                        <input type="file" name="arquivo" id="uploadFile"/>
+                        <input data-toggle="tooltip" title="Selecione um Template" type="file" name="arquivo" id="uploadFile"/>
                     </div>
-                    <input type="submit" value="Enviar" class="btn btn-default"/>
+                    <input data-toggle="tooltip" title="Enviar Template" type="submit" value="Enviar" class="btn btn-default pull-right"/>
+                    <a href="" title="" onclick="history.back(); return false;" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
                 </form>
                
             </div>

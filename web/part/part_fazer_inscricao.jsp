@@ -49,7 +49,9 @@
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <title>SEven</title>
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
+        <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Script.js"></script>
 
     </head>
     <body>
@@ -140,9 +142,9 @@
                                         <th>Nome da Atividade</th>
                                         <th>Horários</th>
                                         <th>Tipo</th>
-                                        <th>Selecionar</th>
                                         <th>Vagas</th>
                                         <th>Vagas Disponíveis</th>
+                                        <th>Selecionar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -155,7 +157,6 @@
                                             <%}%>
                                         </td>
                                         <td><%=a.getTipo().getNome()%></td>
-                                        <td><a href="../ServletCentral?comando=CmdSelecionarAtividade&ativ=<%=a.getId()%>" title="SelecionarAtividade">Selecionar</a></td>
                                         <%int vagas = a.getVagas();
                                             br.ufc.pet.services.InscricaoService IS = new br.ufc.pet.services.InscricaoService();
                                             long vagasOcupadas = IS.getInscritosByAtividadeId(a.getId());
@@ -164,6 +165,7 @@
                                         </td>
                                         <td><%=vagas - vagasOcupadas%>
                                         </td>
+                                        <td><a data-toggle="tooltip" href="../ServletCentral?comando=CmdSelecionarAtividade&ativ=<%=a.getId()%>" title="Selecionar Atividade"><strong>Adicionar Atividade</strong></a></td>
                                         <%--O link redireciona ao comando, que por sua vez pega o id da atividade em questão e insere a mesma no array das atividades selecionadas--%>
                                     </tr>
                                     <%}%>
@@ -198,7 +200,7 @@
                             <p class="space-top text-bold"> <%=m.getTipo()%> : <%=preco%></p>
                             <%}%>
                         </div></div>
-                    <center><input type="submit" value="Inscrever-se" class="btn btn-default" /></center><br />
+                        <center><input data-toggle="tooltip" title="Inscrever-se no Evento" type="submit" value="Inscrever-se" class="btn btn-default" /></center><br />
                 </form>
             </div>
             <a href="" title="" onclick="history.back(); return false;" class="btn btn-default"><span aria-hidden="true">&larr;</span>Voltar</a>

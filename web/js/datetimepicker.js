@@ -18,7 +18,6 @@ $(document).ready(function()
                         clearText: 'Limpar',
                         okText: 'Confirmar',
                         nowText: 'Hoje',
-                        minDate : new Date()
 		});
                 
                 $('#date-end-event').bootstrapMaterialDatePicker
@@ -32,8 +31,11 @@ $(document).ready(function()
                         clearText: 'Limpar',
                         okText: 'Confirmar',
                         nowText: 'Hoje',
-                        minDate : new Date()  
-                });
+                        minDate: new Date()  
+                }).on('change', function(e, date)        
+                    {
+                        $('#date-end-in').bootstrapMaterialDatePicker('setMaxDate', date);
+                    });
                 
                 $('#date-start-event').bootstrapMaterialDatePicker
                 ({
@@ -46,10 +48,11 @@ $(document).ready(function()
                         clearText: 'Limpar',
                         okText: 'Confirmar',
                         nowText: 'Hoje',
-                        minDate : new Date()
+                        minDate: new Date()
                 }).on('change', function(e, date)        
                     {
                         $('#date-end-event').bootstrapMaterialDatePicker('setMinDate', date);
+                        $('#date-start-in').bootstrapMaterialDatePicker('setMaxDate', date);
                     });
                     
                 $('#date-end-in').bootstrapMaterialDatePicker
@@ -63,7 +66,7 @@ $(document).ready(function()
                         clearText: 'Limpar',
                         okText: 'Confirmar',
                         nowText: 'Hoje',
-                        minDate : new Date()  
+                        minDate: new Date()  
                 });
                 
                 $('#date-start-in').bootstrapMaterialDatePicker
@@ -77,7 +80,7 @@ $(document).ready(function()
                         clearText: 'Limpar',
                         okText: 'Confirmar',
                         nowText: 'Hoje',
-                        minDate : new Date()
+                        minDate: new Date()
                 }).on('change', function(e, date)        
                     {
                         $('#date-end-in').bootstrapMaterialDatePicker('setMinDate', date);

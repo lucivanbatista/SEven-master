@@ -42,7 +42,7 @@
                 <h1 class="titulo">Adicionar Modalidade</h1>
                 <%@include file="/error.jsp" %>
                 <form action="../ServletCentral?comando=CmdAdicionarModalidade&id_atualizar=<%=id%>" method="post">
-                    <div class="form-group"><input type="text" name="nomeModalidade" value="<%=nome%>" placeholder="Modalidade" class="form-control" required/></div>
+                    <div class="form-group"><input data-toggle="tooltip" title="Nome da Modalidade" type="text" name="nomeModalidade" value="<%=nome%>" placeholder="Modalidade" class="form-control" required/></div>
                     <table id="data_table" class="table table-hover text-center form-group">
                         <thead>
                             <tr>
@@ -65,7 +65,7 @@
                                 <%if (e.isGratuito()) {%>
                                 <td><div class="form-group"><input type="text" name="preco_<%=tp.getId()%>" value="<%=valor%>" size="10"  disabled="disabled" class="form-control"/></div></td>
                                     <%} else {%>
-                                <td><div class="form-group"><input type="text" name="preco_<%=tp.getId()%>" value="<%=valor%>" size="10" class="form-control "/></div></td>
+                                <td><div class="form-group"><input data-toggle="tooltip" title="Preço da Inscrição desta Modalidade" type="text" name="preco_<%=tp.getId()%>" value="<%=valor%>" size="10" class="form-control "/></div></td>
                                     <%}%>
                             </tr>
                             <%valor = 0.0;
@@ -73,7 +73,7 @@
                         </tbody>
                     </table>
                     <a href="" title="" onclick="history.back();return false;" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
-                    <input type="submit" value="Enviar" class="btn btn-default" onclick="return confirm('Deseja realmente enviar esses dados?')" />
+                    <input data-toggle="tooltip" title="Confirmar Modalidade" type="submit" value="Confirmar" class="btn btn-default" onclick="return confirm('Deseja realmente enviar esses dados?')" />
                 </form>
             </div>
             <div class="footer-top">        

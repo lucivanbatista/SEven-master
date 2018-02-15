@@ -15,6 +15,7 @@
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
         <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Script.js"> </script>
     </head>
     <body>
         <%            Evento e = (Evento) session.getAttribute("evento");
@@ -53,7 +54,7 @@
                     </table>
                 </div>
                 <a href="" title="" onclick="history.back(); return false;" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
-                <a href="organ_add_modalidade.jsp" title="Adicionar Modalidade" class="btn btn-default">Adicionar Modalidade</a>
+                <a data-toggle="tooltip" href="organ_add_modalidade.jsp" title="Adicionar uma Nova Modalidade" class="btn btn-default">Adicionar Modalidade</a>
             </div>
             <div class="footer-top">        
                 <%@include file="../footer.jsp" %>

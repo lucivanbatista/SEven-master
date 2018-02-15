@@ -18,6 +18,10 @@
         <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon"/>
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <title>SEven</title>
+        <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
+        <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Script.js"></script>
     </head>
     <body>
         <div id="container">
@@ -62,7 +66,7 @@
 
             <form action="../ServletCentral?comando=CmdSubmeterInscricao" method="post">
                 <a href="" title="" onclick="history.back(); return false;" class="btn btn-default"><span aria-hidden="true">&larr;</span>Voltar</a>
-                <input type="submit" value="Submeter" class="btn btn-default" onclick="return confirm('Deseja realmente submeter essa inscrição?')" />
+                <input data-toggle="tooltip" title="Submeter Inscrição" type="submit" value="Submeter" class="btn btn-default" onclick="return confirm('Deseja realmente submeter essa inscrição?')" />
             </form>
         </div>
         </div>

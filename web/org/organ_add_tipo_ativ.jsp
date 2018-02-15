@@ -36,11 +36,11 @@
                 <h1 class="titulo"><%=titulo%> Tipo de Atividade</h1>
                 <form action="../ServletCentral?comando=CmdAdicionarTipoAtividade" method="post">
                     <div class="form-group">
-                        <label>Nome:</label><br/>
-                        <input type="text" name="tipo_nome" value="<%=ativNome%>" class="form-control"/>
+                        <label>Nome</label><br/>
+                        <input data-toggle="tooltip" title="Nome da Atividade" type="text" name="tipo_nome" value="<%=ativNome%>" class="form-control"/>
                     </div>
-                    <a href="../ServletCentral?comando=CmdListarTipoAtividade" title="" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
-                    <input type="submit" value="Enviar" class="btn btn-default" onclick="return confirm('Deseja realmente enviar esses dados?')"/>
+                    <a href="../ServletCentral?comando=CmdListarTipoAtividade" title="Voltar" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
+                    <input data-toggle="tooltip" title="Confirmar Atividade" type="submit" value="Confirmar" class="btn btn-default" onclick="return confirm('Deseja realmente enviar esses dados?')"/>
                 </form>
             </div>
             <div class="footer-top">

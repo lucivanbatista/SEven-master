@@ -13,6 +13,7 @@
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
         <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript"  language="javascript" src="../Script.js"></script>   
     </head>
     <body>
         <%            br.ufc.pet.evento.Evento e = (br.ufc.pet.evento.Evento) session.getAttribute("evento");
@@ -54,7 +55,7 @@
                         </table>
                     </div>
                 <a href="../ServletCentral?comando=CmdListarAtividades" title="" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
-                <a href="organ_add_tipo_ativ.jsp" title="Adicionar um novo Tipo de Atividade" class="btn btn-default">Adicionar Tipo Atividade</a>
+                <a data-toggle="tooltip" href="organ_add_tipo_ativ.jsp" title="Adicionar um novo Tipo de Atividade" class="btn btn-default">Adicionar Tipo Atividade</a>
             </div>
             <div class="footer-top">
                 <%@include file="../footer.jsp" %>
