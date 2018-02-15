@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <div class="panel panel-default space-top">
-                        <div class="panel-cor panel-heading text-center">Gerenciamento dos aipos de atividade</div>
+                        <div class="panel-cor panel-heading text-center">Gerenciamento dos tipos de atividade</div>
                         <div class="panel-body text-center">
                             <label><a href="../ServletCentral?comando=CmdListarTipoAtividade" title="Gerencia Tipo de Atividade">Gerenciar os Tipos de Atividades que o evento possui</a></label>
                         </div>

@@ -34,6 +34,8 @@
                     String hf = "";
                     String mf = "";
                     String data = "";
+                    String timeI = "";
+                    String timeF = "";
                     if (horario != null) {
                         hi = String.format("%02d", horario.getHoraInicial()) ;
                         mi = String.format("%02d", horario.getMinutoInicial());
@@ -41,6 +43,8 @@
                         mf = String.format("%02d", horario.getMinutoFinal());
                         data = br.ufc.pet.util.UtilSeven.treatToString(horario.getDia());
                         titulo = "Editar";
+                        timeI = hi + ":" + mi;
+                        timeF = hf + ":" + mf;
                     }
                     Evento evento = (Evento) session.getAttribute("evento");
                     String dataInicio = "--/--/----";
@@ -61,19 +65,19 @@
                 <form action="../ServletCentral?comando=CmdAdicionarHorario" method="post" class="text-center">
                     <div class="form-group form-inline">
                         <label>Hora Inicial:</label><br/>
-                        <input type="text" id="timeI" name="inicial" class="form-control" />
+                        <input type="text" id="timeI" name="inicial" value="<%=timeI%>" class="form-control" />
                         <!--<input maxlength="2" type="text" onkeypress="return validaNumerosSilencioso(event)" name="hora_inicial" value="<%=hi%>" class="form-control"/>:-->
                         <!--<input maxlength="2" type="text" onkeypress="return validaNumerosSilencioso(event)" name="min_inicial" value="<%=mi%>" class="form-control"/>-->
                     </div>
                     <div class="form-group form-inline">
                         <label>Hora Final:</label><br/>
-                        <input type="text" id="timeF" name="final" class="form-control" />
+                        <input type="text" id="timeF" name="final" value="<%=timeF%>" class="form-control" />
 <!--                        <input maxlength="2" type="text"  onkeypress="return validaNumerosSilencioso(event)" name="hora_final" value="<%=hf%>" class="form-control"/> :
                         <input maxlength="2" type="text"  onkeypress="return validaNumerosSilencioso(event)" name="min_final" value="<%=mf%>" class="form-control"/>-->
                     </div>
                     <div class="form-group form-inline">
                         <label>Data:</label><br/>
-                        <input type="text" id="date" name="data_completa" class="form-control" />
+                        <input type="text" id="date" name="data_completa" value="<%=data%>" class="form-control" />
                         <!--<input type="text" onkeypress="return formataData(this,event)" maxlength="10" name="dia" value="<%=data%>" class="form-control"/>-->
                     </div>
                     <div class="form-group">
