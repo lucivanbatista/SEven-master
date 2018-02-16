@@ -17,7 +17,6 @@
         <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript"  language="javascript" src="../Script.js"></script>
-
     </head>
     <body>
         <div id="container-admin-home">

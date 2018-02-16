@@ -66,6 +66,7 @@
 
             <div id="content">
                 <div class="panel panel-default">
+                    <%@include file="../error.jsp" %>
                     <div class="panel-heading text-center">Editar Dados Cadastrais</div>
                     <div class="panel-body"> 
                         <%if (mensagem != null) {%>
@@ -77,7 +78,6 @@
                             <form action="../ServletCentral" method="post">
                                 <div class="col-lg-offset-1 col-lg-5 space-top"> 
                                     <input type="hidden" name="comando" value="CmdEditarParticipante" />
-                                    <%@include file="../error.jsp" %>
                                     <br/><div class="pull-left text-uppercase label label-warning">* Campos obrigatórios</div><br/>
 
                                     <div class="form-group">                                       
@@ -106,16 +106,14 @@
                                     <div class="form-group">
                                         <input data-toggle="tooltip" title="Instituição" placeholder="Instituição" type="text" maxlength="50" value="<%=instituicao%>" name="instituicao" class="form-control"/>
                                     </div>
-
-                                </div>
-                                <div class="col-lg-5 space-top">      
                                     <div class="form-group">                                        
                                         <input data-toggle="tooltip" title="Rua" placeholder="* Rua" type="text" maxlength="50" value="<%=rua%>" name="rua" class="form-control" required/>
                                     </div>
+                                </div>
+                                <div class="col-lg-5 space-top">
                                     <div class="form-group">
                                         <input data-toggle="tooltip" title="Bairro" placeholder="* Bairro" type="text" maxlength="50" value="<%=bairro%>" name="bairro" class="form-control" required/>
                                     </div>
-
                                     <div class="form-group">                                        
                                         <input data-toggle="tooltip" title="Número" placeholder="* Número" type="text" maxlength="6" value="<%=numero%>" onkeypress="return validaNumerosSilencioso(event);" name="numero" class="form-control" required/>
                                     </div>
@@ -126,13 +124,16 @@
                                         <input data-toggle="tooltip" title="UF" placeholder="* UF" type="text" maxlength="50" value="<%=uf%>" name="uf" class="form-control" required/>
                                     </div>
                                     <div class="form-group">
+                                        <input data-toggle="tooltip" title="Antiga Senha" placeholder="* Antiga Senha" type="password" maxlength="18" minlength="6" value="" name="oldsenha" class="form-control"/>
+                                    </div>
+                                    <div class="form-group">
                                         <input data-toggle="tooltip" title="Senha" placeholder="* Senha" type="password" maxlength="18" minlength="6" value="" name="senha" class="form-control"/>
                                     </div>
                                     <div class="form-group">
                                         <input data-toggle="tooltip" title="Repeti a Senha" placeholder="* Digite a senha novamente" type="password" maxlength="18" minlength="6" value="" name="r-senha" class="form-control"/>
                                     </div>
-
-                                    <input data-toggle="tooltip" title="Enviar" type="submit" value="Enviar" class="btn btn-default pull-right"/><br/>
+                                    
+                                    <button data-toggle="tooltip" title="Atualizar Dados" type="submit" class="btn btn-default pull-right" onclick="return confirmarCadastrado()">Atualizar</button>
 
                                 </div>                                
                             </form>

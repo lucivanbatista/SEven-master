@@ -4,6 +4,7 @@ import br.ufc.pet.evento.Participante;
 import br.ufc.pet.evento.Usuario;
 import br.ufc.pet.interfaces.Comando;
 import br.ufc.pet.services.EventoService;
+import br.ufc.pet.services.ParticipanteService;
 import br.ufc.pet.services.UsuarioService;
 import br.ufc.pet.util.UtilSeven;
 import java.util.Date;
@@ -39,9 +40,10 @@ public class CmdEditarParticipante implements Comando {
         String uf = request.getParameter("uf");
         String senha = request.getParameter("senha");
         String confSenha = request.getParameter("r-senha");
+        String tempoldsenha = request.getParameter("oldsenha");
 
         if (nome == null || nome.trim().equals("") || email == null || email.trim().equals("")
-                || senha == null || senha.trim().equals("") || confSenha == null || confSenha.trim().equals("")) {
+                || senha == null || senha.trim().equals("") || confSenha == null || confSenha.trim().equals("") || tempoldsenha.equals("")) {
             session.setAttribute("erro", "Preencha todos os campos obrigatórios.");
             return "/part/part_conta.jsp";
         }
@@ -61,8 +63,12 @@ public class CmdEditarParticipante implements Comando {
             if(!temp.getSenha().equals(senha)){
                 senha = UtilSeven.criptografar(senha);
             }
+            String oldsenha = UtilSeven.criptografar(tempoldsenha);
+            if(!oldsenha.equals(temp.getSenha())){
+                session.setAttribute("erro", "Senha Antiga incorreta!");
+                return "/part/part_conta.jsp";
+            }
         }
-
 
         part.getUsuario().setBairro(bairro);
         part.getUsuario().setCidade(cidade);

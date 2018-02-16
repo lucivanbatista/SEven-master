@@ -4,13 +4,10 @@
 <%@page import="br.ufc.pet.evento.Administrador" %>
 <%@page import="java.util.Date" %>
 <%@include file="../ErroAutenticacaoUser.jsp" %>
-<%
-          
-            Administrador admin = (Administrador) session.getAttribute("user");
-
-
-%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<%
+            Administrador admin = (Administrador) session.getAttribute("user");
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -26,10 +23,12 @@
     <body>
         <div id="container-register">
             <%@include file="admin_menu.jsp" %>
-        
-            
+            <%@include file="/error.jsp" %>
                 <h1 class="title-register">Alterar Senha</h1><hr>
                 <form action="../ServletCentral" method="post">
+                    <div class="form-group">
+                        <input data-toggle="tooltip" title="Antiga Senha" type="password" maxlength="50" class="form-control" placeholder="Digita a antiga senha" name="oldsenha" required/>
+                    </div>
                     <div class="form-group">
                         <input data-toggle="tooltip" title="Senha" type="password" maxlength="50" class="form-control" placeholder="Digita a senha" name="senha" required/>
                     </div>
