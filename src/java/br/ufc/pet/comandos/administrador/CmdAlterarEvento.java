@@ -41,7 +41,8 @@ public class CmdAlterarEvento implements Comando {
         session.setAttribute("fimInscricao", fimInscricao);
         String limiteDeAtividadesPorParticipante = request.getParameter("limite_de_atividades_por_participante");
         session.setAttribute("limiteDeAtividadesPorParticipante", limiteDeAtividadesPorParticipante);
-
+        String gratuito = request.getParameter("gratuito");
+        session.setAttribute("gratuito", gratuito);
 
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
@@ -107,7 +108,7 @@ public class CmdAlterarEvento implements Comando {
 
                 EventoService es = new EventoService();
 
-
+                
 
                 admin.removerEventoById(E.getId());
                 E.setNome(nomeEvento);
@@ -120,7 +121,13 @@ public class CmdAlterarEvento implements Comando {
                 E.setLimiteAtividadePorParticipante(limiteDeAtividades);
                 E.setAdministrador(admin);
                 E.setDescricao(descricao);
-  
+                
+                if(gratuito.equals("true")){
+                    E.setGratuito(true);
+                }else{ 
+                    E.setGratuito(false);
+                }
+                
                 es.atualizar(E);
                 admin.addEvento(E);
                 

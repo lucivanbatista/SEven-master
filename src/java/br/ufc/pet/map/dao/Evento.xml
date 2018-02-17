@@ -38,7 +38,7 @@
             descricao= #descricao#,
             inicio=#inicioPeriodoEvento#,
             fim=#fimPeriodoEvento#,
-            limite_atividade_por_participante = #limiteAtividadePorParticipante#
+            limite_atividade_por_participante = #limiteAtividadePorParticipante#,
             gratuito = #gratuito#
         WHERE id = #id#;
     </update>

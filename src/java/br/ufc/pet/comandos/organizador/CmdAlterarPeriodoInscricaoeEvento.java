@@ -95,8 +95,10 @@ public class CmdAlterarPeriodoInscricaoeEvento implements Comando {
         evento.setInicioPeriodoInscricao(UtilSeven.treatToDate(inicioInscricao));
         evento.setFimPeriodoInscricao(UtilSeven.treatToDate(fimInscricao));
         EventoService eventoService = new EventoService();
+        
         if (!eventoService.atualizar(evento)) {
             session.setAttribute("erro", "Modificação sem sucesso");
+            return "/org/organ_gerenciar_atividades.jsp";
         }
         
         //Enviando email para todos os organizadores 
@@ -110,6 +112,7 @@ public class CmdAlterarPeriodoInscricaoeEvento implements Comando {
                 "  para\n"+
                 "De: "+inicioInscricao+" até "+fimInscricao+"\n"+
                 "\nPor favor verifique as datas das atividades!";
+        
         for(Organizador org : evento.getOrganizadores()){
             try {
                 SendMail.sendMail(org.getUsuario().getEmail(), "(SEVEN) Alteração de data no evento "+evento.getNome(), msg);

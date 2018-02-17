@@ -195,7 +195,7 @@ public class Evento extends Bean {
     
     @Override
     public String toString() {
-        return "Evento{" + "nome=" + nome + ", sigla=" + sigla + ", tema=" + tema + ", inicioPeriodoInscricao=" + inicioPeriodoInscricao + ", fimPeriodoInscricao=" + fimPeriodoInscricao + ", descricao=" + descricao + ", ativo=" + ativo + ", atividades=" + atividades + ", organizadores=" + organizadores + ", administrador=" + administrador + ", movimentacoesFinanceiras=" + movimentacoesFinanceiras + ", inicioPeriodoEvento=" + inicioPeriodoEvento + ", fimPeriodoEvento=" + fimPeriodoEvento + ", limiteAtividadePorParticipante=" + limiteAtividadePorParticipante + '}';
+        return "Evento{" + "id=" + id + ", nome=" + nome + ", sigla=" + sigla + ", tema=" + tema + ", inicioPeriodoInscricao=" + inicioPeriodoInscricao + ", fimPeriodoInscricao=" + fimPeriodoInscricao + ", descricao=" + descricao + ", ativo=" + ativo + ", atividades=" + atividades + ", organizadores=" + organizadores + ", administrador=" + administrador + ", movimentacoesFinanceiras=" + movimentacoesFinanceiras + ", inicioPeriodoEvento=" + inicioPeriodoEvento + ", fimPeriodoEvento=" + fimPeriodoEvento + ", limiteAtividadePorParticipante=" + limiteAtividadePorParticipante + '}';
     }
 }
  

@@ -129,7 +129,7 @@ public class CmdAdicionarEvento implements Comando {
                 objeto evento (E)
                 */
                 
-                if(request.getParameter("gratuito").equals("true")){
+                if(gratuito.equals("true")){
                     E.setGratuito(true);
                 }else{ 
                     E.setGratuito(false);
@@ -164,6 +164,13 @@ public class CmdAdicionarEvento implements Comando {
                 E.setLimiteAtividadePorParticipante(limiteDeAtividades);
                 E.setAdministrador(admin);
                 E.setDescricao(descricao);
+                
+                if(gratuito.equals("true")){
+                    E.setGratuito(true);
+                }else{ 
+                    E.setGratuito(false);
+                }
+                
                 EventoService es = new EventoService();
                 es.atualizar(E);
                 admin.addEvento(E);
