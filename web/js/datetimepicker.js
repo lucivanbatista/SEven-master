@@ -17,7 +17,7 @@ $(document).ready(function()
                         cancelText: 'Cancelar',
                         clearText: 'Limpar',
                         okText: 'Confirmar',
-                        nowText: 'Hoje',
+                        nowText: 'Hoje'
 		});
                 
                 $('#date-end-event').bootstrapMaterialDatePicker
@@ -35,6 +35,8 @@ $(document).ready(function()
                 }).on('change', function(e, date)        
                     {
                         $('#date-end-in').bootstrapMaterialDatePicker('setMaxDate', date);
+                        $('#date-start-event').bootstrapMaterialDatePicker('setMaxDate', date);
+                        $('#date-start-in').bootstrapMaterialDatePicker('setMaxDate', date);
                     });
                 
                 $('#date-start-event').bootstrapMaterialDatePicker
@@ -67,7 +69,10 @@ $(document).ready(function()
                         okText: 'Confirmar',
                         nowText: 'Hoje',
                         minDate: new Date()  
-                });
+                }).on('change', function(e, date)        
+                    {
+                        $('#date-start-in').bootstrapMaterialDatePicker('setMaxDate', date);
+                    });
                 
                 $('#date-start-in').bootstrapMaterialDatePicker
                 ({
