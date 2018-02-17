@@ -48,9 +48,9 @@ public class CmdAdicionarEvento implements Comando {
         session.setAttribute("gratuito", gratuito);
 
         
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        Date date = new Date();
-        Date data = UtilSeven.treatToDate(dateFormat.format(date));
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//        Date date = new Date();
+//        Date data = UtilSeven.treatToDate(dateFormat.format(date));
 
         int limiteDeAtividades;
         
@@ -75,13 +75,13 @@ public class CmdAdicionarEvento implements Comando {
             return "/admin/add_events.jsp";
         } else {
             
-            try{
+//            try{
                 limiteDeAtividades = Integer.parseInt(limiteDeAtividadesPorParticipante);
-            }
-            catch(NumberFormatException e){
-                session.setAttribute("erro", "Limite de atividades inválido. Por favor digite apenas números.");
-                return "/admin/add_events.jsp";
-            }
+//            }
+//            catch(NumberFormatException e){
+//                session.setAttribute("erro", "Limite de atividades inválido. Por favor digite apenas números123123.");
+//                return "/admin/add_events.jsp";
+//            }
             
 //            if (UtilSeven.treatToDate(inicioEvento).before(data)) {
 //                session.setAttribute("erro", "Data de início do evento anterior a data de hoje.");
