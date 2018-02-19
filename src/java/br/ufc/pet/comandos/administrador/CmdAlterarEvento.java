@@ -77,34 +77,34 @@ public class CmdAlterarEvento implements Comando {
                 return "/admin/edit_events.jsp";
             }
 
-            if (UtilSeven.treatToDate(inicioEvento).before(data)) {
-                session.setAttribute("erro", "Data de início do evento anterior a data de hoje.");
-                return "/admin/edit_events.jsp";
-            }
-            if (UtilSeven.treatToDate(inicioEvento).after(UtilSeven.treatToDate(fimEvento))) {
-                session.setAttribute("erro", "Data de início do evento posterior ao término do evento.");
-                return "/admin/edit_events.jsp";
-            }
-            if (UtilSeven.treatToDate(inicioInscricao).before(data)) {
-                session.setAttribute("erro", "Data de início das incrições anterior a data de hoje.");
-                return "/admin/edit_events.jsp";
-            }
-            if (UtilSeven.treatToDate(inicioInscricao).after(UtilSeven.treatToDate(fimEvento))) {
-                session.setAttribute("erro", "Data de início das inscrições posterior ao término do evento.");
-                return "/admin/edit_events.jsp";
-            }
-            if (UtilSeven.treatToDate(inicioInscricao).after(UtilSeven.treatToDate(inicioEvento))) {
-                session.setAttribute("erro", "Data de início das inscrições posterior ao início do evento.");
-                return "/admin/edit_events.jsp";
-            }
-            if (UtilSeven.treatToDate(inicioInscricao).after(UtilSeven.treatToDate(fimInscricao))) {
-                session.setAttribute("erro", "Data de início das inscrições posterior ao término das inscrições.");
-                return "/admin/edit_events.jsp";
-            }
-            if (UtilSeven.treatToDate(fimInscricao).after(UtilSeven.treatToDate(inicioEvento))) {
-                session.setAttribute("erro", "Data de fim das inscrições posterior ao início do evento.");
-                return "/admin/edit_events.jsp";
-            }
+//            if (UtilSeven.treatToDate(inicioEvento).before(data)) {
+//                session.setAttribute("erro", "Data de início do evento anterior a data de hoje.");
+//                return "/admin/edit_events.jsp";
+//            }
+//            if (UtilSeven.treatToDate(inicioEvento).after(UtilSeven.treatToDate(fimEvento))) {
+//                session.setAttribute("erro", "Data de início do evento posterior ao término do evento.");
+//                return "/admin/edit_events.jsp";
+//            }
+//            if (UtilSeven.treatToDate(inicioInscricao).before(data)) {
+//                session.setAttribute("erro", "Data de início das incrições anterior a data de hoje.");
+//                return "/admin/edit_events.jsp";
+//            }
+//            if (UtilSeven.treatToDate(inicioInscricao).after(UtilSeven.treatToDate(fimEvento))) {
+//                session.setAttribute("erro", "Data de início das inscrições posterior ao término do evento.");
+//                return "/admin/edit_events.jsp";
+//            }
+//            if (UtilSeven.treatToDate(inicioInscricao).after(UtilSeven.treatToDate(inicioEvento))) {
+//                session.setAttribute("erro", "Data de início das inscrições posterior ao início do evento.");
+//                return "/admin/edit_events.jsp";
+//            }
+//            if (UtilSeven.treatToDate(inicioInscricao).after(UtilSeven.treatToDate(fimInscricao))) {
+//                session.setAttribute("erro", "Data de início das inscrições posterior ao término das inscrições.");
+//                return "/admin/edit_events.jsp";
+//            }
+//            if (UtilSeven.treatToDate(fimInscricao).after(UtilSeven.treatToDate(inicioEvento))) {
+//                session.setAttribute("erro", "Data de fim das inscrições posterior ao início do evento.");
+//                return "/admin/edit_events.jsp";
+//            }
 
                 EventoService es = new EventoService();
 
