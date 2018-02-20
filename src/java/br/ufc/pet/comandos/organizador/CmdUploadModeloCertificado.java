@@ -27,9 +27,10 @@ public class CmdUploadModeloCertificado implements Comando {
         String path = "/SEVEN_ARQUIVOS/templates_certificados_upload/"+idEvento;
 
         boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+        
         if (!isMultipart) {
              session.setAttribute("erro", "Nenhum arquivo selecionado!");
-            return "/org/organ_gerenciar_atividades.jsp";
+            return "/org/organ_gerenciar_upload_certificados.jsp";
         }
 
         DiskFileItemFactory factory = new DiskFileItemFactory();

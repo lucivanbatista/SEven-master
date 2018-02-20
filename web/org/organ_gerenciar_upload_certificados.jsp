@@ -42,6 +42,7 @@
 
             <div id="content">
                 <h1 class="titulo">Gerenciar emissão de certificados<br/><%=e.getNome()%></h1>
+                <%@include file="../error.jsp" %>
                 <div class="panel panel-warning">
                     <div class="panel-heading text-center">Atenção!<br/>Deve ser feito o upload de um template seguindo os passos abaixo</div>
                     <div class="panel-body">

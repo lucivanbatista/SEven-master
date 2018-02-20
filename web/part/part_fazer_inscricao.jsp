@@ -165,7 +165,7 @@
                                         </td>
                                         <td><%=vagas - vagasOcupadas%>
                                         </td>
-                                        <td><a data-toggle="tooltip" href="../ServletCentral?comando=CmdSelecionarAtividade&ativ=<%=a.getId()%>" title="Selecionar Atividade"><strong>Adicionar Atividade</strong></a></td>
+                                        <td><a data-toggle="tooltip" href="../ServletCentral?comando=CmdSelecionarAtividade&ativ=<%=a.getId()%>" title="Selecionar Atividade" class="btn btn-sm btm-primary btn-primary-new"><strong>Adicionar Atividade</strong></a></td>
                                         <%--O link redireciona ao comando, que por sua vez pega o id da atividade em questão e insere a mesma no array das atividades selecionadas--%>
                                     </tr>
                                     <%}%>
