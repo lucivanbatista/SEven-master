@@ -11,7 +11,7 @@
         <ul class="nav navbar-nav">
             <li><a href="../ServletCentral?comando=CmdRecarregarEventosOrganizador" title="Página Inicial">Home</a></li>
         <li><a href="organ_selecionar_evento.jsp" title="Gerenciar Atividades">Eventos e Atividades</a></li>
-        <li><a href="organ_financeiro.jsp" title="Módulo Financeiro">Financeiro</a></li>
+        <li><a href="../ServletCentral?comando=CmdListarMovimentacaoFinanceira" title="Módulo Financeiro">Financeiro</a></li>
         <li><a href="organ_inscricoes.jsp" title="Gerenciar Inscrições">Inscrições</a></li>
         <li><a href="organ_relatorios.jsp" title="Relatórios">Relatórios</a></li>
         </ul>

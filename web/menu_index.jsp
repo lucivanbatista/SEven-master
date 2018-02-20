@@ -11,6 +11,7 @@
         </div>
         
         <ul class="nav navbar-nav">
+             <li><a href="index.jsp" title="Página Inicial">Home</a></li>
             <li><a href="ServletCentral?comando=CmdCheckLogged" title="Página Inicial">Home</a></li>
            
             <!-- <li><a href="ServletCentral?comando=CmdVisualizarTodasProgramacoes">Programação</a></li>-->
