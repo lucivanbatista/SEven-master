@@ -27,6 +27,10 @@
         <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon"/>
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <title>SEven</title>
+        <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
+        <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>        
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Script.js"></script>
     </head>
     <body>
         <div id="container">
@@ -57,8 +61,9 @@
                 </div>
                 <form action="../ServletCentral?comando=CmdReceberPagamento&id_confirm=<%=inscrito.getId()%>" method="post" class="center-block">
                     <!--<%session.setAttribute("confirmado", inscrito);%>-->
-                    <a href="../ServletCentral?comando=CmdBuscarParticipantedeEvento" title="" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
-                    <input type="submit" name="ok" value="Receber Pagamento" class="btn btn-default" onclick="return confimar()" />
+                    <!--<a href="../ServletCentral?comando=CmdBuscarParticipantedeEvento" title="" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>-->
+                    <a href="" title="" onclick="history.back();return false;" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
+                    <input data-toggle="tooltip" title="Receber Pagamento" type="submit" name="ok" value="Receber Pagamento" class="btn btn-default" onclick="return confimar()" />
                 </form>
                 <%session.setAttribute("confirmado", null);%>
             </div>
