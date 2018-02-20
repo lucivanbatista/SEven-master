@@ -42,7 +42,7 @@
                 <h1 class="titulo">Adicionar Modalidade</h1>
                 <%@include file="/error.jsp" %>
                 <form action="../ServletCentral?comando=CmdAdicionarModalidade&id_atualizar=<%=id%>" method="post">
-                    <div class="form-group"><input data-toggle="tooltip" title="Nome da Modalidade" type="text" name="nomeModalidade" value="<%=nome%>" placeholder="Modalidade" class="form-control" required/></div>
+                    <div class="form-group"><input data-toggle="tooltip" title="Nome da Modalidade" type="text" id="nomeModalidade" name="nomeModalidade" value="<%=nome%>" placeholder="Modalidade" class="form-control"/></div>
                     <table id="data_table" class="table table-hover text-center form-group">
                         <thead>
                             <tr>

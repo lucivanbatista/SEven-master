@@ -25,13 +25,16 @@ public class CmdAdicionarModalidade implements Comando {
         ModalidadeInscricao modalidade = new ModalidadeInscricao();
         ModalidadeInscricaoService ms = new ModalidadeInscricaoService();
 
+        
+        if(nomeModalidade == null || nomeModalidade.equals("") || request.getParameter("nomeModalidade").equals("")){
+            session.setAttribute("erro", "Preencha a modalidade com um nome!");
+            return "/org/organ_add_modalidade.jsp";
+        }
+        
         ArrayList<TipoAtividade> tipos = UtilSeven.getTiposDeAtividadeByEventoId(evento.getId());
         String id = request.getParameter("id_atualizar");
         
-        if(request.getParameter("nomeModalidade").equals("")){
-            session.setAttribute("erro", "Preencha um nome para a Modalidade!");
-            return "/org/organ_add_modalidade.jsp";
-        }
+        
         if (id != null && id.isEmpty() == false) {
             modalidade = ms.getModalidadeInscricaoById(Long.parseLong(id));
             modalidade.setTipo(nomeModalidade);
