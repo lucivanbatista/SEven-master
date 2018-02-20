@@ -26,12 +26,12 @@
     </head>
     <body>
         <div id="container">
-            <%@include file="/error.jsp"%>
             <%-- Incluindo Menu --%>
             <%@include file="organ_menu.jsp" %>
 
             <div id="content">
                 <h1 class="titulo">Visualizar as Inscrições do Evento<br/> <%=e.getNome()%></h1>
+                <%@include file="/error.jsp"%>
                 <div class="panel panel-default">
                     <div class="panel-heading text-center">Lista de todos os inscritos no evento</div>
                     <div class="panel-body">  

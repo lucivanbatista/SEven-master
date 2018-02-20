@@ -41,15 +41,19 @@ public class CmdGerarCertificado implements Comando {
         String inscricao_id = request.getParameter("insc_id");
 
         if (inscricao_id == null || inscricao_id.trim().isEmpty()) {
-            session.setAttribute("erro", "inscrição inválida!");
+            session.setAttribute("erro", "Inscrição Inválida!");
             return "/org/organ_gerenciar_inscricoes.jsp";
         } else {
             InscricaoService is = new InscricaoService();
             Inscricao inscricao = is.getInscricaoById(Long.parseLong(inscricao_id));
-
+            
+            if(!inscricao.isConfirmada()){
+                session.setAttribute("erro", "Usuário ainda não pagou!");
+                return "/org/organ_gerenciar_inscricoes.jsp";
+            }
+            
             response.setContentType("application/pdf");
             response.setHeader("Content-Disposition", " attachment; filename=\"certificado_" + inscricao.getParticipante().getUsuario().getNome() + ".pdf\"");
-
 
             Document document = new Document(PageSize.LETTER.rotate());
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -72,7 +76,7 @@ public class CmdGerarCertificado implements Comando {
                 us.update(inscricao.getParticipante().getUsuario());
             }
             
-            session.setAttribute("user", inscricao.getParticipante());
+//            session.setAttribute("user", inscricao.getParticipante());
 
             try {
                 PdfWriter writer = PdfWriter.getInstance(document, baos);

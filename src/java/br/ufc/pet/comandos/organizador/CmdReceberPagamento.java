@@ -18,9 +18,9 @@ public class CmdReceberPagamento implements Comando {
     @Override
     public String executa(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
-
-        String pag = (String) session.getAttribute("pag");
-        
+//
+//        String pag = (String) session.getAttribute("pag");
+//        
         Inscricao inscrito;
         if (request.getParameter("id_confirm") == null) {
             InscricaoService insc = new InscricaoService();
@@ -30,9 +30,15 @@ public class CmdReceberPagamento implements Comando {
             session.setAttribute("receberpagamentodoparticipante", inscrito);
             return "/org/organ_receber_pagamento.jsp";
         }
-
+        
         InscricaoService inscS = new InscricaoService();
         inscrito = inscS.getInscricaoById(Long.parseLong(request.getParameter("id_confirm")));
+        
+        if(inscrito.isConfirmada()){
+            session.setAttribute("erro", "Já está pago!");
+            return "/org/organ_gerenciar_inscricoes.jsp";
+        }
+        
         inscrito.setConfirmada(true);
         inscS.confirmaPagamento(inscrito);
         session.setAttribute("pago", inscrito);
@@ -43,12 +49,14 @@ public class CmdReceberPagamento implements Comando {
             Logger.getLogger(CmdReceberPagamento.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        if(pag.equals("1")){
-            return "/ServletCentral?comando=CmdBuscarParticipantedeEvento";
-        
-        }else if(pag.equals("2")){
-            return "/ServletCentral?comando=CmdBuscarParticipantePorEmail";
-        }
-        return "/ServletCentral?comando=CmdBuscarParticipantedeEvento";
+//        if(pag.equals("1")){
+//            return "/ServletCentral?comando=CmdBuscarParticipantedeEvento";
+//        
+//        }else if(pag.equals("2")){
+//            return "/ServletCentral?comando=CmdBuscarParticipantePorEmail";
+//        }
+//        return "/ServletCentral?comando=CmdBuscarParticipantedeEvento";
+        session.setAttribute("sucesso", "Pagamento Recebido com Sucesso!");
+        return "/org/organ_gerenciar_inscricoes.jsp";
     }
 }
