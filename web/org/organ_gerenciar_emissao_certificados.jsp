@@ -7,11 +7,14 @@
     <head>      
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link href="../css/estilo.css" rel="stylesheet" type="text/css" />
-        <title>Centro de Controle :: Organizador</title>
-        <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
-        <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
+        <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon"/>
+        <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <title>SEven</title>
         <script type="text/javascript" src="../jquery/jquery.dataTables.js"></script>
         <script type="text/javascript" src="../jquery/initDataTable.js"></script>
+        <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
+        <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
     </head>
     <body>
         <%            br.ufc.pet.evento.Evento e = (br.ufc.pet.evento.Evento) session.getAttribute("evento");
@@ -24,16 +27,16 @@
                 <%@include file="organ_menu.jsp"%>
             </div>
             <div id="content">
-                <h1 class="titulo">Gerenciar Emissão de Certificados por Atividades do evento <%=e.getNome()%></h1>
+                <h1 class="titulo">Gerenciar Emissão de Certificados por Atividades do evento <br/><span style="color: black"><%=e.getNome()%></span></h1>
                 <%@include file="/error.jsp" %>
                 <% if (organizador.recuperarOrganizaçãoByEvendoId(e.getId()).getManterAtividade()) {%>
 
 
                 <%}%>
                 <%if (ats == null || ats.size() == 0) {%>
-                 <div class="alert alert-warning text-center" role="alert">Sem atividades no momento</div>
+                <center><label>Sem atividades no momento</label></center>
                     <%} else {%>
-                <table id="data_table">
+                <table id="data_table" class="table table-hover text-center space-top">
                     <thead>
                         <tr>
                             <th>Nome</th>
@@ -58,17 +61,17 @@
                                 }%>
                             <td><%=sb.toString()%></td>
                             <td><a href="../ServletCentral?comando=CmdGerenciarLiberacaoCertificadoAtividade&ativ_id=
-                                   <%=a.getId()%>" title="Liberar Certificados">Liberar</a></td>
+                                   <%=a.getId()%>" title="Liberar Certificados" class="btn btn-default">Liberar</a></td>
                         </tr>
                         <%}%>
                     </tbody>
                 </table>
                 <% }%>
-            <a href=""  style="float: left; margin-bottom: 10px"
-               title="" onclick="history.back();
-                            return false;" class="voltarCadastro">Voltar</a>
+            <a href="" title="" onclick="history.back(); return false;" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
             </div>
-            <div id="footer"></div>
+            <div class="footer-top">
+                <%@include file="../footer.jsp" %>
+            </div>
         </div>
     </body>
 </html>
