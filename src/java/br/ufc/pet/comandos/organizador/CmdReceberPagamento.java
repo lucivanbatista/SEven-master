@@ -57,6 +57,7 @@ public class CmdReceberPagamento implements Comando {
 //        }
 //        return "/ServletCentral?comando=CmdBuscarParticipantedeEvento";
         session.setAttribute("sucesso", "Pagamento Recebido com Sucesso!");
-        return "/org/organ_gerenciar_inscricoes.jsp";
+//        return "/org/organ_gerenciar_inscricoes.jsp";
+        return "/ServletCentral?comando=CmdGerenciarInscricoes&cod_evento=" + inscrito.getEvento().getId();
     }
 }

@@ -84,11 +84,11 @@
                                         <td><a href="../ServletCentral?comando=CmdGerarCertificado&insc_id=<%=i.getId()%>" title="Gerar"><span class="text-uppercase label label-info">Gerar</span></a></td>
                                         <c:set var = "est"  scope="page" value ="${teste}"/>
                                         <c:if test = "${est == 1}">
-                                            <td><a href="../ServletCentral?comando=CmdReceberPagamento&id_inscricao=<%=i.getId()%>" title="" class="btn disabled" role="button" aria-disabled="true" ><span  class="text-uppercase label label-primary "  >Pagar</span></a>
+                                            <td><a href="../ServletCentral?comando=CmdReceberPagamento&id_inscricao=<%=i.getId()%>" title="" class="btn disabled" role="button" aria-disabled="true" ><span class="text-uppercase label label-primary " >Pagar</span></a>
                                             </td>
                                           </c:if>
                                              <c:if test = "${est == 0}">
-                                            <td><a href="../ServletCentral?comando=CmdReceberPagamento&id_inscricao=<%=i.getId()%>" title="" ><span  class="text-uppercase label label-primary"  >Pagar</span></a>
+                                            <td><a href="../ServletCentral?comando=CmdReceberPagamento&id_inscricao=<%=i.getId()%>" title="Pagar" ><span class="text-uppercase label label-primary" >Pagar</span></a>
                                          </td>
                                           </c:if>
                                      </tr>
