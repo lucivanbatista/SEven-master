@@ -66,6 +66,15 @@ public class EventoService {
             return null;
         }
     }
+    
+    public ArrayList<Evento> buscarAllEventos() {
+        try {
+            return eventoDAO.getAllEventos();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
 
     public ArrayList<Evento> buscarEventosComInscricoesAbertas() {
         try {

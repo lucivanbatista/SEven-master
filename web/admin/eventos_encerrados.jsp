@@ -22,8 +22,8 @@
         <div id="container-admin-home">
             <%-- Incluindo o Menu --%>
             <%@include file="admin_menu.jsp" %>
-            <h1 class="titulo space-top">Olá, <%= nomeSaudacao%></h1>
-            <p>Esta é a página inicial do Administrador. Quando desejar retornar a esta página, clique na opção <span class="text-uppercase label label-info"><em>Home</em></span> no menu acima.</p>
+            <h1 class="title-register">Eventos Encerrados</h1><hr/>
+            <br/>
             <br/>
             <%@include file="/error.jsp" %>
             <div class="table-responsive scroll-table">
@@ -35,20 +35,18 @@
                             <th>Nome</th>
                             <th>Período de Inscrição</th>
                             <th>Excluir</th>
-                            <th>Encerrar Evento</th>
                             <th>Alterar Dados</th>
                             <th>Gerenciar Organizador</th>
                             <th>Programação</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <%for (Evento E : admin.getEventos()) {%>
+                        <%for (Evento E : admin.getEventosEncerrados()) {%>
                         <tr>
                             <td><%=E.getSigla()%></td>
                             <td><%=E.getNome()%></td>
                             <td><%=br.ufc.pet.util.UtilSeven.treatToString(E.getInicioPeriodoInscricao()) + "</br>" + br.ufc.pet.util.UtilSeven.treatToString(E.getFimPeriodoInscricao())%></td>
                             <td><a href="../ServletCentral?comando=CmdExcluirEvento&id=<%=E.getId()%>" onclick="return confirmarExclucao()"><span class="text-uppercase label label-danger">Excluir</span></a></td>
-                            <td><a href="../ServletCentral?comando=CmdEncerrarEvento&id=<%=E.getId()%>" onclick="return confirm('Deseja realmente encerrar Evento?')"><span class=" text-uppercase label label-warning">Encerrar</span></a></td>
                             <td><a href="../ServletCentral?comando=CmdBuscarEvento&id=<%=E.getId()%>"><span class="text-uppercase label label-success">Alterar</span></a></td>
                             <td><a href="../ServletCentral?comando=CmdListarOrganizadorEventos&idEvento=<%=E.getId()%>" title="Gerenciar" ><span class="text-uppercase label label-primary">Gerenciar</span></a> </td>
                             <td><a href="../ServletCentral?comando=CmdVisualizarProgramacao&id=<%=E.getId()%>" title="Programacao" ><span class="text-uppercase label label-info">Visualizar</span></a> </td>
@@ -57,7 +55,6 @@
                     </tbody>
                 </table>
             </div>
-            <div align="right"><a data-toggle="tooltip" title="Criar Novo Evento" class="btn btn-default space-top" href="add_events.jsp" role="button">Criar novo evento</a></div>
         </div>          
         <div class="footer-top">
             <%@include file="../footer.jsp" %>

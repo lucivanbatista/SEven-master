@@ -2,6 +2,7 @@ package br.ufc.pet.services;
 
 import br.ufc.pet.daos.AdministradorDAO;
 import br.ufc.pet.evento.Administrador;
+import br.ufc.pet.evento.Evento;
 import br.ufc.pet.util.UtilSeven;
 import java.sql.SQLException;
 
@@ -24,9 +25,7 @@ public class AdministradorService {
                 UsuarioService us = new UsuarioService();
                 admin.setUsuario(us.getById(admin.getUsuario().getId()));
                 EventoService es = new EventoService();
-                admin.setEventos(es.buscarEventosAbertos());
-
-
+                admin.setEventos(es.buscarAllEventos());
                 return admin;
             }
         } catch (SQLException ex) {

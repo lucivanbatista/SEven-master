@@ -41,6 +41,10 @@ public class EventoDAO {
     public ArrayList<Evento> getAllEventosAbertos() throws SQLException{
         return (ArrayList<Evento>) PostgresMapConfig.getSqlMapClient().queryForList("getAllEventosNaoEncerrados");
     }
+    
+    public ArrayList<Evento> getAllEventos() throws SQLException{
+        return (ArrayList<Evento>) PostgresMapConfig.getSqlMapClient().queryForList("getAllEventos");
+    }
 
     public Evento getEventoByOrganizacaoId(Long id) throws SQLException{
         return (Evento) PostgresMapConfig.getSqlMapClient().queryForObject("getEventoByOrganizacaoId", id);

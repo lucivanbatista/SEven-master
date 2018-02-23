@@ -57,7 +57,7 @@ public class CmdCadastrarParticipante implements Comando {
         if (ps.insertParticipanteUsuario(part)) {
             session.setAttribute("user", part);
             EventoService es = new EventoService();
-            session.setAttribute("eventosAbertos", es.buscarEventosAbertos());
+            session.setAttribute("eventosAbertos", es.buscarEventosComInscricoesAbertas());
             return "/part/index.jsp";
         } else {
             session.setAttribute("erro", "Erro ao tentar cadastrar participante.");
