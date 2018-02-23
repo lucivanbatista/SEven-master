@@ -111,8 +111,9 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-5 space-top">
+                                     
                                     <div class="form-group">
-                                        <input data-toggle="tooltip" title="Bairro" placeholder="* Bairro" type="text" maxlength="50" value="<%=bairro%>" name="bairro" class="form-control" required/>
+                                        <input data-toggle="tooltip" title="Bairro" placeholder="* Bairro" type="text" maxlength="50" value="<%=bairro%>" name="bairro" class="form-control space-top-camp" required/>
                                     </div>
                                     <div class="form-group">                                        
                                         <input data-toggle="tooltip" title="Número" placeholder="* Número" type="text" maxlength="6" value="<%=numero%>" onkeypress="return validaNumerosSilencioso(event);" name="numero" class="form-control" required/>

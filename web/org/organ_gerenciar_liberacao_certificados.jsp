@@ -10,6 +10,15 @@
     <head>      
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link href="../css/estilo.css" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon"/>
+        <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <title>SEven</title>
+        <script type="text/javascript" src="../jquery/jquery.dataTables.js"></script>
+        <script type="text/javascript" src="../jquery/initDataTable.js"></script>
+        <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
+        <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Script.js"> </script>    
         <script type="text/javascript">
             function checkAllCheckboxes() {
                 var aux = 1;
@@ -26,12 +35,6 @@
                 }
             }
         </script>
-        <title>Centro de Controle :: Organizador</title>
-        <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
-        <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
-        <script type="text/javascript" src="../jquery/jquery.dataTables.js"></script>
-        <script type="text/javascript" src="../jquery/initDataTable.js"></script>
-
     </head>
 
 
@@ -64,7 +67,7 @@
                     <%} else {%>
 
                 <form name="formVerificarAluno" action="../ServletCentral?comando=CmdConfirmarLiberacaoCertificado" class="confirmaCertificado" method="post" onsubmit="return confirm('Deseja realmente liberar os certificados para os participantes selecionados?');" >
-                    <table id="data_table">
+                    <table id="data_table" class="table table-hover text-center space-top">
                         <thead>
                             <tr>
                                 <th><input type="checkbox" onclick="checkAllCheckboxes();" /></th>
@@ -85,15 +88,14 @@
                         </tbody>
                     </table>
                     <input type="hidden" name="ativ_id" value="<%=idAtividade%>" />
-                    <input type="submit" value="Liberar" class="button" style="margin-left: 0px; border: 0px; font-family: Verdana, Tahoma, Arial;" />
-                    <br><br><br><br>
-                    <a href=""  style="float: left; margin-bottom: 10px"
-                       title="" onclick="history.back();
-                            return false;" class="voltarCadastro">Voltar</a>
+                    <a href="" title="" onclick="history.back(); return false;" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
+                    <input data-toggle="tooltip" title="Liberar Certificados" type="submit" value="Liberar" class="btn btn-default pull-right" />
                 </form>
                 <% }%>
             </div>
-            <div id="footer"></div>
+            <div class="footer-top">
+                <%@include file="../footer.jsp" %>
+            </div>
         </div>
     </body>
 </html>

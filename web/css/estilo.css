@@ -395,6 +395,10 @@ body {
 .space-top{
     margin-top: 10px;
 }
+
+.space-top-camp{
+    margin-top: 50px;
+}
 .footer-top {
   margin-top: 40px;
 }

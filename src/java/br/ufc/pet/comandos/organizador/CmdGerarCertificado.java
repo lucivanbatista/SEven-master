@@ -52,6 +52,21 @@ public class CmdGerarCertificado implements Comando {
                 return "/org/organ_gerenciar_inscricoes.jsp";
             }
             
+            AtividadeService ativServ = new AtividadeService();
+            ArrayList<InscricaoAtividade> inscar = ativServ.getIncricaoAtividadeByInscricao(inscricao.getId());
+            for(InscricaoAtividade ia : inscar){
+                if(!ia.isConfirmaCertificado()){
+                    session.setAttribute("erro", "Certificado não Liberado!");
+                    return "/org/organ_gerenciar_inscricoes.jsp";
+                }
+            }
+
+            
+//                Inscricao insc = inscServ.getInscricaoById(id);
+//                ia.setInscricaoId(id);
+//                ia.setConfirmaCertificado(true);
+//                ativServ.confirmaLiberacaoCertificadoAtividade(ia);
+            
             response.setContentType("application/pdf");
             response.setHeader("Content-Disposition", " attachment; filename=\"certificado_" + inscricao.getParticipante().getUsuario().getNome() + ".pdf\"");
 
