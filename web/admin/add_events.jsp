@@ -106,57 +106,86 @@
                 <%}%>
                  <%@include file="/error.jsp" %>
                 <!-- Adicionar Evento -->
-                 <form action="../ServletCentral?comando=CmdAdicionarEvento&operacao_evento=<%=evento == null ? 0 : evento.getId()%>" method="post">
+               <form action="../ServletCentral?comando=CmdAdicionarEvento&operacao_evento=<%=evento == null ? 0 : evento.getId()%>" method="post">
                 <div class="row">
-                   <div class = "col-lg-5 col-lg-offset-1">
+                   <div class = "col-md-offset-2 col-md-8">
                          <div class="form-group">
+                            <label for="text_a">Nome do Evento</label>
                             <input data-toggle="tooltip" title="Nome do Evento" class="form-control" type="text" name="nome_evento" placeholder="Nome" value="<%=nome%>" />
                          </div>
+                         
+                    <div class="row">
+                      <div class = "col-md-2">      
                           <div class="form-group">
+                            <label for="text_a">Sigla</label>
                             <input data-toggle="tooltip" title="Sigla do Evento" class="form-control" type="text" name="sigla_evento" placeholder="Sigla" value="<%=sigla%>" />
-                         </div>
+                          </div>
+                      </div>  
+                      <div class = "col-md-6">       
                          <div class="form-group">
+                             <label for="text_a">Tema do Evento</label>
                             <input data-toggle="tooltip" title="Tema do Evento" class="form-control" type="text" name="tema_evento" placeholder="Tema" value="<%=tema%>" />
                          </div>
-                         
-                         <div class="form-group">
-                            <input type="text" id="date-start-event" name="inicio_evento" value="<%=inicioEvento%>" class="form-control" data-toggle="tooltip" title="Data de Início do Evento" placeholder="Início do evento"/>
-                            <!--<input data-toggle="tooltip" title="Data de Início do Evento" class="form-control" type="text" id="data_initial"  placeholder="Início do evento" maxlength="10" name="inicio_evento" value="<%=inicioEvento%>" onkeypress="return formataData(this,event)"/>-->
-                         </div>
-                         <div class="form-group">
-                            <input type="text" id="date-end-event" name="fim_evento" value="<%=fimEvento%>" class="form-control" data-toggle="tooltip" title="Data de Fim do Evento" placeholder="Fim do evento"/>
-                            <!--<input data-toggle="tooltip" title="Data de Fim do Evento" class="form-control" id="data_finish" type="text" placeholder="Fim do evento" maxlength="10" name="fim_evento" value="<%=fimEvento%>" onkeypress="return formataData(this,event)"/>-->
-                         </div>
-                         <div class="form-group">
-                             <input type="text" id="date-start-in" name="inicio_periodo_inscricao" value="<%=inicioIn%>" class="form-control" data-toggle="tooltip" title="Data de Início das Inscrições" placeholder="Início do periodo de inscrição"/>
-                            <!--<input data-toggle="tooltip" title="Data de Início das Inscrições" class="form-control" id="data_initial_pi" type="text" placeholder="Início do periodo de inscrição" maxlength="10" name="inicio_periodo_inscricao" value="<%=inicioIn%>" onkeypress="return formataData(this,event)"/>-->
-                         </div>
-                         <div class="form-group">
-                             <input type="text" id="date-end-in" name="fim_periodo_inscricao" value="<%=fimIn%>" class="form-control" data-toggle="tooltip" title="Data de Fim das Inscrições" placeholder="Fim do periodo de inscrição"/>
-                            <!--<input data-toggle="tooltip" title="Data de Fim das Inscrições" class="form-control" id="data_finish_pi" type="text" placeholder="Fim do periodo de inscrição" maxlength="10" name="fim_periodo_inscricao" value="<%=fimIn%>" onkeypress="return formataData(this,event)"/>-->
-                         </div>
-                         <div class="form-group">
-                            <input data-toggle="tooltip" title="Limite de Atividades por Participante" class="form-control" id="max_at" type="text" name="limite_de_atividades_por_participante" placeholder="Maximo de atividades por participante"  value="<%=limiteDeAtividadesPorParticipante%>" onkeypress="return validaNumerosSilencioso(event)"/>
-                            <label for="max_at"><span class="label label-warning text-uppercase">Digite 0 (zero) para ilimitado</span></label>
-                         </div>
-                    </div>
-                    <div class="col-lg-6">  
-                        <div class="form-group">
-                            <label for="text_a">Descrição</label>
-                            <textarea data-toggle="tooltip" title="Descrição Geral do Evento" id="text_a" class="form-control" cols="1" rows="10" name="descricao"><%=descricao%></textarea>  
-                       </div>                          
-                        <label>O evento é gratuito?</label><br />
+                      </div>
+                      <div class = "col-md-4">    
+                         <label>O evento é gratuito?</label><br />
                         <label class="radio-inline">
-                            <input type="radio" name="gratuito" value="true" id="inlineRadio1"> Sim
+                            <input type="radio" name="gratuito" value="true" id="inlineRadio1"/> Sim
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="gratuito" value="false" id="inlineRadio2" checked> Não
-                        </label><br><br>                              
+                        </label>
+                      </div>  
+                    </div>  
+                         
+                    <div class="row">     
+                      <div class = "col-md-3">    
+                         <div class="form-group">
+                             <label for="text_a">Data do Início do Evento</label>                             
+                             <input type="text" id="date-start-event" name="inicio_evento" value="<%=inicioEvento%>" class="form-control" data-toggle="tooltip" title="Data de Início do Evento" placeholder="Início do evento"/>
+                            <!--<input data-toggle="tooltip" title="Data de Início do Evento" class="form-control" type="text" id="data_initial"  placeholder="Início do evento" maxlength="10" name="inicio_evento" value="<%=inicioEvento%>" onkeypress="return formataData(this,event)"/>-->
+                         </div>
+                      </div>   
+                      <div class = "col-md-3">       
+                         <div class="form-group">
+                            <label for="text_a">Data Final do Evento</label> 
+                            <input type="text" id="date-end-event" name="fim_evento" value="<%=fimEvento%>" class="form-control" data-toggle="tooltip" title="Data de Fim do Evento" placeholder="Fim do evento"/>
+                            <!--<input data-toggle="tooltip" title="Data de Fim do Evento" class="form-control" id="data_finish" type="text" placeholder="Fim do evento" maxlength="10" name="fim_evento" value="<%=fimEvento%>" onkeypress="return formataData(this,event)"/>-->
+                         </div>
+                      </div>  
+                      <div class = "col-md-3">       
+                         <div class="form-group">
+                             <label for="text_a">Início das Incrições</label>
+                             <input type="text" id="date-start-in" name="inicio_periodo_inscricao" value="<%=inicioIn%>" class="form-control" data-toggle="tooltip" title="Data de Início das Inscrições" placeholder="Início das inscrição"/>
+                            <!--<input data-toggle="tooltip" title="Data de Início das Inscrições" class="form-control" id="data_initial_pi" type="text" placeholder="Início do periodo de inscrição" maxlength="10" name="inicio_periodo_inscricao" value="<%=inicioIn%>" onkeypress="return formataData(this,event)"/>-->
+                         </div>
+                      </div>   
+                      <div class = "col-md-3">       
+                         <div class="form-group">
+                             <label for="text_a">Final das Incrições</label>
+                             <input type="text" id="date-end-in" name="fim_periodo_inscricao" value="<%=fimIn%>" class="form-control" data-toggle="tooltip" title="Data de Fim das Inscrições" placeholder="Fim das inscrição"/>
+                            <!--<input data-toggle="tooltip" title="Data de Fim das Inscrições" class="form-control" id="data_finish_pi" type="text" placeholder="Fim do periodo de inscrição" maxlength="10" name="fim_periodo_inscricao" value="<%=fimIn%>" onkeypress="return formataData(this,event)"/>-->
+                         </div>
+                      </div>
+                    </div>    
+                    <div class="form-group">
+                         <input data-toggle="tooltip" title="Limite de Atividades por Participante" class="form-control" id="max_at" type="hidden" name="limite_de_atividades_por_participante" value="0" onkeypress="return validaNumerosSilencioso(event)"/> 
+                            <!--<label for="text_a">Limite de Atividades por Participante</label> 
+                              <input data-toggle="tooltip" title="Limite de Atividades por Participante" class="form-control" id="max_at" type="text" name="limite_de_atividades_por_participante" placeholder="Atividades por participante"  value="<%=limiteDeAtividadesPorParticipante%>" onkeypress="return validaNumerosSilencioso(event)"/>
+                              <label for="max_at"><span class="label label-warning text-uppercase">Digite 0 (zero) para ilimitado</span></label>
+                             -->
+                    </div> 
+                              
+                    <div class="form-group">
+                         <label for="text_a">Descrição</label>
+                         <textarea data-toggle="tooltip" title="Descrição Geral do Evento" id="text_a" class="form-control" cols="1" rows="4" name="descricao"><%=descricao%></textarea>  
+                    </div>                          
                    
                    <div class="text-center">
                      <a href="javascript:history.back();" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
                      <button data-toggle="tooltip" title="Cadastrar" type="submit" class="btn btn-default" onclick="return confirmarCadastrado()">Cadastrar</button>
                    </div>
+                        
                  </div>  
                 </div> 
               </form>

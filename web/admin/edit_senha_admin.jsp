@@ -27,13 +27,16 @@
                 <h1 class="title-register">Alterar Senha</h1><hr>
                 <form action="../ServletCentral" method="post">
                     <div class="form-group">
-                        <input data-toggle="tooltip" title="Antiga Senha" type="password" maxlength="50" class="form-control" placeholder="Digita a antiga senha" name="oldsenha" required/>
+                         <label for="text_a">Senha Antiga</label>
+                        <input data-toggle="tooltip" title="Antiga Senha" type="password" maxlength="50" class="form-control" placeholder="Digita a senha antiga" name="oldsenha" required/>
                     </div>
                     <div class="form-group">
-                        <input data-toggle="tooltip" title="Senha" type="password" maxlength="50" class="form-control" placeholder="Digita a senha" name="senha" required/>
+                         <label for="text_a">Nova Senha</label>
+                        <input data-toggle="tooltip" title="Senha" type="password" maxlength="50" class="form-control" placeholder="Digita a nova senha" name="senha" required/>
                     </div>
                     <div class="form-group">
-                        <input data-toggle="tooltip" title="Repita a Senha" type="password" maxlength="50" class="form-control" placeholder="Repita a senha" name="rsenha" required/>
+                         <label for="text_a">Repita a Senha</label>
+                        <input data-toggle="tooltip" title="Repita a Senha" type="password" maxlength="50" class="form-control" placeholder="Repita a nova senha" name="rsenha" required/>
                     </div>
                     <input type="hidden" value="CmdEditAdmin" name="comando">
                     <input type="hidden" value="<%=admin.getUsuario().getId()%>" name="id">

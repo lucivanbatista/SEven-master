@@ -23,7 +23,8 @@
             <%-- Incluindo o Menu --%>
             <%@include file="admin_menu.jsp" %>
             <h1 class="titulo space-top">Olá, <%= nomeSaudacao%></h1>
-            <p>Esta é a página inicial do Administrador. Quando desejar retornar a esta página, clique na opção <span class="text-uppercase label label-info"><em>Home</em></span> no menu acima.</p>
+            <p>Esta é a página inicial do Administrador. <br/>Quando desejar retornar a esta página, 
+                clique na opção <span class="text-uppercase label label-default"><em>Home</em></span> no menu acima.</p>
             <br/>
             <%@include file="/error.jsp" %>
             <div class="table-responsive scroll-table">
