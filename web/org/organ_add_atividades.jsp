@@ -13,6 +13,7 @@
         <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>        
         <script src="../bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="../Script.js"></script>
+          <script type="text/javascript" src="../angularjs/checkTable.js"></script>
         <script type="text/javascript">
             function forceSubmitListarRelatoriosAtividades(formName) {
                 document.forms[formName].action = "organ_add_responsavel.jsp";
@@ -151,7 +152,7 @@
                         <div class="panel-cor panel-heading text-center">Horários da atividade</div>
                         <div class="panel-body">
                             <div class="col-lg-12 space-top">
-                                <table class="table table-hover text-center">
+                                <table class="table table-hover text-center" id="checkTable">
                                     <thead> 
                                         <tr>
                                             <th>Marcar</th>
@@ -171,13 +172,15 @@
                                                         checked = "checked=\"checked\"";
                                                     }%>
                                         <%}%>
-                                        <tr>
-                                            <td><input type="checkbox" name="cb_horario_<%=h1.getId()%>" value="ON" <%=checked%> class="chk_box"/></td>
-                                            <td><label><%=h1.printHorario()%></label></td>
+                                         <tr>
+                                            <td>
+                                                <input type="checkbox" name="cb_horario_<%=h1.getId()%>" id="chekbox" value="ON" <%=checked%> class="chk_box"/></td>
+                                            <td><label > <%=h1.printHorario()%></label></td>
                                         </tr>
-                                        <%} else {%>
+                                         <%} else {%>
                                         <tr>
-                                            <td><input type="checkbox" name="cb_horario_<%=h1.getId()%>" value="ON" class="chk_box"/></td>
+                                            <td>
+                                                <input type="checkbox" id="checkbox" name="cb_horario_<%=h1.getId()%>" value="ON" class="chk_box"/></td>
                                             <td><label><%=h1.printHorario()%></label></td>
                                         </tr>
                                         <%}
