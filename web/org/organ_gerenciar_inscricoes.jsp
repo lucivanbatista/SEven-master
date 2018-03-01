@@ -18,7 +18,7 @@
 
 <html>
     <head>
-      
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="../css/estilo.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon"/>
@@ -35,70 +35,7 @@
 
             <div id="content">
                 <h1 class="titulo">Visualizar as Inscrições do Evento<br/> <%=e.getNome()%></h1>
-                <%@include file="/error.jsp"%>
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center">Lista de todos os inscritos no evento</div>
-                    <div class="panel-body">  
-                        <div class="col-lg-12 space-top">
-                            <%if (inscricoesNoEvento == null || inscricoesNoEvento.isEmpty()) {%>
-                            <p style="text-align: center;"><label>Não há inscrições cadastradas</label></p>
-                            <%} else {%>
-                            <table class="table table-hover text-center">
-                                <thead>
-                                    <tr>
-                                        <th>Nome do inscrito</th>
-                                        <th>Tipo</th>
-                                        <th>Atividades</th>
-                                        <th>Status do Pagamento</th>
-                                        <th>Editar</th>
-                                        <th>Excluir</th>
-                                        <th>Certificado</th>
-                                        <th>Receber Pagamento</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <% for (Inscricao i : inscricoesNoEvento) {%>
-                                    <tr>
-                                        
-                                        <td><%= i.getParticipante().getUsuario().getNome()%></td>
-                                         <td><%= i.getModalidade().getTipo()%></td>
-                                        <td>
-                                            <%for (Atividade a : i.getAtividades()) {%>
-                                            <a style="margin-right: 5px;" href="../ServletCentral?comando=CmdListarInscritosEmAtividade&aId=<%=a.getId()%>"><%=a.getNome()%></a>
-                                            <%}%>
-                                        </td>
-                                        <%
-                                            if (i.isConfirmada()) {
-                                                estado = "Efetuado";
-                                                flag = 1;
-                                                pageContext.setAttribute("teste", flag);
-                                            } else {
-                                                estado = "Não Efetuado";
-                                                 flag = 0;
-                                                pageContext.setAttribute("teste", flag);
-                                            }
-                                        %>
-                                        <td><%=estado%></td>
-                                        <td><a href="../ServletCentral?comando=CmdBuscarInscricao&id=<%=i.getId()%>" title="Visualizar/Editar"><span class="text-uppercase label label-success">Visualizar / Editar</span></a></td>
-                                        <td><a href="../ServletCentral?comando=CmdOrganExcluirInscricao&iId=<%=i.getId()%>" onclick="return confirm('ATENÇÃO: Se você excluir uma inscrição que já foi paga ela não estará mais no sistema e não será possível recuperar a quantia paga. Também poderá causar a perda das vagas e dos certificados relacionados com esta inscrição. Tem certeza que dejesa excluir esta inscrição?');" title="Excluir"><span class="text-uppercase label label-danger">Excluir</span></a></td>
-                                        <td><a href="../ServletCentral?comando=CmdGerarCertificado&insc_id=<%=i.getId()%>" title="Gerar"><span class="text-uppercase label label-info">Gerar</span></a></td>
-                                        <c:set var = "est"  scope="page" value ="${teste}"/>
-                                        <c:if test = "${est == 1}">
-                                            <td><a href="../ServletCentral?comando=CmdReceberPagamento&id_inscricao=<%=i.getId()%>" title="" class="btn disabled" role="button" aria-disabled="true" ><span class="text-uppercase label label-primary " >Pagar</span></a>
-                                            </td>
-                                          </c:if>
-                                             <c:if test = "${est == 0}">
-                                            <td><a href="../ServletCentral?comando=CmdReceberPagamento&id_inscricao=<%=i.getId()%>" title="Pagar" ><span class="text-uppercase label label-primary" >Pagar</span></a>
-                                         </td>
-                                          </c:if>
-                                     </tr>
-                                    <%}%>
-                                </tbody>
-                            </table>
-                            <%}%>
-                        </div>
-                    </div>
-                </div>
+                    <%@include file="/error.jsp"%>
                 <div class="panel panel-default">
                     <div class="panel-heading text-center">Listagem de inscritos por atividade (Selecione a atividade)</div>
                     <div class="panel-body">  
@@ -147,12 +84,74 @@
                         </div>
                     </div>
                 </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">Lista de todos os inscritos no evento</div>
+                    <div class="panel-body">  
+                        <div class="col-lg-12 space-top">
+                            <%if (inscricoesNoEvento == null || inscricoesNoEvento.isEmpty()) {%>
+                            <p style="text-align: center;"><label>Não há inscrições cadastradas</label></p>
+                            <%} else {%>
+                            <table class="table table-hover text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Nome do inscrito</th>
+                                        <th>Tipo</th>
+                                        <th>Atividades</th>
+                                        <th>Status do Pagamento</th>
+                                        <th>Editar</th>
+                                        <th>Excluir</th>
+                                        <th>Certificado</th>
+                                        <th>Receber Pagamento</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for (Inscricao i : inscricoesNoEvento) {%>
+                                    <tr>
+
+                                        <td><%= i.getParticipante().getUsuario().getNome()%></td>
+                                        <td><%= i.getModalidade().getTipo()%></td>
+                                        <td>
+                                            <%for (Atividade a : i.getAtividades()) {%>
+                                            <a style="margin-right: 5px;" href="../ServletCentral?comando=CmdListarInscritosEmAtividade&aId=<%=a.getId()%>"><%=a.getNome()%></a>
+                                            <%}%>
+                                        </td>
+                                        <%
+                                            if (i.isConfirmada()) {
+                                                estado = "Efetuado";
+                                                flag = 1;
+                                                pageContext.setAttribute("teste", flag);
+                                            } else {
+                                                estado = "Não Efetuado";
+                                                flag = 0;
+                                                pageContext.setAttribute("teste", flag);
+                                            }
+                                        %>
+                                        <td><%=estado%></td>
+                                        <td><a href="../ServletCentral?comando=CmdBuscarInscricao&id=<%=i.getId()%>" title="Visualizar/Editar"><span class="text-uppercase label label-success">Visualizar / Editar</span></a></td>
+                                        <td><a href="../ServletCentral?comando=CmdOrganExcluirInscricao&iId=<%=i.getId()%>" onclick="return confirm('ATENÇÃO: Se você excluir uma inscrição que já foi paga ela não estará mais no sistema e não será possível recuperar a quantia paga. Também poderá causar a perda das vagas e dos certificados relacionados com esta inscrição. Tem certeza que dejesa excluir esta inscrição?');" title="Excluir"><span class="text-uppercase label label-danger">Excluir</span></a></td>
+                                        <td><a href="../ServletCentral?comando=CmdGerarCertificado&insc_id=<%=i.getId()%>" title="Gerar"><span class="text-uppercase label label-info">Gerar</span></a></td>
+                                        <c:set var = "est"  scope="page" value ="${teste}"/>
+                                        <c:if test = "${est == 1}">
+                                            <td><a href="../ServletCentral?comando=CmdReceberPagamento&id_inscricao=<%=i.getId()%>" title="" class="btn disabled" role="button" aria-disabled="true" ><span class="text-uppercase label label-primary " >Pagar</span></a>
+                                            </td>
+                                        </c:if>
+                                        <c:if test = "${est == 0}">
+                                            <td><a href="../ServletCentral?comando=CmdReceberPagamento&id_inscricao=<%=i.getId()%>" title="Pagar" ><span class="text-uppercase label label-primary" >Pagar</span></a>
+                                            </td>
+                                        </c:if>
+                                    </tr>
+                                    <%}%>
+                                </tbody>
+                            </table>
+                            <%}%>
+                        </div>
+                    </div>
+                </div>
                 <a href="organ_inscricoes.jsp" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>  
             </div>
             <div class="footer-top">
                 <%@include file="../footer.jsp" %>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
