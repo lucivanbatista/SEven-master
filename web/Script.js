@@ -1,9 +1,9 @@
 function validaNumeros(event)
 {
     var Tecla = event.which;
-    if(Tecla == null)
+    if (Tecla == null)
         Tecla = event.keyCode;
-    if ( (Tecla < 48 || Tecla > 57) && (Tecla < 0 || Tecla > 27)){
+    if ((Tecla < 48 || Tecla > 57) && (Tecla < 0 || Tecla > 27)) {
         event.returnValue = false;
         alert("Só devem ser digitados números!")
         return false;
@@ -15,9 +15,9 @@ function validaNumeros(event)
 function validaNumerosSilencioso(event)
 {
     var Tecla = event.which;
-    if(Tecla == null)
+    if (Tecla == null)
         Tecla = event.keyCode;
-    if ( (Tecla < 48 || Tecla > 57) && (Tecla < 0 || Tecla > 27)){
+    if ((Tecla < 48 || Tecla > 57) && (Tecla < 0 || Tecla > 27)) {
         event.returnValue = false;
         return false;
     }
@@ -25,17 +25,17 @@ function validaNumerosSilencioso(event)
     return true;
 }
 
-function confirmarExclucao(){
+function confirmarExclucao() {
 
-    if(confirm("Deseja Realmente Excluir?")){
+    if (confirm("Deseja Realmente Excluir?")) {
         return true;
     }
     return false;
 }
 
-function confirmarCadastrado(){
+function confirmarCadastrado() {
 
-    if(confirm("Deseja Realmente Efetuar Operação?")){
+    if (confirm("Deseja Realmente Efetuar Operação?")) {
         return true;
     }
     return false;
@@ -43,11 +43,11 @@ function confirmarCadastrado(){
 }
 
 function formatar(objeto, sMask, evtKeyPress) {
-    var i, nCount, sValue, fldLen, mskLen,bolMask, sCod, nTecla;
+    var i, nCount, sValue, fldLen, mskLen, bolMask, sCod, nTecla;
     //funcao para formatar campo CPF, DATA, TEL, CEP, COD
-    if(document.all) { // Internet Explorer
+    if (document.all) { // Internet Explorer
         nTecla = evtKeyPress.keyCode;
-    } else if(document.layers) { // Nestcape
+    } else if (document.layers) { // Nestcape
         nTecla = evtKeyPress.which;
     } else {
         nTecla = evtKeyPress.which;
@@ -58,20 +58,20 @@ function formatar(objeto, sMask, evtKeyPress) {
     sValue = objeto.value;
     // Limpa todos os caracteres de formata‡ão que
     // j  estiverem no campo.
-    sValue = sValue.toString().replace( "-", "" );
-    sValue = sValue.toString().replace( "-", "" );
-    sValue = sValue.toString().replace( ".", "" );
-    sValue = sValue.toString().replace( ".", "" );
-    sValue = sValue.toString().replace( "/", "" );
-    sValue = sValue.toString().replace( "/", "" );
-    sValue = sValue.toString().replace( ":", "" );
-    sValue = sValue.toString().replace( ":", "" );
-    sValue = sValue.toString().replace( "(", "" );
-    sValue = sValue.toString().replace( "(", "" );
-    sValue = sValue.toString().replace( ")", "" );
-    sValue = sValue.toString().replace( ")", "" );
-    sValue = sValue.toString().replace( " ", "" );
-    sValue = sValue.toString().replace( " ", "" );
+    sValue = sValue.toString().replace("-", "");
+    sValue = sValue.toString().replace("-", "");
+    sValue = sValue.toString().replace(".", "");
+    sValue = sValue.toString().replace(".", "");
+    sValue = sValue.toString().replace("/", "");
+    sValue = sValue.toString().replace("/", "");
+    sValue = sValue.toString().replace(":", "");
+    sValue = sValue.toString().replace(":", "");
+    sValue = sValue.toString().replace("(", "");
+    sValue = sValue.toString().replace("(", "");
+    sValue = sValue.toString().replace(")", "");
+    sValue = sValue.toString().replace(")", "");
+    sValue = sValue.toString().replace(" ", "");
+    sValue = sValue.toString().replace(" ", "");
     fldLen = sValue.length;
     mskLen = sMask.length;
     i = 0;
@@ -84,8 +84,7 @@ function formatar(objeto, sMask, evtKeyPress) {
         if (bolMask) {
             sCod += sMask.charAt(i);
             mskLen++;
-        }
-        else {
+        } else {
             sCod += sValue.charAt(nCount);
             nCount++;
         }
@@ -93,21 +92,19 @@ function formatar(objeto, sMask, evtKeyPress) {
     }
     objeto.value = sCod;
     if (nTecla != 8) { // backspace
-        if (sMask.charAt(i-1) == "9") { // apenas n£meros...
+        if (sMask.charAt(i - 1) == "9") { // apenas n£meros...
             return ((nTecla > 47) && (nTecla < 58));
-        }
-        else { // qualquer caracter...
+        } else { // qualquer caracter...
             return true;
         }
-    }
-    else {
+    } else {
         return true;
     }
 }
 
 function formataContato(Campo, teclapres)
 {
-    if(!validaNumerosSilencioso(teclapres)){
+    if (!validaNumerosSilencioso(teclapres)) {
         return false;
     }
     return formatar(Campo, '(##)########', teclapres);
@@ -115,15 +112,15 @@ function formataContato(Campo, teclapres)
 
 function formataData(Campo, teclapres)
 {
-    if(!validaNumerosSilencioso(teclapres)){
+    if (!validaNumerosSilencioso(teclapres)) {
         return false;
     }
     return formatar(Campo, '##/##/####', teclapres);
 }
 
-function formataCPF(campo,teclapres)
+function formataCPF(campo, teclapres)
 {
-    if(!validaNumerosSilencioso(teclapres)){
+    if (!validaNumerosSilencioso(teclapres)) {
         return false;
     }
     return formatar(campo, '###.###.###-##', teclapres);
@@ -131,8 +128,8 @@ function formataCPF(campo,teclapres)
 
 //variavel auxiliar para saber se o usuario gerou certificado  na sessão
 var flagCertificadoGerado = false;
-function clickGerarCerticiado(flagUsuarioSessao, id){
-    if(flagUsuarioSessao || flagCertificadoGerado){
+function clickGerarCerticiado(flagUsuarioSessao, id) {
+    if (flagUsuarioSessao || flagCertificadoGerado) {
         return true;
     } else {
         var link = document.getElementById('linkGerarCertificado').href;
@@ -142,20 +139,30 @@ function clickGerarCerticiado(flagUsuarioSessao, id){
     }
 }
 
-function clickSimModal(){
+function clickSimModal() {
     flagCertificadoGerado = true;
     document.getElementById('openModal').style = "display: none";
 }
 
-$(function(){
-    $('#checkTable tr').click(function(event) {
+$(function () {
+    $('#checkTable tr').click(function (event) {
         if (event.target.type !== 'checkbox') {
             $(':checkbox', this).trigger('click');
         }
     });
 });
 
+function searchPart() {
+    var searchInput = $("#searchInput").val().toUpperCase();
+    $("#myTable tbody tr").each(function () {
+        if ($(this).find("td:first-child").html().toUpperCase().indexOf(searchInput) !== -1) {
+            $(this).show();
+        } else {
+            $(this).hide();
+        }
+    })
+};
 
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();   
+$(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
 });

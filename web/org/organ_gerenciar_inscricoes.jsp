@@ -26,6 +26,7 @@
         <title>SEven</title>
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
         <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
+        <script language="javascript" src="../Script.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
     </head>
     <body>
@@ -51,7 +52,7 @@
                                         <th>Local</th>
                                         <th>Responsável</th>
                                         <th>Capacidade</th>
-                                        <th>N Inscritos</th>
+                                        <th>N° Inscritos</th>
 
                                     </tr>
                                 </thead>
@@ -86,12 +87,20 @@
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading text-center">Lista de todos os inscritos no evento</div>
-                    <div class="panel-body">  
-                        <div class="col-lg-12 space-top">
+                    <div class="panel-body">
+                        <div align="center" class="space-top">
+                            <div class="row"> 
+                                <div class="input-group">
+                                    <label>Buscar Participante:</label>
+                                    <input type="text" id="searchInput" class="form-control" placeholder="Buscar Participante" onkeyup="searchPart()"/>
+                                </div>                                    
+                            </div>
+                        </div>
+                        <div class="col-lg-12 space-top overflowController">
                             <%if (inscricoesNoEvento == null || inscricoesNoEvento.isEmpty()) {%>
                             <p style="text-align: center;"><label>Não há inscrições cadastradas</label></p>
                             <%} else {%>
-                            <table class="table table-hover text-center">
+                            <table class="table table-hover text-center" id="myTable">
                                 <thead>
                                     <tr>
                                         <th>Nome do inscrito</th>
