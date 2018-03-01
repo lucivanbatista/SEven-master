@@ -13,7 +13,6 @@
         <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>        
         <script src="../bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="../Script.js"></script>
-          <script type="text/javascript" src="../angularjs/checkTable.js"></script>
         <script type="text/javascript">
             function forceSubmitListarRelatoriosAtividades(formName) {
                 document.forms[formName].action = "organ_add_responsavel.jsp";

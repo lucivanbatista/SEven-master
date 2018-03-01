@@ -52,15 +52,14 @@
         <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="../Script.js"></script>
-
     </head>
     <body>
         <div id="container">
-
             <%-- Incluindo Menu --%>
             <%@include file="part_menu.jsp" %>
 
             <div id="content">
+                <%@include file="/error.jsp"%>
                 <%if (modalidades.isEmpty()) {
                         session.setAttribute("erro", "Atenção: erro interno - não foram recuperadas as modalidades de inscricao com sucesso.");
                     }
@@ -68,10 +67,7 @@
                         session.setAttribute("erro", "Atenção: erro interno - não foram recuperados os tipos de atividade com sucesso.");
                     }
                 %>
-
-
                 <h1 class="titulo"><%=e.getNome()%></h1>
-                <%@include file="/error.jsp"%>
                 <div class="panel panel-default space-top">
                     <div class="panel-cor panel-heading text-center">Tabela de preços</div>
                     <div class="panel-body">                       

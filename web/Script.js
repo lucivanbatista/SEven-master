@@ -147,6 +147,14 @@ function clickSimModal(){
     document.getElementById('openModal').style = "display: none";
 }
 
+$(function(){
+    $('#checkTable tr').click(function(event) {
+        if (event.target.type !== 'checkbox') {
+            $(':checkbox', this).trigger('click');
+        }
+    });
+});
+
 
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
