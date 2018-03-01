@@ -24,7 +24,7 @@
            <div id="content">
              <%@include file="/error.jsp"%>   
              <div class="panel panel-default">
-                <div class="panel-heading text-center"><%=en.getNome()%> <br> Dados do organizador</div>
+                 <div class="panel-heading text-center"><%=en.getNome()%><br/> Dados do organizador</div>
                 <div class="panel-body"> 
                        
             <form action="../ServletCentral" method="post">

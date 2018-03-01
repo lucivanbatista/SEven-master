@@ -20,11 +20,14 @@
             </div>
                 
             <div class="margin-contato-address">
+              <center> 
                 <address>
                     <span class="text-bold">Universidade Federal do Ceará - Campus Quixadá</span><br>
                     Estrada do Cedro, KM 5, 63900000 - Quixadá - CE<br/>
-                    <em><a href="mailto: <pet-ufc-si_quixada@googlegroups.com>,"> pet-ufc-si_quixada@googlegroups.com</a></em>
+                    <em><a href="mailto: <pet-ufc-si_quixada@googlegroups.com>,"> pet-ufc-si_quixada@googlegroups.com</a></em><br/>
+                    <em><a href="mailto: <petufc.quixada@gmail.com>,"> petufc.quixada@gmail.com </a></em>
                 </address>
+              </center>   
             </div>
         </div>
             
