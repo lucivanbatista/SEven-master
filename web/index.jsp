@@ -57,33 +57,43 @@
                     </div>
                 </div>
                 <div id="content_right">
+                    
+                   <div class="col-md-11 col-md-offset-1"> 
                     <h1 class="titulo">Login</h1>
-                      <hr/>
-                    <center>
+                      <hr/>   
+                      
                         <form action="ServletCentral" method="post">
                             <input type="hidden" name="comando" value="CmdLogin" />
                                 <legend class="nodisplay">Formulário de Login</legend>
-                                  <div class="form-group">
-                                    <input data-toggle="tooltip" title="Email" type="text" class="form-control" id="email" placeholder="Email" name="email"/>
-                                </div>
+                               
                                 <div class="form-group">
-                                    <input data-toggle="tooltip" title="Senha" type="password" class="form-control" id="senha" placeholder="Senha" name="senha"/>
-                                </div>
+                                      <label for="">Email</label>
+                                         <input data-toggle="tooltip" title="Email" type="text" class="form-control"  id="email" placeholder="Digite seu Email" name="email"/>
+                                </div>  
+                                
                                 <div class="form-group">
-                                <select name="conta"  class="form-control" id="conta">
-                                    <option value="null">Tipo de conta</option>
+                                      <label for="">Senha</label>
+                                         <input data-toggle="tooltip" title="Senha" type="password" class="form-control" id="senha" placeholder="Digite sua Senha" name="senha"/>
+                                </div>      
+                                
+                                <div class="form-group">
+                                     <label for="">Tipo de conta</label>
+                                  <select name="conta"  class="form-control" id="conta">
                                     <option value="participante">Participante</option>
                                     <option value="organizador">Organizador</option>
                                     <option value="administrador">Administrador</option>
-                                </select>
+                                  </select>
                                 </div>
                                 <%@include file="error.jsp" %>
-                                <button data-toggle="tooltip" title="Submeter" type="submit" class="btn btn-default">Submeter</button>
-                                <blockquote><a href="recuperar_senha.jsp">Esqueci minha senha</a><br/>
-                                            <a href="cadastro.jsp">Cadastre-se aqui</a>
-                                </blockquote>
+                                <center>
+                                    <button data-toggle="tooltip" title="Submeter" type="submit" class="btn btn-default">Submeter</button><br/><br/>
+                                  
+                                   <blockquote><a href="recuperar_senha.jsp">Esqueci minha senha</a><br/>
+                                                <a href="cadastro.jsp">Cadastre-se aqui</a>
+                                    </blockquote>
+                                </center> 
                         </form>
-                    </center>   
+                   </div>
                 </div>
             </div>
             <%@include file="footer.jsp" %>

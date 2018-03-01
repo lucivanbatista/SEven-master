@@ -48,7 +48,8 @@
                         <form action="ServletCentral" method="post">
                             <input type="hidden" name="comando" value="CmdValidarDocumento" />
                            <div class="form-group">
-                                <input data-toggle="tooltip" title="Código de Verificação" type="text" class="form-control" id="codigo" placeholder="Código de validação" name="codigo" />
+                                   <label for="">Código de Verificação</label>
+                                <input data-toggle="tooltip" title="Código de Verificação" type="text" class="form-control" id="codigo" placeholder="Digite o Código de validação" name="codigo" />
                            </div>
                              <%@include file="error.jsp" %>
                             <p class="text-center"><button data-toggle="tooltip" title="Validar Documento" type="submit" class="btn btn-default">Validar Documento</button></p>

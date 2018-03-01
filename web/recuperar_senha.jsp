@@ -19,7 +19,8 @@
             <h1 class="title-register">Recuperar Senha</h1><hr>
             <form action="ServletCentral?comando=CmdRecuperarSenha" method="POST">
                 <div class="form-group">
-                    <input data-toggle="tooltip" title="Email" type="text" class="form-control" placeholder="Email cadastrado" name="email" required/>
+                   <label for="">Email cadastrado</label>
+                    <input data-toggle="tooltip" title="Email Cadastrado" type="text" class="form-control" placeholder="Digite o Email Cadastrado" name="email" required/>
                 </div>
                 <div align="center"><button data-toggle="tooltip" title="Submeter" type="submit" class="btn btn-default ">Submeter</button></div>
             </form>

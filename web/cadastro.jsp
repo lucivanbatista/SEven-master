@@ -26,28 +26,39 @@
                 <h3><%=mensagem%></h3><br />
                 <% } %>
                
+              
                 <form action="ServletCentral" method="post">
                     <input type="hidden" name="comando" value="CmdCadastrarParticipante" />
+                       
                          <div class="form-group">
+                              <label for="">Nome Completo</label>
                             <input data-toggle="tooltip" title="Nome Completo" type="text" maxlength="50" class="form-control" id="email" placeholder="Nome completo" name="nome" required/>
                          </div>
                          <div class="form-group">
+                              <label for="">Email</label>
                             <input data-toggle="tooltip" title="Email" type="email" maxlength="50" class="form-control" id="email" placeholder="Email" name="email" required/>
                          </div>
                          <div class="form-group">
+                              <label for="">Instituição</label>
                             <input data-toggle="tooltip" title="Instituição" type="text" maxlength="50" class="form-control" id="email" placeholder="Instituição" name="instituicao" required/>
                          </div>
-                         <div class="form-group">
-                            <input data-toggle="tooltip" title="Senha" type="password" maxlength="18" minlength="6" class="form-control" id="email" placeholder="Senha" name="senha" required/>
-                         </div>
-                         <div class="form-group">
-                            <input data-toggle="tooltip" title="Repita a Senha" type="password" maxlength="18" minlength="6" class="form-control" id="email" placeholder="Repita a senha" name="r-senha" required/>
-                         </div>
+                         <div class="row">  
+                            <div class="form-group col-md-6">
+                                <label for="">Senha</label>
+                                <input data-toggle="tooltip" title="Senha" type="password" maxlength="18" minlength="6" class="form-control" id="email" placeholder="Senha" name="senha" required/>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="">Repita a senha</label>
+                                <input data-toggle="tooltip" title="Repita a Senha" type="password" maxlength="18" minlength="6" class="form-control" id="email" placeholder="Repita a senha" name="r-senha" required/>
+                            </div>
+                        </div>      
                         <%@include file="error.jsp" %>
-                        <div class="col-md-14 text-center"> 
-                        <button data-toggle="tooltip" title="Submeter" style="width: 200px;" type="submit" class="btn btn-default">Submeter</button>
+                        <div class="text-center"> 
+                        <button data-toggle="tooltip" title="Submeter" style="width: 200px;" type="submit" class="btn btn-default">Cadastar</button>
                         </div>
-                </form></br>
+                </form>
+                     
+                <br/>
                 <a href="javascript:history.back();" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
           </div>
          <%@include file="footer.jsp" %>
