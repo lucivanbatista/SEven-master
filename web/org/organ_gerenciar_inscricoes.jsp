@@ -40,7 +40,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading text-center">Listagem de inscritos por atividade (Selecione a atividade)</div>
                     <div class="panel-body">  
-                        <div class="col-lg-12 space-top">
+                        <div class="col-lg-12 space-top overflowController">
                             <%if (ats == null || ats.size() == 0) {%>
                             <center><label>Sem atividades no momento</label></center>
                                 <%} else {%>
