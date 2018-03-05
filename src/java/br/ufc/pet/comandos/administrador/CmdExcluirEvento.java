@@ -25,6 +25,10 @@ public class CmdExcluirEvento implements Comando {
         EventoService s = new EventoService();
         Evento e = s.getEventoById(cod);
         ArrayList<Evento> evts = admin.getEventos();
+        if(e.getOrganizadores().size() > 0){
+            session.setAttribute("erro", "Evento com Organizadores, remova-os antes de proseguir");
+            return "/admin/index.jsp";
+        }
         if (s.excluir(e)) {
             for (int i = 0; i < evts.size(); i++) {
                 if (evts.get(i).getId().equals(cod)) {

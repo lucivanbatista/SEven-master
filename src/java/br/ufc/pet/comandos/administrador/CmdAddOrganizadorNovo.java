@@ -25,18 +25,29 @@ public class CmdAddOrganizadorNovo implements Comando {
         HttpSession session = request.getSession(true);
         Evento en = (Evento) session.getAttribute("evento");
         String nome = (String) request.getParameter("nome");
+        session.setAttribute("nome", nome);
         String rua = (String) request.getParameter("rua");
+        session.setAttribute("rua", rua);
         String bairro = (String) request.getParameter("bairro");
+        session.setAttribute("bairro", bairro);
         String sexo = (String) request.getParameter("sexo");
+        session.setAttribute("sexo", sexo);
         String email = (String) request.getParameter("email");
+        session.setAttribute("email", email);
         String telefone = (String) request.getParameter("fone");
+        session.setAttribute("telefone", telefone);
         String data = (String) request.getParameter("data");
+        session.setAttribute("data", data);
         String instituicao = (String) request.getParameter("instituicao");
+        session.setAttribute("instituicao", instituicao);
         String uf = (String) request.getParameter("uf");
+        session.setAttribute("uf", uf);
         String senha = (String) request.getParameter("senha");
         String ConfSenha = (String) request.getParameter("confirmacaoSenha");
         String cidade = (String) request.getParameter("cidade");
+        session.setAttribute("cidade", cidade);
         String numero = (String) request.getParameter("numero");
+        session.setAttribute("numero", numero);
         String manterAti = (String) request.getParameter("manterAtividade");
         String manterMod = (String) request.getParameter("manterModulo");
         Date date = UtilSeven.treatToDate(data);
@@ -82,6 +93,7 @@ public class CmdAddOrganizadorNovo implements Comando {
                     if (orgaS.adicionar(orga)) {
                         en.addOrganizador(o);
                         o.setOrganizacoes(orga);
+                        session.setAttribute("organizador", o);
                         session.setAttribute("sucesso", "cadastrado com sucesso!");
                         return "/admin/organ_listar_movimentacao.jsp";
                     }

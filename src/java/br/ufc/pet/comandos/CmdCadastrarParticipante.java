@@ -22,8 +22,11 @@ public class CmdCadastrarParticipante implements Comando {
 
         //Recuperar dados do formulário.
         String nome = request.getParameter("nome");
+        session.setAttribute("nome", nome);
         String email = request.getParameter("email");
+        session.setAttribute("email", email);
         String instituicao = request.getParameter("instituicao");
+        session.setAttribute("instituicao", instituicao);
         String senha = request.getParameter("senha");
         String confSenha = request.getParameter("r-senha");
 
@@ -63,6 +66,5 @@ public class CmdCadastrarParticipante implements Comando {
             session.setAttribute("erro", "Erro ao tentar cadastrar participante.");
             return "/cadastro.jsp";
         }
-
     }
 }
