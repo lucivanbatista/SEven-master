@@ -7,23 +7,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/*
- * @author ismaily
- */
-public class CmdEncerrarEvento implements Comando{
+public class CmdAtivarEvento implements Comando{
 
     @Override
     public String executa(HttpServletRequest request, HttpServletResponse response) {
-        HttpSession session = request.getSession(true);
-        EventoService es= new EventoService();
-        Long id= Long.parseLong(request.getParameter("id"));
-        if(es.encerrar(id)){
-            session.setAttribute("sucesso", "Evento encerrado com sucesso!");
+        HttpSession session = request.getSession();
+        EventoService es = new EventoService();
+        Long id = Long.parseLong(request.getParameter("id"));
+        if(es.ativar(id)){
+            session.setAttribute("sucesso", "Evento ativado com sucesso!");
             Administrador admin = (Administrador) session.getAttribute("user");
             admin.setEventos(es.buscarAllEventos());
+            return "/admin/eventos_encerrados.jsp";
         }else{
-            session.setAttribute("erro", "Erro ao encerrar evento!");
+            session.setAttribute("erro", "Erro ao ativar evento!");
+            return "/admin/eventos_encerrados.jsp";
         }
-        return "/admin/index.jsp";
     }
 }

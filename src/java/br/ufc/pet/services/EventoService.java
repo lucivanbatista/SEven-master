@@ -47,6 +47,16 @@ public class EventoService {
             return false;
         }
     }
+    
+    public boolean ativar(Long id) {
+        try {
+            eventoDAO.ativar(id);
+            return true;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
 
     public boolean excluir(Evento evento) {
         try {

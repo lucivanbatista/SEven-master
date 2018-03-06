@@ -10,6 +10,7 @@ import br.ufc.pet.comandos.CmdVisualizarTodasProgramacoes;
 import br.ufc.pet.comandos.administrador.CmdAddOrganizadorNovo;
 import br.ufc.pet.comandos.administrador.CmdAdicionarEvento;
 import br.ufc.pet.comandos.administrador.CmdAlterarEvento;
+import br.ufc.pet.comandos.administrador.CmdAtivarEvento;
 import br.ufc.pet.comandos.administrador.CmdBuscarEvento;
 import br.ufc.pet.comandos.administrador.CmdBuscarUsuario;
 import br.ufc.pet.comandos.administrador.CmdEditAdmin;
@@ -251,6 +252,8 @@ public class ServletCentral extends HttpServlet {
         comandos.put("CmdRecuperarSenha", cmdo);
         cmdo = new CmdEncerrarEvento();
         comandos.put("CmdEncerrarEvento", cmdo);
+        cmdo = new CmdAtivarEvento();
+        comandos.put("CmdAtivarEvento", cmdo);
         cmdo = new CmdListarTipoAtividade();
         comandos.put("CmdListarTipoAtividade", cmdo);
         cmdo = new CmdAdicionarTipoAtividade();

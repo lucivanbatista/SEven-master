@@ -100,7 +100,7 @@ public class CmdAddOrganizadorNovo implements Comando {
                 }
             }
             session.setAttribute("erro", " falha ao cadastrar!");
-            return "/admin/organ_listar_movimentacao.jsp";
+            return "/admin/admin_add_organ_novo.jsp";
 
 
 

@@ -3,8 +3,8 @@
 <%@page import="br.ufc.pet.evento.Evento" %>
 <%@include file="../ErroAutenticacaoUser.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<%    Administrador admin = (Administrador) session.getAttribute("user");
-    String nomeSaudacao = admin.getUsuario().getNome().split(" ")[0];
+<%
+            Administrador admin = (Administrador) session.getAttribute("user");
 %>
 <html>
     <head>
@@ -34,9 +34,10 @@
                             <th>Sigla</th>
                             <th>Nome</th>
                             <th>Período de Inscrição</th>
-                            <th>Excluir</th>
-                            <th>Alterar Dados</th>
-                            <th>Gerenciar Organizador</th>
+                            <th>Reativar</th>
+                            <!--<th>Excluir</th>-->
+                            <!--<th>Alterar Dados</th>-->
+                            <!--<th>Gerenciar Organizador</th>-->
                             <th>Programação</th>
                         </tr>
                     </thead>
@@ -46,9 +47,10 @@
                             <td><%=E.getSigla()%></td>
                             <td><%=E.getNome()%></td>
                             <td><%=br.ufc.pet.util.UtilSeven.treatToString(E.getInicioPeriodoInscricao()) + "</br>" + br.ufc.pet.util.UtilSeven.treatToString(E.getFimPeriodoInscricao())%></td>
-                            <td><a href="../ServletCentral?comando=CmdExcluirEvento&id=<%=E.getId()%>" onclick="return confirmarExclucao()"><span class="text-uppercase label label-danger">Excluir</span></a></td>
-                            <td><a href="../ServletCentral?comando=CmdBuscarEvento&id=<%=E.getId()%>"><span class="text-uppercase label label-success">Alterar</span></a></td>
-                            <td><a href="../ServletCentral?comando=CmdListarOrganizadorEventos&idEvento=<%=E.getId()%>" title="Gerenciar" ><span class="text-uppercase label label-primary">Gerenciar</span></a> </td>
+                            <td><a href="../ServletCentral?comando=CmdAtivarEvento&id=<%=E.getId()%>"><span class="text-uppercase label label-success">Ativar</span></a></td>
+                            <!--<td><a href="../ServletCentral?comando=CmdExcluirEvento&id=<%=E.getId()%>" onclick="return confirmarExclucao()"><span class="text-uppercase label label-danger">Excluir</span></a></td>-->
+                            <!--<td><a href="../ServletCentral?comando=CmdBuscarEvento&id=<%=E.getId()%>"><span class="text-uppercase label label-success">Alterar</span></a></td>-->
+                            <!--<td><a href="../ServletCentral?comando=CmdListarOrganizadorEventos&idEvento=<%=E.getId()%>" title="Gerenciar" ><span class="text-uppercase label label-primary">Gerenciar</span></a> </td>-->
                             <td><a href="../ServletCentral?comando=CmdVisualizarProgramacao&id=<%=E.getId()%>" title="Programacao" ><span class="text-uppercase label label-info">Visualizar</span></a> </td>
                         </tr>
                         <% }%>

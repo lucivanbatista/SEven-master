@@ -44,12 +44,14 @@
     </update>
     
     <update id="encerrarEvento" parameterClass="long">
-
         UPDATE evento.evento SET ativo = FALSE
         WHERE id = #id#;
-        
     </update>
-
+    
+    <update id="ativarEvento" parameterClass="long">
+        UPDATE evento.evento SET ativo = TRUE
+        WHERE id = #id#;
+    </update>
 
     <delete id="deleteEvento" parameterClass="long">
         DELETE FROM evento.evento WHERE id = #var#;

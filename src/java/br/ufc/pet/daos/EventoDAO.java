@@ -18,10 +18,15 @@ public class EventoDAO {
     public void update(Evento evento) throws SQLException{
         PostgresMapConfig.getSqlMapClient().update("updateEvento", evento);
     }
-     public void encerrar(Long id) throws SQLException{
+    
+    public void encerrar(Long id) throws SQLException{
         PostgresMapConfig.getSqlMapClient().update("encerrarEvento", id);
     }
-
+    
+    public void ativar(Long id) throws SQLException{
+        PostgresMapConfig.getSqlMapClient().update("ativarEvento", id);
+    }
+    
     public void delete(Long id) throws SQLException{
         PostgresMapConfig.getSqlMapClient().delete("deleteEvento", id);
     }
