@@ -35,6 +35,8 @@ public class CmdExcluirEvento implements Comando {
                     evts.remove(i);
                 }
             }
+            admin.setEventos(evts);
+            session.setAttribute("user", admin);
             session.setAttribute("sucesso", "Evento excluído com sucesso");
         } else {
             session.setAttribute("erro", "Erro ao excluir evento");

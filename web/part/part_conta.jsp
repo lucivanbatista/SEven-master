@@ -51,12 +51,22 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-         <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon"/> 
+        <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon"/> 
         <link href="../css/estilo.css" rel="stylesheet" type="text/css" />
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <title>SEven</title>
+        <link rel="stylesheet" href="../css/ripples.min.css" />
+        <link rel="stylesheet" href="../css/bootstrap-material-datetimepicker.css" />
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <title>SEven</title> 
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
+        <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script src="../js/ripples.min.js"></script>
+        <script src="../js/material.min.js"></script>
+        <script type="text/javascript" src="../js/moment-with-locales.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap-material-datetimepicker.js"></script>
+	<script type="text/javascript" src="../js/datetimepicker.js"></script>       
         <script type="text/javascript"  language="javascript" src="../Script.js"></script>        
     </head>
     <body>
@@ -94,7 +104,7 @@
                                         <input data-toggle="tooltip" title="Email" placeholder="* E-mail" type="text" maxlength="50" value="<%=part.getUsuario().getEmail()%>" name="email" class="form-control"/>
                                     </div>
                                     <div class="form-group">
-                                        <input data-toggle="tooltip" title="Data de Nascimento" placeholder="Data de Nascimento" type="text" name="dt_nascimento" value="<%=data%>" onkeypress="return formataData(this, event)" maxlength="10" class="form-control"/>
+                                        <input data-toggle="tooltip" title="Data de Nascimento" placeholder="Data de Nascimento" type="text" name="dt_nascimento" value="<%=data%>" id="datenasc" maxlength="10" class="form-control"/>
                                     </div>
                                     <div class="form-group">                                      
                                         <select class="form-control" id="sexo" name="sexo">

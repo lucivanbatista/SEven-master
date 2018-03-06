@@ -24,6 +24,20 @@ $(document).ready(function()
                         nowText: 'Hoje'
 		});
                 
+                $('#datenasc').bootstrapMaterialDatePicker
+                ({
+			format: 'DD/MM/YYYY',
+			lang: 'pt',
+			time: false,
+			clearButton: false,
+                        nowButton: true,
+                        cancelText: 'Cancelar',
+                        clearText: 'Limpar',
+                        okText: 'Confirmar',
+                        nowText: 'Hoje',
+                        maxDate: new Date()
+		});
+                
                 $('#date-end-event').bootstrapMaterialDatePicker
                 ({ 
                        format: 'DD/MM/YYYY',
@@ -98,5 +112,5 @@ $(document).ready(function()
                         $("#date-end-in").prop("disabled", false);
                     });
                 
-		$.material.init()
+		$.material.init();
 	});

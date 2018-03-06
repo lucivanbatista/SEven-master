@@ -84,9 +84,19 @@
         <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon"/> 
         <link href="../css/estilo.css" rel="stylesheet" type="text/css" />
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="../css/ripples.min.css" />
+        <link rel="stylesheet" href="../css/bootstrap-material-datetimepicker.css" />
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <title>SEven</title> 
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
+        <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script src="../js/ripples.min.js"></script>
+        <script src="../js/material.min.js"></script>
+        <script type="text/javascript" src="../js/moment-with-locales.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap-material-datetimepicker.js"></script>
+	<script type="text/javascript" src="../js/datetimepicker.js"></script>
         <script type="text/javascript"  language="javascript" src="../Script.js"></script>
     </head>
     <body>
@@ -118,7 +128,7 @@
                         </div>
                         
                         <div class="form-group">
-                            <input data-toggle="tooltip" title="Data de Nascimento" class="form-control" value="<%=data%>" type="text" name="data"  placeholder="Data de nascimento" maxlength="10" onkeypress="return formataData(this,event)"/>
+                            <input data-toggle="tooltip" title="Data de Nascimento" class="form-control" value="<%=data%>" type="text" name="data"  id="datenasc" placeholder="Data de nascimento" maxlength="10"/>
                         </div>
                         
                         <div class="form-group">
