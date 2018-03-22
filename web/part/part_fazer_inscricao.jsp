@@ -10,7 +10,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
     <%@include file="../ErroAutenticacaoUser.jsp" %>
-    <%          Inscricao anterior; //recupera a inscricao do caso de uso Editar Inscricao
+    <%          Inscricao anterior;  //recupera a inscricao do caso de uso Editar Inscricao
+                Long idModalidadeSelecionada = null; //guarda o id da modalidade selecionada
         if (session.getAttribute("inscricao") != null) {
             anterior = (Inscricao) session.getAttribute("inscricao");
         } else {//para o caso de não ser uma edição, um objeto em branco será usado.
@@ -95,8 +96,22 @@
                             </tbody>
                         </table>
                     </div> 
-                </div>                   
-
+                </div>        
+                <div class="panel panel-default space-top text-center">
+                 <div class="panel-cor panel-heading">Tipo de inscrição</div><%--Modalidade da inscrição, Estudante ou profissional--%>
+                   <div class="panel-body">             
+                     <%if (modalidades.isEmpty()) {%>
+                            <p>Nenhuma modalidade de inscrição cadastrada.</p>
+                            <%} else {%>
+                           
+                            <%for (ModalidadeInscricao m : modalidades) {%>
+                            <div style="margin-left: 18px;" class="radio text-left">
+                                <label><input class="radio" type="radio" name="tipo_inscricao" onclick="idMotalidadeSelecionada ='<%=m.getId()%>', alert(idMotalidadeSelecionada)" value="<%=m.getId()%>" <%if (m.getId().equals(anterior.getModalidade().getId())) {%> checked="checked" <%}%>/><%=m.getTipo()%></label>
+                            </div>
+                            <%}%>
+                            <%}%> 
+                   </div>      
+                </div>
 
                 <form action="../ServletCentral?comando=CmdMontarInscricao" method="post" class="">
 
@@ -137,7 +152,7 @@
                                     <tr>
                                         <th>Nome da Atividade</th>
                                         <th>Horários</th>
-                                        <th>Tipo</th>
+                                        <th>Tipo de Atividade</th>                                        
                                         <th>Vagas</th>
                                         <th>Vagas Disponíveis</th>
                                         <th>Selecionar</th>
@@ -149,19 +164,22 @@
                                         <td><%=a.getNome()%></td>
                                         <td>
                                             <%for (Horario h : a.getHorarios()) {%>
-                                            (<%=h.printHorario()%>)
+                                            (<%=h.printHorario()%>)                                               
                                             <%}%>
+                                           
                                         </td>
                                         <td><%=a.getTipo().getNome()%></td>
                                         <%int vagas = a.getVagas();
                                             br.ufc.pet.services.InscricaoService IS = new br.ufc.pet.services.InscricaoService();
                                             long vagasOcupadas = IS.getInscritosByAtividadeId(a.getId());
                                         %>
+                                                                               
                                         <td><%=vagas%>
                                         </td>
                                         <td><%=vagas - vagasOcupadas%>
                                         </td>
-                                        <td><a data-toggle="tooltip" href="../ServletCentral?comando=CmdSelecionarAtividade&ativ=<%=a.getId()%>" title="Selecionar Atividade" class="btn btn-sm btm-primary btn-primary-new"><strong>Adicionar Atividade</strong></a></td>
+                                        
+                                        <td><a data-toggle="tooltip" href="../ServletCentral?comando=CmdSelecionarAtividade&ativ=<%=a.getId()%>" title="Selecionar Atividade" class="btn btn-sm btn-primary-new "><strong>Adicionar Atividade </strong></a></td>
                                         <%--O link redireciona ao comando, que por sua vez pega o id da atividade em questão e insere a mesma no array das atividades selecionadas--%>
                                     </tr>
                                     <%}%>
@@ -170,16 +188,7 @@
                             <%}%>
                             <hr style="height: 10px; border: 0; box-shadow: 0 10px 10px -10px #8c8b8b inset;"/>
 
-                            <%if (modalidades.isEmpty()) {%>
-                            <p>Nenhuma modalidade de inscrição cadastrada.</p>
-                            <%} else {%>
-                            <p>Tipo de inscrição:</p><%--Modalidade da inscrição, Estudante ou profissional--%>
-                            <%for (ModalidadeInscricao m : modalidades) {%>
-                            <div style="margin-left: 18px;" class="radio text-left">
-                                <label><input class="radio" type="radio" name="tipo_inscricao" value="<%=m.getId()%>" <%if (m.getId().equals(anterior.getModalidade().getId())) {%> checked="checked" <%}%>/><%=m.getTipo()%></label>
-                            </div>
-                            <%}%>
-                            <%}%>
+                           
 
                         </div>
                     </div>    
@@ -195,7 +204,8 @@
                             %>
                             <p class="space-top text-bold"> <%=m.getTipo()%> : <%=preco%></p>
                             <%}%>
-                        </div></div>
+                        </div>
+                    </div>
                         <center><input data-toggle="tooltip" title="Inscrever-se no Evento" type="submit" value="Inscrever-se" class="btn btn-default" /></center><br />
                 </form>
             </div>
@@ -206,4 +216,12 @@
             <%@include file="../footer.jsp" %>
         </div>
     </body>
+        <script>
+            function getModalidadeWithIdAndType(id, type){
+                //TODO: Exibir na tela funcionalidade e id selecionado.
+                    
+                document.getElementById("typeModalidade").innerHTML = type;
+ 
+            }
+        </script>
 </html>

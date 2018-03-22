@@ -29,7 +29,7 @@
                         <div class="col-lg-12 jumbotron">
                             <h1 class="text-center text-bold">Olá, <%= nomeSaudacao%></h1>
                             <h5 class="text-center">Esta é a página inicial do Organizador de eventos. Quando desejar retornar a esta página, 
-                                clique na opção <span class="label label-info text-uppercase"><em>Home</em></span> no menu acima.</h><br/><br/> 
+                                clique na opção <span class="label label-default text-uppercase"><em>Home</em></span> no menu acima.</h><br/><br/> 
                             <%@include file="../error.jsp" %>
                         </div>
                     </div>              

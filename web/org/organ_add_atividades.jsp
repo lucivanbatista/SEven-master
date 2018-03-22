@@ -87,11 +87,11 @@
                     </div>
 
                     <a data-toggle="tooltip" title="Adicionar um Responsável" href="#" onclick="forceSubmitListarRelatoriosAtividades('formAddAtividade')" class="btn btn-default pull-right">Adicionar Responsável</a><br/><br/>
-
+                
                     <div class="panel panel-default space-top">
                         <div class="panel-cor panel-heading text-center">Dados da atividade</div>
-                        <div class="panel-body">
-                            <div class="col-lg-12 space-top">
+                        <div class="panel-body">                            
+                            <div class="col-lg-9 space-top">
                                 <div class="form-group">
                                     <label>Nome:</label>
                                     <input data-toggle="tooltip" title="Nome da Atividade" type="text" name="nome_atividade" value="<%=nome%>" class="form-control"/>
@@ -100,16 +100,24 @@
                                     <label>Local:</label>
                                     <input data-toggle="tooltip" title="Local da Atividade" type="text" name="local" value="<%=local%>" class="form-control"/>
                                 </div>
+                            </div>  
+                             <div class="col-lg-2 space-top">    
                                 <div class="form-group">
-                                    <label>Vagas:</label><br />
-                                    <input data-toggle="tooltip" title="Quantidade de Vagas Disponibilizadas" type="text" maxlength="5" onkeypress="return validaNumerosSilencioso(event)" name="vagas" value="<%=vagas%>" class="form-control"/>
+                                    <label>N° de Vagas:</label><br />
+                                    <input data-toggle="tooltip" title="Quantidade de Vagas Disponibilizadas" type="number" min="0" max="999" onkeypress="return validaNumerosSilencioso(event)" name="vagas" value="<%=vagas%>" class="form-control"/>
                                 </div>
-
-                                <label>É inscritível? (Aceitará inscrições de participantes?):</label><br/>
+                             </div>
+                             <div class="col-lg-3">       
+                                <label>Aceitar inscrições?</label><br/>
                                 <div class="radio-inline">
                                     <% if (a == null) {%>
-                                    <input type="radio" name="inscritivel" value="SIM" class="radio" checked="checked"/><label>Sim</label><br/>
-                                    <input type="radio" name="inscritivel" value="NAO" class="radio"/><label>Não</label>
+                                     <label class="radio-inline">
+                                        <input type="radio" name="inscritivel" value="SIM" class="radio" checked="checked"/>Sim
+                                     </label>
+                                     <label class="radio-inline">
+                                        <input type="radio" name="inscritivel" value="NAO" class="radio"/>Não
+                                     </label>
+                                     
                                     <%} else {
                                         String checkedSIM = "";
                                         String checkedNAO = "";
@@ -119,14 +127,19 @@
                                             checkedNAO = "checked=\"checked\"";
                                         }
                                     %>
-                                    <input type="radio" name="inscritivel" value="SIM" class="radio" <%=checkedSIM%>/><label>Sim</label><br/>
-                                    <input type="radio" name="inscritivel" value="NAO" class="radio"  <%=checkedNAO%>/><label>Não</label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="inscritivel" value="SIM" class="radio" <%=checkedSIM%>/>Sim
+                                    </label >
+                                    <label class="radio-inline">
+                                       <input type="radio" name="inscritivel" value="NAO" class="radio"  <%=checkedNAO%>/>Não
+                                    </label>
                                     <%}%>
                                 </div>
-
                             </div>
                         </div>
                     </div>
+                   </div>
+                                
                     <div class="panel panel-default space-top">
                         <div class="panel-cor panel-heading text-center">Tipo da atividade</div>
                         <div class="panel-body">

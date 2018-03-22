@@ -86,7 +86,7 @@
                                 </div>
                                 <%@include file="error.jsp" %>
                                 <center>
-                                    <button data-toggle="tooltip" title="Submeter" type="submit" class="btn btn-default">Submeter</button><br/><br/>
+                                    <button data-toggle="tooltip" title="Submeter" type="submit" class="btn btn-default">Entrar</button><br/><br/>
                                   
                                    <blockquote><a href="recuperar_senha.jsp">Esqueci minha senha</a><br/>
                                                 <a href="cadastro.jsp">Cadastre-se aqui</a>
