@@ -55,8 +55,8 @@
                     <div class="form-group form-inline">
                         <label>Tipo:</label>
                         <%if (tipo.isEmpty()) {%>
-                        <input type="radio" name="tipo_movimentacaofinanceira" value="credito" class="radio" /><label> Crédito</label>
-                        <input type="radio" name="tipo_movimentacaofinanceira" value="debito" class="radio" /><label> Débito</label><br/>
+                        <label><input type="radio" name="tipo_movimentacaofinanceira" value="credito" class="radio" /> Crédito</label>
+                        <label><input type="radio" name="tipo_movimentacaofinanceira" value="debito" class="radio" /> Débito</label><br/>
 
                         <%} else if (tipo.compareTo("credito") == 0) {%>
                         <input type="radio" name="tipo_movimentacaofinanceira" value="credito" class="radio" checked="checked"/><label> Crédito</label>

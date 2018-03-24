@@ -67,7 +67,7 @@
                     <%} else {%>
 
                 <form name="formVerificarAluno" action="../ServletCentral?comando=CmdConfirmarLiberacaoCertificado" class="confirmaCertificado" method="post" onsubmit="return confirm('Deseja realmente liberar os certificados para os participantes selecionados?');" >
-                    <table id="data_table" class="table table-hover text-center space-top">
+                    <table id="data_table" class="table table-hover text-center space-top" id="checkTable">
                         <thead>
                             <tr>
                                 <th><input type="checkbox" onclick="checkAllCheckboxes();" /></th>

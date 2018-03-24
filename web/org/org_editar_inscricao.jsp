@@ -175,7 +175,7 @@
                                     <%} else {%>
                                     <p>Tipo de inscrição:</p><%--Modalidade da inscrição, Estudante ou profissional--%>
                                     <%for (ModalidadeInscricao m : modalidades) {%>
-                                    <p><input class="radio" type="radio" name="tipo_inscricao" value="<%=m.getId()%>" <%if (m.getId().equals(anterior.getModalidade().getId())) {%> checked="checked" <%}%>/> <%=m.getTipo()%></p>
+                                    <label<p><input class="radio" type="radio" name="tipo_inscricao" value="<%=m.getId()%>" <%if (m.getId().equals(anterior.getModalidade().getId())) {%> checked="checked" <%}%>/> <%=m.getTipo()%></p></label>
                                     <%}%>
                                     <%}%>
                                     <br/>

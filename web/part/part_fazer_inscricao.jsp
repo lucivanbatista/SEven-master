@@ -106,7 +106,7 @@
                            
                             <%for (ModalidadeInscricao m : modalidades) {%>
                             <div style="margin-left: 18px;" class="radio text-left">
-                                <label><input class="radio" type="radio" name="tipo_inscricao" onclick="idMotalidadeSelecionada ='<%=m.getId()%>', alert(idMotalidadeSelecionada)" value="<%=m.getId()%>" <%if (m.getId().equals(anterior.getModalidade().getId())) {%> checked="checked" <%}%>/><%=m.getTipo()%></label>
+                                <label><input class="radio" type="radio" name="tipo_inscricao" onclick="idMotalidadeSelecionada ='<%=m.getId()%>', value="<%=m.getId()%>" <%if (m.getId().equals(anterior.getModalidade().getId())) {%> checked="checked" <%}%>/><%=m.getTipo()%></label>
                             </div>
                             <%}%>
                             <%}%> 
