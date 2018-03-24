@@ -152,6 +152,24 @@ $(function () {
     });
 });
 
+$(function () {
+    $('#rdSim').click(function (event) {
+        if (event.target.type !== 'radio') {
+            $(':radio', this).trigger('click');
+        }
+    });
+     $('#rdNao').click(function (event) {
+        if (event.target.type !== 'radio') {
+            $(':radio', this).trigger('click');
+        }
+    });
+     $('#rdCurso').click(function (event) {
+        if (event.target.type !== 'radio') {
+            $(':radio', this).trigger('click');
+        }
+    });
+});
+
 function searchPart() {
     var searchInput = $("#searchInput").val().toUpperCase();
     $("#myTable tbody tr").each(function () {

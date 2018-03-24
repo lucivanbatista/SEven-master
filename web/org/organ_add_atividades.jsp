@@ -151,8 +151,8 @@
                                         <label><input type="radio" name="tipo_id" value="<%=ta.getId()%>"  checked="checked"/><strong><%=ta.getNome()%></strong></label>
                                     </div>
                                         <%} else {%>
-                                        <div class="radio">
-                                            <label><input type="radio" name="tipo_id" value="<%=ta.getId()%>"/><label><strong><%=ta.getNome()%></strong></label>
+                                        <div class="radio radiosCheck" id="rdCurso">
+                                            <label><input type="radio" name="tipo_id" value="<%=ta.getId()%>"/><strong><%=ta.getNome()%></strong></label>
                                         </div>
                                         <%}
                                             }%>

@@ -662,3 +662,8 @@ h1{
     height:400px; 
     overflow:auto;
 }
+
+.radiosCheck:hover {
+    background: #FAFAFA !important;
+    width: 870px;
+}
