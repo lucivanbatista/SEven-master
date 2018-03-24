@@ -178,8 +178,8 @@
                          <div class="panel-heading text-center">Permissões</div>
                        <div class="panel-body">  
                          <div class="col-lg-12"> 
-                          <input type="checkbox" name="manterAtividade" class="chk_box"/> Manter Atividade<br/>
-                          <input type="checkbox" name="manterModulo" class="chk_box"/> Manter Módulo Financeiro<br/>                 
+                             <label><input type="checkbox" name="manterAtividade" class="chk_box"/> Manter Atividade</label><br/>
+                             <label><input type="checkbox" name="manterModulo" class="chk_box"/> Manter Módulo Financeiro</label><br/>                 
                         </div>
                        </div> 
                          <input data-toggle="tooltip" title="Enviar" type="submit" value="Enviar" class="btn btn-default pull-right space-top" onclick="return confirmarCadastrado()"/>

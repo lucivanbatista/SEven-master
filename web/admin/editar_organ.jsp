@@ -54,8 +54,8 @@
                         <label>Telefone:</label> <%=u.getFone()%><br />
                         <label>Instituição:</label> <%=u.getInstituicao()%><br/>
                         <label>Cidade:</label> <%=u.getCidade()%></label><br />
-                      <input type="checkbox"  <%=manterAtvi%> name="manterAtv" class="chk_box" /> Manter Atividade<br/>
-                      <input type="checkbox"  <%=manterMod%> name="manterMod" class="chk_box" /> Mater Módulo Financeiro<br/><br/>
+                        <label><input type="checkbox"  <%=manterAtvi%> name="manterAtv" class="chk_box" /> Manter Atividade</label><br/>
+                        <label><input type="checkbox"  <%=manterMod%> name="manterMod" class="chk_box" /> Mater Módulo Financeiro</label><br/><br/>
                       </div> 
                    </div>
                   </div>   
