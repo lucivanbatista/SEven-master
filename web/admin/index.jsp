@@ -35,7 +35,7 @@
                             <th>Sigla</th>
                             <th>Nome</th>
                             <th>Período de Inscrição</th>
-                            <th>Excluir</th>
+                            <!--<th>Excluir</th>-->
                             <th>Encerrar Evento</th>
                             <th>Alterar Dados</th>
                             <th>Gerenciar Organizador</th>
@@ -48,7 +48,7 @@
                             <td><%=E.getSigla()%></td>
                             <td><%=E.getNome()%></td>
                             <td><%=br.ufc.pet.util.UtilSeven.treatToString(E.getInicioPeriodoInscricao()) + "</br>" + br.ufc.pet.util.UtilSeven.treatToString(E.getFimPeriodoInscricao())%></td>
-                            <td><a href="../ServletCentral?comando=CmdExcluirEvento&id=<%=E.getId()%>" onclick="return confirmarExclucao()"><span class="text-uppercase label label-danger">Excluir</span></a></td>
+                            <!--<td><a href="../ServletCentral?comando=CmdExcluirEvento&id=<%=E.getId()%>" onclick="return confirmarExclucao()"><span class="text-uppercase label label-danger">Excluir</span></a></td>-->
                             <td><a href="../ServletCentral?comando=CmdEncerrarEvento&id=<%=E.getId()%>" onclick="return confirm('Deseja realmente encerrar Evento?')"><span class=" text-uppercase label label-warning">Encerrar</span></a></td>
                             <td><a href="../ServletCentral?comando=CmdBuscarEvento&id=<%=E.getId()%>"><span class="text-uppercase label label-success">Alterar</span></a></td>
                             <td><a href="../ServletCentral?comando=CmdListarOrganizadorEventos&idEvento=<%=E.getId()%>" title="Gerenciar" ><span class="text-uppercase label label-primary">Gerenciar</span></a> </td>

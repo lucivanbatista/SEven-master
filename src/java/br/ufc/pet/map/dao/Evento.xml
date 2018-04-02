@@ -87,19 +87,25 @@
 
     <select id="getAllEventos" resultClass="evento" resultMap="eventoResult">
         SELECT *
-        FROM evento.evento;
+        FROM evento.evento
+        ORDER BY inicio_inscricao
+        DESC;
     </select>
 
     <select id="getAllEventosNaoEncerrados" resultClass="evento" resultMap="eventoResult">
         SELECT *
         FROM evento.evento
-        WHERE ativo = true;
+        WHERE ativo = true
+        ORDER BY inicio_inscricao
+        DESC;
     </select>
 
     <select id="getAllEventosEncerrados" resultClass="evento" resultMap="eventoResult">
         SELECT *
         FROM evento.evento
-        WHERE ativo = false;
+        WHERE ativo = false
+        ORDER BY inicio_inscricao
+        DESC;
     </select>
 
     <select id="getMaxIdEvento" resultClass="long">
