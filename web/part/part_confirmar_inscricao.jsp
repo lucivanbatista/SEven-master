@@ -32,28 +32,32 @@
             <div id="content">
                 <h1 class="titulo">Fazer Inscrição</h1>
                 <div class="panel panel-default">
-                    <div class="panel-heading text-center">Confirmação da inscrição</div>
+                    <div class="panel-heading text-center">Confirmação da Inscrição</div>
                     <div class="panel-body">  
                         <div class="col-lg-12 space-top">
 
                             <%//formata as datas para exibição em texto
                                 String data = UtilSeven.treatToLongString(i.getDataRealizada());
-                                String datapg = UtilSeven.treatToLongString(i.getDataPagamento());
+//                                String datapg = UtilSeven.treatToLongString(i.getDataPagamento());
                             %>
                             <p><strong>Evento:</strong> <%=i.getEvento().getNome()%></p>
                             <p><strong>Participante:</strong> <%=i.getParticipante().getUsuario().getNome()%></p>
                             <p><strong>Modalidade:</strong> <%=i.getModalidade().getTipo()%></p>
                             <p><strong>Data: </strong><%=data%></p>
-                            <p><strong>Prazo de pagamento: Até </strong><%=datapg%></p>
                             <p><strong>Atividades: </strong></p>
-                            <%for (Atividade a : i.getAtividades()) {%>
-                            <p><%=a.getNome()%>
-                                <%for (Horario h : a.getHorarios()) {%><%--Exibe horários de cada atividade--%>
-                                
-                                (<%=h.printHorario()%>)
-                                <%}%>
-                            </p>
+                             <ol>
+                                <%for (Atividade a : i.getAtividades()) {%>
+                           
+                                    <p><li><b><%=a.getNome()%></b></li>
+                                    <ul>
+                                        <%for (Horario h : a.getHorarios()) {%><%--Exibe horários de cada atividade--%>
+                                            <li>(<%=h.printHorario()%>)</li>
+                                        <%}%>
+                                    </ul>
+                                    </p>                            
                             <%}%>
+                            </ol>
+                                
                             <%
                                 InscricaoService IS = new InscricaoService();
                                 String preco = UtilSeven.precoFormater(IS.getPrecoInscricao(i));
