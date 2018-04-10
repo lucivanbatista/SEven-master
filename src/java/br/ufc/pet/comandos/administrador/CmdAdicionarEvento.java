@@ -11,9 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import br.ufc.pet.util.UtilSeven;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.mail.MessagingException;
 
 /*
@@ -46,7 +43,7 @@ public class CmdAdicionarEvento implements Comando {
         session.setAttribute("limiteDeAtividadesPorParticipante", limiteDeAtividadesPorParticipante);
         String gratuito = request.getParameter("gratuito");
         session.setAttribute("gratuito", gratuito);
-
+       
         
 //        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 //        Date date = new Date();
@@ -54,18 +51,28 @@ public class CmdAdicionarEvento implements Comando {
 
         int limiteDeAtividades;
         
+        System.out.println("AQUI " + request.getParameter("fim_evento"));
+        
         Evento E = null;
         if (!request.getParameter("operacao_evento").equalsIgnoreCase("0")) {
             E = new EventoService().getEventoById(Long.parseLong(request.getParameter("operacao_evento")));
+            // Atributos usados para o editar evento
+            fimEvento = request.getParameter("fim_evento_hidden");
+            session.setAttribute("fimEvento", fimEvento);
+            inicioInscricao = request.getParameter("inicio_periodo_inscricao_hidden");
+            session.setAttribute("inicioInscricao", inicioInscricao);
+            fimInscricao = request.getParameter("fim_periodo_inscricao_hidden");
+            session.setAttribute("fimInscricao", fimInscricao);
         }
         if (nomeEvento == null || nomeEvento.trim().equals("") || 
            siglaEvento == null|| siglaEvento.trim().equals("") || 
            descricao == null || descricao.trim().equals("") || 
            tema==null || tema.trim().equals("") || 
            inicioInscricao == null || inicioInscricao.trim().equals("") || 
-           fimInscricao == null || fimInscricao.trim().equals("") || 
-           limiteDeAtividadesPorParticipante == null || limiteDeAtividadesPorParticipante.trim().equals("")) {
-            
+           fimInscricao == null || fimInscricao.trim().equals("") ||
+           inicioEvento == null || inicioEvento.trim().equals("") || 
+           fimEvento == null || fimEvento.trim().equals("") ||
+           limiteDeAtividadesPorParticipante == null || limiteDeAtividadesPorParticipante.trim().equals("")) {            
             session.setAttribute("erro", "Preencha todos os campos");
             session.setAttribute("evento", E);
             return "/admin/add_events.jsp";

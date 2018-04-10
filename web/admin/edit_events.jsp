@@ -54,7 +54,7 @@
                 inicioEvento="";
             
             String fimEvento = (String)session.getAttribute("fimEvento");
-            session.removeAttribute("inicioEvento");
+            session.removeAttribute("fimEvento");
             if(fimEvento == null)
                 fimEvento="";
 
@@ -148,21 +148,24 @@
                          <div class = "col-lg-3">       
                             <div class="form-group">
                                <label for="text_a">Data Final do Evento</label>
-                                 <input type="text" id="date-end-event" name="fim_evento" value="<%=fimEvento%>" class="form-control" data-toggle="tooltip" title="Data de Fim do Evento" placeholder="Fim do evento"/>
+                                    <input type="hidden" name="fim_evento_hidden" value="<%=fimEvento%>"/> 
+                                    <input type="text" id="date-end-event" name="fim_evento" value="<%=fimEvento%>" class="form-control" data-toggle="tooltip" title="Data de Fim do Evento" placeholder="Fim do evento"/>
                                 <!--<input data-toggle="tooltip" title="Data de Fim do Evento" class="form-control" id="data_finish" type="text" name="fim_evento" placeholder="Fim do evento " maxlength="10" value="<%=fimEvento%>" onkeypress="return formataData(this,event)"/>-->
                              </div>
                          </div> 
                          <div class = "col-lg-3">       
                             <div class="form-group">
-                             <label for="text_a">Início das Incrições</label>
-                                 <input type="text" id="date-start-in" name="inicio_periodo_inscricao" value="<%=inicioIn%>" class="form-control" data-toggle="tooltip" title="Data de Início das Inscrições" placeholder="Início das inscrição"/>
+                                <label for="text_a">Início das Incrições</label>
+                                    <input type="hidden" name="inicio_periodo_inscricao_hidden" value="<%=inicioIn%>"/> 
+                                    <input type="text" id="date-start-in" name="inicio_periodo_inscricao" value="<%=inicioIn%>" class="form-control" data-toggle="tooltip" title="Data de Início das Inscrições" placeholder="Início das inscrição"/>
                                 <!--<input data-toggle="tooltip" title="Data de Início das Inscrições" class="form-control" id="data_initial_pi" type="text" name="inicio_periodo_inscricao" placeholder="Inicio do periodo de inscrição" maxlength="10" value="<%=inicioIn%>" onkeypress="return formataData(this,event)"/>-->
                              </div>
                          </div>
                          <div class = "col-lg-3">       
                             <div class="form-group">
-                             <label for="text_a">Final das Incrições</label> 
-                                 <input type="text" id="date-end-in" name="fim_periodo_inscricao" value="<%=fimIn%>" class="form-control" data-toggle="tooltip" title="Data de Fim das Inscrições" placeholder="Fim das inscrição"/>
+                                <label for="text_a">Final das Incrições</label> 
+                                    <input type="hidden" name="fim_periodo_inscricao_hidden" value="<%=fimIn%>"/> 
+                                    <input type="text" id="date-end-in" name="fim_periodo_inscricao" value="<%=fimIn%>" class="form-control" data-toggle="tooltip" title="Data de Fim das Inscrições" placeholder="Fim das inscrição"/>
                                 <!--<input data-toggle="tooltip" title="Data de Fim das Inscrições" class="form-control" id="data_finish_pi" type="text" name="fim_periodo_inscricao" placeholder="Fim do periodo de inscrição" maxlength="10" value="<%=fimIn%>" onkeypress="return formataData(this,event)"/>-->
                              </div>
                          </div> 
