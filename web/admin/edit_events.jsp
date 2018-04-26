@@ -73,7 +73,6 @@
 %>
 <html>
     <head>
-        <script type="text/javascript"  language="javascript" src="../Script.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link href="../css/estilo.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon"/>

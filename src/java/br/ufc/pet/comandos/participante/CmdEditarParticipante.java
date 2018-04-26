@@ -41,7 +41,7 @@ public class CmdEditarParticipante implements Comando {
         String senha = request.getParameter("senha");
         String confSenha = request.getParameter("r-senha");
         String tempoldsenha = request.getParameter("oldsenha");
-
+        
         if (nome == null || nome.trim().equals("") || email == null || email.trim().equals("")
                 || senha == null || senha.trim().equals("") || confSenha == null || confSenha.trim().equals("") || tempoldsenha.equals("")) {
             session.setAttribute("erro", "Preencha todos os campos obrigatórios.");

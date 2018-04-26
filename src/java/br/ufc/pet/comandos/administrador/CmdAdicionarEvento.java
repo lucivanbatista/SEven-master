@@ -50,19 +50,24 @@ public class CmdAdicionarEvento implements Comando {
 //        Date data = UtilSeven.treatToDate(dateFormat.format(date));
 
         int limiteDeAtividades;
-        
-        System.out.println("AQUI " + request.getParameter("fim_evento"));
-        
         Evento E = null;
         if (!request.getParameter("operacao_evento").equalsIgnoreCase("0")) {
             E = new EventoService().getEventoById(Long.parseLong(request.getParameter("operacao_evento")));
-            // Atributos usados para o editar evento
-            fimEvento = request.getParameter("fim_evento_hidden");
-            session.setAttribute("fimEvento", fimEvento);
-            inicioInscricao = request.getParameter("inicio_periodo_inscricao_hidden");
-            session.setAttribute("inicioInscricao", inicioInscricao);
-            fimInscricao = request.getParameter("fim_periodo_inscricao_hidden");
-            session.setAttribute("fimInscricao", fimInscricao);
+            // Atributos usados para o editar evento caso as datas não sejam alteradas
+            // O disable faz com que não seja possível puxar utilizando o request.getParameter, mas ai esse if aqui e o add e editar na mesma página não ajudou, então
+            // if == null, então é porque o cara não mudou nada e o campo continua bloqueado, iremos usar os hidden
+            // if == empty ou "", então é porque o cara mudou e deixou vazio
+            // else é porque tem algo lá e podemos usar
+            
+            if(request.getParameter("fim_periodo_inscricao") == null){ // não mudou nada, usamos os hidden
+                fimEvento = request.getParameter("fim_evento_hidden");
+                session.setAttribute("fimEvento", fimEvento);
+                inicioInscricao = request.getParameter("inicio_periodo_inscricao_hidden");
+                session.setAttribute("inicioInscricao", inicioInscricao);
+                fimInscricao = request.getParameter("fim_periodo_inscricao_hidden");
+                session.setAttribute("fimInscricao", fimInscricao);
+            }
+
         }
         if (nomeEvento == null || nomeEvento.trim().equals("") || 
            siglaEvento == null|| siglaEvento.trim().equals("") || 
@@ -186,9 +191,9 @@ public class CmdAdicionarEvento implements Comando {
                         String msg = "O administrador alterou os dados do evento, por favor verifique os horários das atividades!";
                         SendMail.sendMail(org.getUsuario().getEmail(), "(SEVEN) Alteração no evento "+E.getNome(), msg);
                     } catch (MessagingException ex) {
-                    System.out.println("Erro ao enviar o email para os organizadores: "+ex);
+                        System.out.println("Erro ao enviar o email para os organizadores: "+ex);
+                    }
                 }
-        }
                 session.setAttribute("sucesso", "Evento alterado com sucesso");
 
             }

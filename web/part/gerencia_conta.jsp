@@ -77,9 +77,9 @@
                                 <label>Instituição: </label> <%=instituicao%><br/>
                                 <label>Rua: </label> <%=rua%><br/>
                                 <label>Bairro: </label> <%=bairro%><br/>
-                                <label>Número: </label> <%=numero%><br/>
+                                <label>Número/Complemento: </label> <%=numero%><br/>
+                                <label>Estado: </label> <%=uf%><br/>
                                 <label>Cidade: </label> <%=cidade%><br/>
-                                <label>UF: </label> <%=uf%><br/>
                             </div>
                         </div>
                     </form>
@@ -87,8 +87,8 @@
                 <div class="center-block">
                     <form action="../ServletCentral" method="post">
                         <a href="" title="" onclick="history.back(); return false;" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
-                        <a data-toggle="tooltip" title="Editar Dados" class="btn btn-default margin-btn-left" href="part_conta.jsp">Editar Dados</a>
-                        <a data-toggle="tooltip" title="Excluir Conta" class="btn btn-default pull-right " href="../ServletCentral?comando=CmdExcluirParticipante" onclick="return confirm('Tem certeza que deseja excluir conta?')" title="">Excluir Conta</a>
+                        <a data-toggle="tooltip" title="Editar Dados" class="btn btn-default pull-right" href="part_conta.jsp">Editar Dados</a>
+                        <!--<a data-toggle="tooltip" title="Excluir Conta" class="btn btn-default pull-right " href="../ServletCentral?comando=CmdExcluirParticipante" onclick="return confirm('Tem certeza que deseja excluir conta?')" title="">Excluir Conta</a>-->
                     </form>
                 </div>
             </div>

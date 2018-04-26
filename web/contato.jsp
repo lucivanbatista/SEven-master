@@ -13,25 +13,32 @@
     <body>
         <div id="container">           
             <%@include file="menu_index.jsp"%>    
-            
             <div class="margin-contato">
                 <img id="img-centro-pet" src="imagens/PET.png"/>
                 <img id="img-centro" src="imagens/favicon.png"/>
             </div>
-                
-            <div class="margin-contato-address">
-              <center> 
+            
+            <div class="centralizar_contato">
                 <address>
                     <span class="text-bold">Universidade Federal do Ceará - Campus Quixadá</span><br>
-                    Estrada do Cedro, KM 5, 63900000 - Quixadá - CE<br/>
+                    Endereço: Av. José de Freitas Queiroz, 5003 – Cedro – Quixadá – Ceará 63902-580<br/>                    
                     <em><a href="mailto: <pet-ufc-si_quixada@googlegroups.com>,"> pet-ufc-si_quixada@googlegroups.com</a></em><br/>
                     <em><a href="mailto: <petufc.quixada@gmail.com>,"> petufc.quixada@gmail.com </a></em>
                 </address>
-              </center>   
+                <div class="fb-page" data-href="https://www.facebook.com/petsiufc/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/petsiufc/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/petsiufc/">PET - Sistemas de Informação UFC</a></blockquote></div>
+               
             </div>
         </div>
             
         <%@include file="footer.jsp" %>
      
     </body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.12';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 </html>

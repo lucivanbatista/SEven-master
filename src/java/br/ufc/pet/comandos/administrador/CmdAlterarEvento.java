@@ -19,7 +19,6 @@ public class CmdAlterarEvento implements Comando {
 
     @Override
     public String executa(HttpServletRequest request, HttpServletResponse response) {
-
         HttpSession session = request.getSession(true);
         Administrador admin = (Administrador) session.getAttribute("user");
 
@@ -44,15 +43,13 @@ public class CmdAlterarEvento implements Comando {
         String gratuito = request.getParameter("gratuito");
         session.setAttribute("gratuito", gratuito);
 
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        Date date = new Date();
-        Date data = UtilSeven.treatToDate(dateFormat.format(date));
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//        Date date = new Date();
+//        Date data = UtilSeven.treatToDate(dateFormat.format(date));
 
         int limiteDeAtividades;
 
         Evento E = null;
-
-
         if (nomeEvento==null || nomeEvento.trim().equals("") || 
             siglaEvento==null || siglaEvento.trim().equals("") ||
             descricao==null || descricao.trim().equals("") ||

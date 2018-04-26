@@ -97,6 +97,7 @@
         <script type="text/javascript" src="../js/moment-with-locales.min.js"></script>
 	<script type="text/javascript" src="../js/bootstrap-material-datetimepicker.js"></script>
 	<script type="text/javascript" src="../js/datetimepicker.js"></script>
+        <script type="text/javascript" src="../js/cidade-dinamica.js"></script>
         <script type="text/javascript"  language="javascript" src="../Script.js"></script>
     </head>
     <body>
@@ -124,20 +125,24 @@
                         </div>
                         
                         <div class="form-group">
-                            <input data-toggle="tooltip" title="Telefone" class="form-control" value="<%=telefone%>" type="text" name="fone" onkeypress="return formataContato(this , event)"  placeholder="Telefone" maxlength="14" />
+                            <input data-toggle="tooltip" title="Telefone" class="form-control" value="<%=telefone%>" type="text" name="fone" onkeypress="return formataContato(this , event)"  placeholder="Telefone" maxlength="13" />
                         </div>
-                        
-                        <div class="form-group">
-                            <input data-toggle="tooltip" title="Data de Nascimento" class="form-control" value="<%=data%>" type="text" name="data"  id="datenasc" placeholder="Data de nascimento" maxlength="10"/>
-                        </div>
-                        
-                        <div class="form-group">
-                        <select class="form-control" name="sexo" id="sexo">
-                            <option value="null" selected>Selecione o sexo</option>
-                            <option value="femenino">Feminino</option>
-                            <option value="masculino">Masculino</option>
-                        </select>
-                        </div>                    
+                                                
+                        <div class="form-group input-group input-append date">
+                                        <input data-toggle="tooltip" title="Data de Nascimento" placeholder="Data de Nascimento" type="text" name="data" value="<%=data%>" id="box_datenasc" onkeypress="return formataData(this,event)" maxlength="10" class="form-control"/>
+                                        <span class="input-group-addon" id="datenasc_up" >
+                                            <button name="dt_nascimento" id="datenasc" class="btn btn-outline-secondary glyphicon glyphicon-calendar form-control">
+                                            </button>
+                                        </span>
+                                    </div>
+                                        
+                        <div class="form-group">                                      
+                            <select class="form-control" id="sexo" name="sexo">
+                                <option value="null" selected>Selecione o sexo</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Feminino">Feminino</option>
+                            </select>
+                        </div>                   
                     
                         <div class="form-group">
                             <input data-toggle="tooltip" title="Instituição" class="form-control" value="<%=instituicao%>" type="text"  placeholder="Instituição" maxlength="50" name="instituicao" />
@@ -153,18 +158,30 @@
                         </div>                                                  
                 </div>
                 <div class="col-lg-5 space-top">  
-                       <br/>
-                        <div class="form-group">
-                            <input data-toggle="tooltip" title="Número" class="form-control" value="<%=numero%>" type="text"  placeholder="* Número" maxlength="6" name="numero" onkeypress="return validaNumerosSilencioso(event)" />
-                        </div>                     
+                    <br/>
+                    <div class="form-group">                                        
+                        <input data-toggle="tooltip" title="Número/Complemento" placeholder="* Número/Complemento" type="text" maxlength="12" value="<%=numero%>" name="numero" class="form-control" required/>
+                    </div>
+                                                                     
+                    <div class="form-group">
+                        <select id="estados" data-toggle="tooltip" title="Estado" name="uf" value="<%=uf%>" class="form-control" required>
+                            <option value=""></option>
+                        </select>
+                    </div>
+                                    
+                    <div class="form-group">
+                        <select id="cidades" data-toggle="tooltip" title="Cidade" name="cidade" value="<%=cidade%>" class="form-control" required>
+                                      
+                        </select>
+                    </div>
                     
-                        <div class="form-group">
+<!--                        <div class="form-group">
                             <input data-toggle="tooltip" title="Cidade" class="form-control" value="<%=cidade%>" type="text"  placeholder="* Cidade" maxlength="50" name="cidade" />
                         </div>                       
                   
                         <div class="form-group">
                             <input data-toggle="tooltip" title="UF" class="form-control" value="<%=uf%>" type="text"  placeholder="* UF" maxlength="50" name="uf" />
-                        </div>  
+                        </div>  -->
                      
                         <div class="form-group">
                             <input data-toggle="tooltip" title="Senha" class="form-control" type="password"  placeholder="* Senha" maxlength="18" minlength="6" name="senha" />

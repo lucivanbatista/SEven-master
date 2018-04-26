@@ -93,13 +93,23 @@ public class CmdAddOrganizadorNovo implements Comando {
                     if (orgaS.adicionar(orga)) {
                         en.addOrganizador(o);
                         o.setOrganizacoes(orga);
-                        session.setAttribute("organizador", o);
-                        session.setAttribute("sucesso", "cadastrado com sucesso!");
+                        session.setAttribute("sucesso", "Cadastrado com sucesso!");
+                        session.removeAttribute("nome");
+                        session.removeAttribute("rua");
+                        session.removeAttribute("bairro");
+                        session.removeAttribute("sexo");
+                        session.removeAttribute("email");
+                        session.removeAttribute("telefone");
+                        session.removeAttribute("data");
+                        session.removeAttribute("instituicao");
+                        session.removeAttribute("uf");
+                        session.removeAttribute("cidade");
+                        session.removeAttribute("numero");
                         return "/admin/organ_listar_movimentacao.jsp";
                     }
                 }
             }
-            session.setAttribute("erro", " falha ao cadastrar!");
+            session.setAttribute("erro", "Falha ao cadastrar!");
             return "/admin/admin_add_organ_novo.jsp";
 
 

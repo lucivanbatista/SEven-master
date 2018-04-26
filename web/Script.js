@@ -12,6 +12,11 @@ function validaNumeros(event)
     return true;
 }
 
+function iniciarCalendario(event)
+{
+    document.getElementById("datenasc").focus();
+}
+
 function validaNumerosSilencioso(event)
 {
     var Tecla = event.which;
@@ -107,7 +112,7 @@ function formataContato(Campo, teclapres)
     if (!validaNumerosSilencioso(teclapres)) {
         return false;
     }
-    return formatar(Campo, '(##)########', teclapres);
+    return formatar(Campo, '(##)#########', teclapres);
 }
 
 function formataData(Campo, teclapres)

@@ -54,7 +54,7 @@ public class InscricaoService {
             if (en != null) {
                 en.setEvento(eS.getEventoById(en.getEvento().getId()));
                 en.setParticipante(pS.getById(en.getParticipante().getId()));
-                System.out.println(en.getParticipante() == null);
+//                System.out.println(en.getParticipante() == null);
                 en.setModalidade(mS.getModalidadeInscricaoById(en.getModalidade().getId()));
                 en.setAtividades(aS.getAtividadeByInscricaoId(en.getId()));
             }
@@ -71,7 +71,7 @@ public class InscricaoService {
             if (en != null) {
                 en.setEvento(eS.getEventoById(en.getEvento().getId()));
                 en.setParticipante(pS.getById(en.getParticipante().getId()));
-                System.out.println(en.getParticipante() == null);
+//                System.out.println(en.getParticipante() == null);
                 en.setModalidade(mS.getModalidadeInscricaoById(en.getModalidade().getId()));
                 en.setAtividades(aS.getAtividadeByInscricaoId(en.getId()));
             }
@@ -89,7 +89,7 @@ public class InscricaoService {
             if (en != null) {
                 en.setEvento(eS.getEventoById(en.getEvento().getId()));
                 en.setParticipante(pS.getById(en.getParticipante().getId()));
-                System.out.println(en.getParticipante() == null);
+//                System.out.println(en.getParticipante() == null);
                 en.setModalidade(mS.getModalidadeInscricaoById(en.getModalidade().getId()));
                 en.setAtividades(aS.getAtividadeByInscricaoId(en.getId()));
             }

@@ -126,7 +126,7 @@ public class ServletCentral extends HttpServlet {
 
                     System.out.print("Tela:" + tela + " - ");
                     System.out.print("IP Máquima" + request.getRemoteAddr() + " - ");
-                    System.out.println("Hora" + new Date());
+//                    System.out.println("Hora" + new Date());
                 }
                 response.sendRedirect(request.getContextPath() + tela);
             }

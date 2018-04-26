@@ -44,7 +44,7 @@
                                     <tr>
                                         <td> <%= e.getNome()%>  </td>
                                         <td> <%= e.getSigla()%> </td>
-                                        <td> <a href="ServletCentral?comando=CmdVisualizarProgramacao&id=<%= e.getId()%>" title="Programacao" > Visualizar</a> </td>
+                                        <td> <a href="ServletCentral?comando=CmdVisualizarProgramacao&id=<%= e.getId()%>" title="Programação" > Visualizar</a> </td>
                                     </tr>
                                     <% }%>
                                 </tbody>

@@ -24,6 +24,8 @@ $(document).ready(function()
                         nowText: 'Hoje'
 		});
                 
+                
+                
                 $('#datenasc').bootstrapMaterialDatePicker
                 ({
 			format: 'DD/MM/YYYY',
@@ -36,7 +38,19 @@ $(document).ready(function()
                         okText: 'Confirmar',
                         nowText: 'Hoje',
                         maxDate: new Date()
-		});
+		}).on('change', function(e, date)        
+                    {
+                        var data = new Date(date);
+                        var day = data.getDate();
+                        var month = data.getMonth();
+                        if(month < 10){
+                            month = "0" + (month + 1);
+                        }
+                        if(day < 10){
+                            day = "0" + day;
+                        }
+                        $('#box_datenasc').val(day + "/" + month + "/" + data.getFullYear());                       
+                    });                
                 
                 $('#date-end-event').bootstrapMaterialDatePicker
                 ({ 
