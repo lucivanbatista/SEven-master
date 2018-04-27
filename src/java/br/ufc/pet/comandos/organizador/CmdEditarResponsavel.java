@@ -3,6 +3,7 @@ package br.ufc.pet.comandos.organizador;
 import br.ufc.pet.evento.ResponsavelAtividade;
 import br.ufc.pet.evento.Usuario;
 import br.ufc.pet.interfaces.Comando;
+import br.ufc.pet.services.EventoService;
 import br.ufc.pet.services.UsuarioService;
 import br.ufc.pet.util.UtilSeven;
 import java.util.Date;
@@ -33,17 +34,38 @@ public class CmdEditarResponsavel implements Comando {
         String uf = request.getParameter("uf");
         String senha = request.getParameter("senha");
         String confSenha = request.getParameter("r-senha");
-
-        if (nome == null || nome.trim().equals("") || email == null || email.trim().equals("") || senha == null || senha.trim().equals("") || confSenha == null || confSenha.trim().equals("")) {
+        String tempoldsenha = request.getParameter("oldsenha");
+        
+        if (nome == null || nome.trim().equals("") || email == null || email.trim().equals("")
+                || senha == null || senha.trim().equals("") || confSenha == null || confSenha.trim().equals("") || tempoldsenha.equals("")) {
             session.setAttribute("erro", "Preencha todos os campos obrigatórios.");
-            return "/org/organ_editar_responsavel.jsp";
+            return "/part/part_conta.jsp";
         }
+
         if (!senha.trim().equals(confSenha)) {
             session.setAttribute("erro", "A senha não confere com a sua confirmação.");
-            return "/org/organ_editar_responsavel.jsp";
-        }       
-        Date dataNascimento = UtilSeven.treatToDate(dataNascimentoS);
+            return "/part/part_conta.jsp";
+        }
+        
         Usuario usUpdate = responsavel.getUsuario();
+        UsuarioService usService = new UsuarioService();
+        Usuario usTemp = usService.getByEmail(email);
+        if (usTemp != null) {
+            if (!usTemp.getId().equals(usUpdate.getId())) {
+                session.setAttribute("erro", "E-Mail já cadastrado.");
+                return "/org/organ_editar_responsavel.jsp";
+            }
+            if(!usTemp.getSenha().equals(senha)){
+                senha = UtilSeven.criptografar(senha);
+            }
+            String oldsenha = UtilSeven.criptografar(tempoldsenha);
+            if(!oldsenha.equals(usTemp.getSenha())){
+                session.setAttribute("erro", "Senha Antiga incorreta!");
+                return "/org/organ_editar_responsavel.jsp";
+            }
+        }
+        
+        
         usUpdate.setBairro(bairro);
         usUpdate.setCidade(cidade);
         usUpdate.setEmail(email);
@@ -55,18 +77,16 @@ public class CmdEditarResponsavel implements Comando {
         usUpdate.setSenha(senha);
         usUpdate.setSexo(sexo);
         usUpdate.setUf(uf);
-        usUpdate.setDataNascimento(dataNascimento);
+        if (dataNascimentoS != null && !dataNascimentoS.trim().isEmpty()) {
+            Date dataNascimento = UtilSeven.treatToDate(dataNascimentoS);
+            usUpdate.setDataNascimento(dataNascimento);
+        }
 
         //Validar a inserção
-        UsuarioService usService = new UsuarioService();
-        Usuario usTemp = usService.getByEmail(email);
         if (usTemp != null) {
-            if (!usTemp.getId().equals(usUpdate.getId())) {
-                session.setAttribute("erro", "E-Mail já cadastrado.");
-                return "/org/organ_editar_responsavel.jsp";
-            }
             if (usService.update(usUpdate)) {
                 session.setAttribute("sucesso", "Responsável editado com sucesso.");
+                
             } else {
                 session.setAttribute("erro", "Erro ao tentar editar Responsável por Atividade.");
                 return "/org/organ_editar_responsavel.jsp";
@@ -75,4 +95,3 @@ public class CmdEditarResponsavel implements Comando {
         return "/org/organ_add_atividades.jsp";
     }
 }
-    
