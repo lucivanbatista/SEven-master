@@ -2,6 +2,7 @@
 <%@page import="br.ufc.pet.evento.Evento" %>
 <%@page import=" br.ufc.pet.util.UtilSeven" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%@include file="../ErroAutenticacaoUser.jsp" %>
 
@@ -50,6 +51,18 @@
 
             String inicioEvento = (String)session.getAttribute("inicioEvento");
             session.removeAttribute("inicioEvento");
+            
+            String gratis = (String)session.getAttribute("gratuito");
+            int flag = 0;
+            if(gratis == null)
+                gratis = "";
+            if(gratis.equals("true")){
+                flag = 1;
+                pageContext.setAttribute("gratuit", flag);
+            }else{
+                pageContext.setAttribute("gratuit", flag); 
+            }
+            
             if(inicioEvento == null)
                 inicioEvento="";
             
@@ -63,14 +76,17 @@
                 sigla = evento.getSigla();
                 nome = evento.getNome();
                 tema = evento.getTema();
+                
                 inicioIn = UtilSeven.treatToString(evento.getInicioPeriodoInscricao());
                 fimIn = UtilSeven.treatToString(evento.getFimPeriodoInscricao());
                 limiteDeAtividadesPorParticipante = evento.getLimiteAtividadePorParticipante()+"";
                 descricao = evento.getDescricao();
                 inicioEvento = UtilSeven.treatToString(evento.getInicioPeriodoEvento());
                 fimEvento = UtilSeven.treatToString(evento.getFimPeriodoEvento());
+                
             }
 %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -119,21 +135,32 @@
                                 <input data-toggle="tooltip" title="Sigla do Evento" class="form-control" type="text" name="sigla_evento" placeholder="Sigla" value="<%=sigla%>" />
                              </div>
                           </div>   
-                            
                             <div class = "col-lg-6">       
                               <div class="form-group">
                                 <label for="text_a">Tema do Evento</label>
                                 <input data-toggle="tooltip" title="Tema do Evento" class="form-control" type="text" name="tema_evento" placeholder="Tema" value="<%=tema%>" />
                              </div>
                             </div>
-                           <div class = "col-lg-4">     
+                           <div class = "col-lg-4"> 
+                              <c:set var = "est"  scope="page" value ="${gratuit}"/>
                               <label>O evento é gratuito?</label><br />
-                               <label class="radio-inline">
-                                <input type="radio" name="gratuito" value="true" id="inlineRadio1"/> Sim
-                               </label>
-                               <label class="radio-inline">
-                                 <input type="radio" name="gratuito" value="false" id="inlineRadio2" checked/> Não
-                               </label>
+                              <c:if test = "${est == 1}">
+                                   <label class="radio-inline">
+                                    <input type="radio"  name="gratuito" value="true" id="inlineRadio1" checked/> Sim
+                                   </label>
+                                   <label class="radio-inline">
+                                    <input type="radio"  name="gratuito" value="false" id="inlineRadio2" /> Não
+                              </label>    
+                              </c:if>
+                              <c:if test = "${est == 0}">
+                                    <label class="radio-inline">
+                                    <input type="radio"  name="gratuito" value="true" id="inlineRadio1"/> Sim
+                                    </label>
+                                    <label class="radio-inline">
+                                    <input type="radio"  name="gratuito" value="false" id="inlineRadio2" checked/> Não
+                               </label> 
+                              </c:if>
+                         
                           </div> 
                         </div> 
                       <div class="row">     
