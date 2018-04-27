@@ -57,7 +57,7 @@
         <link rel="stylesheet" href="../css/ripples.min.css" />
         <link rel="stylesheet" href="../css/bootstrap-material-datetimepicker.css" />
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css' />
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <title>SEven</title> 
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
         <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
@@ -65,10 +65,10 @@
         <script src="../js/ripples.min.js"></script>
         <script src="../js/material.min.js"></script>
         <script type="text/javascript" src="../js/moment-with-locales.min.js"></script>
-	<script type="text/javascript" src="../js/bootstrap-material-datetimepicker.js"></script>
-	<script type="text/javascript" src="../js/datetimepicker.js"></script> 
+        <script type="text/javascript" src="../js/bootstrap-material-datetimepicker.js"></script>
+        <script type="text/javascript" src="../js/datetimepicker.js"></script> 
         <script type="text/javascript" src="../js/cidade-dinamica.js"></script>
-        <script type="text/javascript" src="../Script.js"> </script>  
+        <script type="text/javascript" src="../Script.js"></script> 
     </head>
     <body>
         <div id="container">
@@ -104,15 +104,15 @@
                                     <div class="form-group">                                       
                                         <input data-toggle="tooltip" title="Email" placeholder="* E-mail" type="text" maxlength="50" value="<%=part.getUsuario().getEmail()%>" name="email" class="form-control"/>
                                     </div>
-                                    
+
                                     <div class="form-group input-group input-append date">
-                                        <input data-toggle="tooltip" title="Data de Nascimento" placeholder="Data de Nascimento" type="text" name="dt_nascimento" value="<%=data%>" id="box_datenasc" onkeypress="return formataData(this,event)" maxlength="10" class="form-control"/>
+                                        <input data-toggle="tooltip" title="Data de Nascimento" placeholder="Data de Nascimento" type="text" name="dt_nascimento" value="<%=data%>" id="box_datenasc" onkeypress="return formataData(this, event)" maxlength="10" class="form-control"/>
                                         <span class="input-group-addon" id="datenasc_up" >
                                             <button name="dt_nascimento" id="datenasc" class="btn btn-outline-secondary glyphicon glyphicon-calendar form-control">
                                             </button>
                                         </span>
                                     </div>
-                                        
+
                                     <div class="form-group">                                      
                                         <select class="form-control" id="sexo" name="sexo">
                                             <option value="Masculino">Masculino</option>
@@ -127,33 +127,35 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-5 space-top">
-                                     
+
                                     <div class="form-group">
                                         <input data-toggle="tooltip" title="Bairro" placeholder="* Bairro" type="text" maxlength="50" value="<%=bairro%>" name="bairro" class="form-control space-top-camp" required/>
                                     </div>
                                     <div class="form-group">                                        
-                                        <input data-toggle="tooltip" title="Número/Complemento" placeholder="* Número/Complemento" type="text" maxlength="12" value="<%=numero%>" name="numero" class="form-control" required/>
+                                        <input data-toggle="tooltip" title="Número/Complemento" placeholder="* Número/Complemento" type="text" maxlength="20" value="<%=numero%>" name="numero" class="form-control" required/>
                                         <!--<input data-toggle="tooltip" title="Número" placeholder="* Número" type="text" maxlength="6" value="<%=numero%>" onkeypress="return validaNumerosSilencioso(event);" name="numero" class="form-control" required/>-->
                                     </div>
-                                                                     
+
                                     <div class="form-group">
+                                        <input type="hidden" value="<%=uf%>" id="ufhidden"/>
                                         <select id="estados" data-toggle="tooltip" title="Estado" name="uf" value="<%=uf%>" class="form-control" required>
                                             <option value=""></option>
                                         </select>
                                     </div>
-                                    
+
                                     <div class="form-group">
+                                        <input type="hidden" value="<%=cidade%>" id="cidadehidden"/>
                                         <select id="cidades" data-toggle="tooltip" title="Cidade" name="cidade" value="<%=cidade%>" class="form-control" required>
-                                        
+
                                         </select>
                                     </div>
-                                                                       
-<!--                                    <div class="form-group">
-                                        <input data-toggle="tooltip" title="UF" placeholder="* UF" type="text" maxlength="50" value="<%=uf%>" name="uf" class="form-control" required/>
-                                    </div>
-                                    <div class="form-group">                                      
-                                        <input data-toggle="tooltip" title="Cidade" placeholder="* Cidade" type="text" maxlength="50" value="<%=cidade%>" name="cidade" class="form-control" required/>
-                                    </div>-->
+
+                                    <!--                                    <div class="form-group">
+                                                                            <input data-toggle="tooltip" title="UF" placeholder="* UF" type="text" maxlength="50" value="<%=uf%>" name="uf" class="form-control" required/>
+                                                                        </div>
+                                                                        <div class="form-group">                                      
+                                                                            <input data-toggle="tooltip" title="Cidade" placeholder="* Cidade" type="text" maxlength="50" value="<%=cidade%>" name="cidade" class="form-control" required/>
+                                                                        </div>-->
                                     <div class="form-group">
                                         <input data-toggle="tooltip" title="Antiga Senha" placeholder="* Antiga Senha" type="password" maxlength="18" minlength="6" value="" name="oldsenha" class="form-control"/>
                                     </div>
@@ -163,7 +165,7 @@
                                     <div class="form-group">
                                         <input data-toggle="tooltip" title="Repeti a Senha" placeholder="* Digite a senha novamente" type="password" maxlength="18" minlength="6" value="" name="r-senha" class="form-control"/>
                                     </div>
-                                    
+
                                     <button data-toggle="tooltip" title="Atualizar Dados" type="submit" class="btn btn-default pull-right" onclick="return confirmarCadastrado()">Atualizar</button>
 
                                 </div>                                
@@ -179,5 +181,16 @@
         <div class="footer-top">        
             <%@include file="../footer.jsp" %>
         </div>
+        <script>
+            window.onload = function() {
+                var s = document.getElementById("sexo").options;
+                for (var i = 0; i < s.length; i++) {
+                    if (s[i].value === "<%=sexo%>") {
+                        s[i].selected = true;
+                        break;
+                    }
+                }
+            }
+        </script>
     </body>
 </html>
