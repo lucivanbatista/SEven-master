@@ -15,6 +15,7 @@
             <li><a href="../ServletCentral?comando=CmdListarEventosAbertos" title="Inscrições">Nova Inscrição</a></li>
             <li><a href="part_visualizar_inscricoes.jsp" title="Inscrições">Minhas Inscrições</a></li>
             <li><a href="gerencia_conta.jsp" title="Editar Dados">Gerenciar Conta</a></li>
+            <li><a href="part_edit_senha.jsp" title="Alterar Senha">Alterar Senha</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="../ServletCentral?comando=CmdLogout" title="Logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Sair</a></li>

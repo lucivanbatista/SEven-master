@@ -130,6 +130,17 @@ public class UsuarioService {
             return false;
         }
     }
+    
+    
+    public boolean updateSemSenha(Usuario u) {
+        try {
+            usuarioDAO.editarSemSenha(u);
+            return true;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
 
 
     public boolean updateSenhaUser(Usuario u) {

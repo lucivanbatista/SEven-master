@@ -22,10 +22,11 @@
         <div id="container">
 
                 <%-- Incluindo Menu --%>
-                <%@include file="part_menu.jsp" %> 
+        <%@include file="part_menu.jsp" %> 
 
          
         <div id="content">
+                    <%@include file="/error.jsp" %>
           <div class="row">   
             <div class="col-lg-6">               
                <div class="panel">   

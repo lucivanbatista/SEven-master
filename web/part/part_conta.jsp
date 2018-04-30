@@ -14,7 +14,6 @@
     String bairro = part.getUsuario().getBairro();
     String uf = part.getUsuario().getUf();
     String numero = part.getUsuario().getNumero();
-    String confirSenha = part.getUsuario().getSenha();
     String data = null;
     if (fone == null || fone.trim().isEmpty()) {
         fone = "";
@@ -90,7 +89,6 @@
                                 <div class="col-lg-offset-1 col-lg-5 space-top"> 
                                     <input type="hidden" name="comando" value="CmdEditarParticipante" />
                                     <br/><div class="pull-left text-uppercase label label-warning">* Campos obrigatórios</div><br/>
-
                                     <div class="form-group">                                       
                                         <input data-toggle="tooltip" title="Nome Completo" type="text" maxlength="50" class="form-control space-top" value="<%=part.getUsuario().getNome()%>"  name="nome" 
                                                <% if (part.getUsuario().isCertificadoGerado()) {%>   
@@ -99,14 +97,14 @@
                                                />
                                     </div>
                                     <div class="form-group">
-                                        <input data-toggle="tooltip" title="Telefone" placeholder="Telefone" type="text" maxlength="13" value="<%=fone%>" onkeypress="return formataContato(this, event)" name="fone" class="form-control" />
+                                        <input data-toggle="tooltip" title="Telefone" placeholder="Telefone" type="text" maxlength="13" value="<%=fone%>" onkeypress="return formataContato(this, event)" name="fone" class="form-control" required/>
                                     </div>
                                     <div class="form-group">                                       
-                                        <input data-toggle="tooltip" title="Email" placeholder="* E-mail" type="text" maxlength="50" value="<%=part.getUsuario().getEmail()%>" name="email" class="form-control"/>
+                                        <input data-toggle="tooltip" title="Email" placeholder="* E-mail" type="text" maxlength="50" value="<%=part.getUsuario().getEmail()%>" name="email" class="form-control" required/>
                                     </div>
 
                                     <div class="form-group input-group input-append date">
-                                        <input data-toggle="tooltip" title="Data de Nascimento" placeholder="Data de Nascimento" type="text" name="dt_nascimento" value="<%=data%>" id="box_datenasc" onkeypress="return formataData(this, event)" maxlength="10" class="form-control"/>
+                                        <input data-toggle="tooltip" title="Data de Nascimento" placeholder="Data de Nascimento" type="text" name="dt_nascimento" value="<%=data%>" id="box_datenasc" onkeypress="return formataData(this, event)" maxlength="10" class="form-control" required/>
                                         <span class="input-group-addon" id="datenasc_up" >
                                             <button name="dt_nascimento" id="datenasc" class="btn btn-outline-secondary glyphicon glyphicon-calendar form-control">
                                             </button>
@@ -120,7 +118,7 @@
                                         </select>
                                     </div>                          
                                     <div class="form-group">
-                                        <input data-toggle="tooltip" title="Instituição" placeholder="Instituição" type="text" maxlength="50" value="<%=instituicao%>" name="instituicao" class="form-control"/>
+                                        <input data-toggle="tooltip" title="Instituição" placeholder="Instituição" type="text" maxlength="50" value="<%=instituicao%>" name="instituicao" class="form-control" required/>
                                     </div>
                                     <div class="form-group">                                        
                                         <input data-toggle="tooltip" title="Rua" placeholder="* Rua" type="text" maxlength="50" value="<%=rua%>" name="rua" class="form-control" required/>
@@ -156,7 +154,7 @@
                                                                         <div class="form-group">                                      
                                                                             <input data-toggle="tooltip" title="Cidade" placeholder="* Cidade" type="text" maxlength="50" value="<%=cidade%>" name="cidade" class="form-control" required/>
                                                                         </div>-->
-                                    <div class="form-group">
+<!--                                    <div class="form-group">
                                         <input data-toggle="tooltip" title="Antiga Senha" placeholder="* Antiga Senha" type="password" maxlength="18" minlength="6" value="" name="oldsenha" class="form-control"/>
                                     </div>
                                     <div class="form-group">
@@ -164,7 +162,7 @@
                                     </div>
                                     <div class="form-group">
                                         <input data-toggle="tooltip" title="Repeti a Senha" placeholder="* Digite a senha novamente" type="password" maxlength="18" minlength="6" value="" name="r-senha" class="form-control"/>
-                                    </div>
+                                    </div>-->
 
                                     <button data-toggle="tooltip" title="Atualizar Dados" type="submit" class="btn btn-default pull-right" onclick="return confirmarCadastrado()">Atualizar</button>
 

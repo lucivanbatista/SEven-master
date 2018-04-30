@@ -2,6 +2,7 @@ package br.ufc.pet.services;
 
 import br.ufc.pet.daos.ParticipanteDAO;
 import br.ufc.pet.evento.Participante;
+import br.ufc.pet.util.UtilSeven;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -137,5 +138,31 @@ public class ParticipanteService {
         } catch (SQLException ex) {
             return null;
         }
+    }
+    
+    public String getSenhaPart(Long id){
+         try {
+            Participante part = participanteDAO.getByUsuarioId(id);
+            UsuarioService us = new UsuarioService();
+            part.setUsuario(us.getById(part.getUsuario().getId())); 
+            return part.getUsuario().getSenha();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } 
+        return null;
+    }
+    
+    public void alterarSenhaPart(Long id, String senha){
+         try {
+            Participante part = participanteDAO.getByUsuarioId(id);
+            if (part != null) {
+                UsuarioService us = new UsuarioService();
+                part.setUsuario(us.getById(part.getUsuario().getId()));
+                part.getUsuario().setSenha(UtilSeven.criptografar(senha));
+                us.updateSenhaUser(part.getUsuario());
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } 
     }
 }

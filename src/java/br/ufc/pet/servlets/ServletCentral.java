@@ -80,6 +80,7 @@ import br.ufc.pet.comandos.organizador.CmdSelecionarResponsavelEdicao;
 import br.ufc.pet.comandos.organizador.CmdUpdateMovimentacaoFinanceira;
 import br.ufc.pet.comandos.organizador.CmdUploadModeloCertificado;
 import br.ufc.pet.comandos.organizador.CmdVisualizarAtividade;
+import br.ufc.pet.comandos.participante.CmdEditPart;
 import br.ufc.pet.comandos.participante.CmdEditarInscricao;
 import br.ufc.pet.comandos.participante.CmdEditarParticipante;
 import br.ufc.pet.comandos.participante.CmdExcluirInscricao;
@@ -307,6 +308,8 @@ public class ServletCentral extends HttpServlet {
         comandos.put("CmdBuscarEvento", cmdo);
         cmdo = new CmdEditAdmin();
         comandos.put("CmdEditAdmin",cmdo);
+        cmdo = new CmdEditPart();
+        comandos.put("CmdEditPart",cmdo);
         cmdo = new CmdBuscarInscricao();
         comandos.put("CmdBuscarInscricao", cmdo);
         cmdo = new CmdAtualizarInscricao();
