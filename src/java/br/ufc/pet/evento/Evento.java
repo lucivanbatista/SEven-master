@@ -1,7 +1,11 @@
 package br.ufc.pet.evento;
 
+import br.ufc.pet.util.UtilSeven;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
 
 public class Evento extends Bean {
 
@@ -180,22 +184,49 @@ public class Evento extends Bean {
     public void setLimiteAtividadePorParticipante(int limiteDeAtividades) {
         this.limiteAtividadePorParticipante = limiteDeAtividades;
     }
-    
+
     public int getLimiteAtividadePorParticipante() {
-       return this.limiteAtividadePorParticipante;
+        return this.limiteAtividadePorParticipante;
     }
 
-    public void setGratuito(boolean gratuito){
+    public void setGratuito(boolean gratuito) {
         this.gratuito = gratuito;
     }
-    
-    public boolean isGratuito(){
+
+    public boolean isGratuito() {
         return this.gratuito;
     }
-    
+
     @Override
     public String toString() {
         return "Evento{" + "id=" + id + ", nome=" + nome + ", sigla=" + sigla + ", tema=" + tema + ", inicioPeriodoInscricao=" + inicioPeriodoInscricao + ", fimPeriodoInscricao=" + fimPeriodoInscricao + ", descricao=" + descricao + ", ativo=" + ativo + ", atividades=" + atividades + ", organizadores=" + organizadores + ", administrador=" + administrador + ", movimentacoesFinanceiras=" + movimentacoesFinanceiras + ", inicioPeriodoEvento=" + inicioPeriodoEvento + ", fimPeriodoEvento=" + fimPeriodoEvento + ", limiteAtividadePorParticipante=" + limiteAtividadePorParticipante + '}';
     }
+
+    public ArrayList<String> getDates() {
+        ArrayList<Date> datesInRange = new ArrayList<Date>();
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(this.inicioPeriodoEvento);
+
+        Calendar endCalendar = new GregorianCalendar();
+        endCalendar.setTime(this.fimPeriodoEvento);
+        endCalendar.add(Calendar.DATE, 1);
+
+        while (calendar.before(endCalendar)) {
+            Date result = calendar.getTime();
+            datesInRange.add(result);
+            calendar.add(Calendar.DATE, 1);
+        }
+        
+        for(Date d: datesInRange){
+            System.out.println(d);
+        }
+        
+        ArrayList<String> dates = new ArrayList<String>();
+        
+        for(Date d: datesInRange){
+            dates.add(UtilSeven.treatToString(d));
+        }
+        
+        return dates;
+    }
 }
- 

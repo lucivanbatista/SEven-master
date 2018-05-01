@@ -1,16 +1,19 @@
 package br.ufc.pet.comandos.participante;
 
 import br.ufc.pet.evento.Evento;
+import br.ufc.pet.evento.Horario;
 import br.ufc.pet.evento.Inscricao;
 import br.ufc.pet.evento.ModalidadeInscricao;
 import br.ufc.pet.evento.Participante;
 import br.ufc.pet.evento.TipoAtividade;
 import br.ufc.pet.interfaces.Comando;
 import br.ufc.pet.services.EventoService;
+import br.ufc.pet.services.HorarioService;
 import br.ufc.pet.services.InscricaoService;
 import br.ufc.pet.services.ModalidadeInscricaoService;
 import br.ufc.pet.services.TipoAtividadeService;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -87,6 +90,19 @@ public class CmdSelecionarEvento implements Comando {
         session.setAttribute("arrayDeTipos", arrayDeTipos);
         session.setAttribute("eventoSelecionado", ev);
         session.setAttribute("modalidades", modalidades);
+        
+        //Modificado para voltar horarios
+        HorarioService hs = new HorarioService();
+        
+        
+        ArrayList<Horario> horarios = hs.getHorariosByEventoId(ev.getId());
+        Collections.sort(horarios);
+        request.getSession().setAttribute("horarios", horarios);
+        
+        ArrayList<String> dias = ev.getDates();
+        Collections.sort(dias);
+        request.getSession().setAttribute("dias", dias);
+        //
 
         return "/part/part_fazer_inscricao.jsp";
     }

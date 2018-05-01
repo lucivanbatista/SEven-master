@@ -3,7 +3,7 @@
 <%@page import="br.ufc.pet.util.UtilSeven"%>
 <%@page import="br.ufc.pet.evento.Atividade"%>
 <%@page import="br.ufc.pet.evento.Evento"%>
-<%@page import="br.ufc.pet.evento.Horario"%>
+<%@page import="br.ufc.pet.evento.Horario"%>    
 <%@page import="br.ufc.pet.evento.Inscricao"%>
 <%@page import="br.ufc.pet.evento.ModalidadeInscricao"%>
 <%@page import="br.ufc.pet.evento.TipoAtividade"%>
@@ -41,6 +41,9 @@
         //pega array de tipos de atividades da sessão para gerar a tabela de preços
         ArrayList<TipoAtividade> arrayDeTipos = (ArrayList<TipoAtividade>) session.getAttribute("arrayDeTipos");
         //pega da sessão alguma mensagem de erro, caso algum problema retorne para esta pagina
+
+        ArrayList<String> dias = (ArrayList<String>) session.getAttribute("dias");
+        ArrayList<Horario> horarios = (ArrayList<Horario>) session.getAttribute("horarios");
     %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -132,42 +135,63 @@
                             <p>Oferta de atividades opcionais:</p>
 
 
-                            <table class="data_table table table-hover">
+
+
+                            <%--Parte que será modificada para a tabela interativa--%>
+                            <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Nome da Atividade</th>
                                         <th>Horários</th>
-                                        <th>Tipo</th>
-                                        <th>Vagas</th>
-                                        <th>Vagas Disponíveis</th>
-                                        <th>Selecionar</th>
+
+                                        <%for (String a : dias) {%>
+                                        <th>
+                                            (<%=a%>)
+                                        </th>
+                                        <%}%>
+
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <%for (Atividade a : oferta) {%> <%--Exibindo elementos do array de oferta--%>
+                                    <%for (Horario h : horarios) {%>
                                     <tr>
-                                        <td><%=a.getNome()%></td>
                                         <td>
-                                            <%for (Horario h : a.getHorarios()) {%>
-                                            (<%=h.printHorario()%>)
+                                            (<%=h.printH()%>)
+                                        </td>
+                                        <%for (String d : dias) {%>
+                                        <td>
+                                            <%for (Atividade a : oferta) {%> 
+                                                <%--Exibindo elementos do array de oferta--%>
+                                                <%for (Horario b : a.getHorarios()) {%>
+                                                    <%if (b.getHoraInicial() == h.getHoraInicial()
+                                                            && b.getHoraFinal() == h.getHoraFinal()
+                                                            && b.getMinutoInicial() == h.getMinutoInicial()
+                                                            && b.getMinutoFinal() == h.getMinutoFinal()
+                                                            && UtilSeven.treatToString(b.getDia()).equals(d)) {%>
+                                                    <label><%=a.getNome()%></label> || 
+                                                    <label><%=a.getTipo().getNome()%></label><br/>
+                                                    <%int vagas = a.getVagas();
+                                                        br.ufc.pet.services.InscricaoService IS = new br.ufc.pet.services.InscricaoService();
+                                                        long vagasOcupadas = IS.getInscritosByAtividadeId(a.getId());
+                                                    %>
+                                                    <label>Vagas Disponiveis: </label> <%=vagas%><br/>
+                                                    <a data-toggle="tooltip" href="../ServletCentral?comando=CmdSelecionarAtividade&ativ=<%=a.getId()%>" title="Selecionar Atividade" class="btn btn-sm btm-primary btn-primary-new"><strong>Adicionar Atividade</strong></a><br/><br/>
+                                                    <%--O link redireciona ao comando, que por sua vez pega o id da atividade em questão e insere a mesma no array das atividades selecionadas--%>
+                                                    <%}%>
+                                                <%}%>
                                             <%}%>
                                         </td>
-                                        <td><%=a.getTipo().getNome()%></td>
-                                        <%int vagas = a.getVagas();
-                                            br.ufc.pet.services.InscricaoService IS = new br.ufc.pet.services.InscricaoService();
-                                            long vagasOcupadas = IS.getInscritosByAtividadeId(a.getId());
-                                        %>
-                                        <td><%=vagas%>
-                                        </td>
-                                        <td><%=vagas - vagasOcupadas%>
-                                        </td>
-                                        <td><a data-toggle="tooltip" href="../ServletCentral?comando=CmdSelecionarAtividade&ativ=<%=a.getId()%>" title="Selecionar Atividade" class="btn btn-sm btm-primary btn-primary-new"><strong>Adicionar Atividade</strong></a></td>
-                                        <%--O link redireciona ao comando, que por sua vez pega o id da atividade em questão e insere a mesma no array das atividades selecionadas--%>
+                                        <%}%>
                                     </tr>
                                     <%}%>
+
                                 </tbody>
                             </table>
                             <%}%>
+                            <%--Parte que será modificada para a tabela interativa--%>
+
+
+
+
                             <hr style="height: 10px; border: 0; box-shadow: 0 10px 10px -10px #8c8b8b inset;"/>
 
                             <%if (modalidades.isEmpty()) {%>
@@ -196,7 +220,7 @@
                             <p class="space-top text-bold"> <%=m.getTipo()%> : <%=preco%></p>
                             <%}%>
                         </div></div>
-                        <center><input data-toggle="tooltip" title="Inscrever-se no Evento" type="submit" value="Inscrever-se" class="btn btn-default" /></center><br />
+                    <center><input data-toggle="tooltip" title="Inscrever-se no Evento" type="submit" value="Inscrever-se" class="btn btn-default" /></center><br />
                 </form>
             </div>
             <a href="" title="" onclick="history.back(); return false;" class="btn btn-default"><span aria-hidden="true">&larr;</span>Voltar</a>
