@@ -43,7 +43,7 @@
         //pega da sessão alguma mensagem de erro, caso algum problema retorne para esta pagina
 
         ArrayList<String> dias = (ArrayList<String>) session.getAttribute("dias");
-        ArrayList<Horario> horarios = (ArrayList<Horario>) session.getAttribute("horarios");
+        ArrayList<String> horarios = (ArrayList<String>) session.getAttribute("horarios");
     %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -137,7 +137,7 @@
 
 
 
-                            <%--Parte que será modificada para a tabela interativa--%>
+                            <%--Tabela interativa--%>
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
@@ -152,28 +152,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <%for (Horario h : horarios) {%>
+                                    <%for (String h : horarios) {%>
                                     <tr>
                                         <td>
-                                            (<%=h.printH()%>)
+                                            (<%=h%>)
                                         </td>
                                         <%for (String d : dias) {%>
                                         <td>
                                             <%for (Atividade a : oferta) {%> 
                                                 <%--Exibindo elementos do array de oferta--%>
                                                 <%for (Horario b : a.getHorarios()) {%>
-                                                    <%if (b.getHoraInicial() == h.getHoraInicial()
-                                                            && b.getHoraFinal() == h.getHoraFinal()
-                                                            && b.getMinutoInicial() == h.getMinutoInicial()
-                                                            && b.getMinutoFinal() == h.getMinutoFinal()
-                                                            && UtilSeven.treatToString(b.getDia()).equals(d)) {%>
+                                                <%if (b.printH().equals(h) && UtilSeven.treatToString(b.getDia()).equals(d)) {%>
                                                     <label><%=a.getNome()%></label> || 
                                                     <label><%=a.getTipo().getNome()%></label><br/>
                                                     <%int vagas = a.getVagas();
                                                         br.ufc.pet.services.InscricaoService IS = new br.ufc.pet.services.InscricaoService();
-                                                        long vagasOcupadas = IS.getInscritosByAtividadeId(a.getId());
+                                                        long vagasDisponiveis = vagas - IS.getInscritosByAtividadeId(a.getId());
                                                     %>
-                                                    <label>Vagas Disponiveis: </label> <%=vagas%><br/>
+                                                    <label>Vagas Disponiveis: </label> <%=vagasDisponiveis%><br/>
                                                     <a data-toggle="tooltip" href="../ServletCentral?comando=CmdSelecionarAtividade&ativ=<%=a.getId()%>" title="Selecionar Atividade" class="btn btn-sm btm-primary btn-primary-new"><strong>Adicionar Atividade</strong></a><br/><br/>
                                                     <%--O link redireciona ao comando, que por sua vez pega o id da atividade em questão e insere a mesma no array das atividades selecionadas--%>
                                                     <%}%>
@@ -187,7 +183,7 @@
                                 </tbody>
                             </table>
                             <%}%>
-                            <%--Parte que será modificada para a tabela interativa--%>
+                            <%--Tabela interativa--%>
 
 
 

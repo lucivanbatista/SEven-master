@@ -57,6 +57,20 @@ public class HorarioService {
             return null;
         }
     }
+    
+    public ArrayList<String> getHorasByEventoId(long id) {
+        try {
+            ArrayList<Horario> horarios = horarioDAO.getByEventoId(id);
+            ArrayList<String> horas = new ArrayList<String>();
+            for(Horario h: horarios){
+                horas.add(h.printH());
+            }
+            return horas;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
 
     public ArrayList<Horario> getAllHorarios() {
         try {

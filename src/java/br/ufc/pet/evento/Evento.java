@@ -216,11 +216,7 @@ public class Evento extends Bean {
             datesInRange.add(result);
             calendar.add(Calendar.DATE, 1);
         }
-        
-        for(Date d: datesInRange){
-            System.out.println(d);
-        }
-        
+
         ArrayList<String> dates = new ArrayList<String>();
         
         for(Date d: datesInRange){

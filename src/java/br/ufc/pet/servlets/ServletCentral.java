@@ -111,7 +111,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ServletCentral extends HttpServlet {
 
     private Hashtable comandos;
-    private boolean debug = true;
+    private boolean debug = false;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
