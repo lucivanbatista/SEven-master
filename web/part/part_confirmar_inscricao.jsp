@@ -1,13 +1,3 @@
-<%-- 
-    Document   : part_confirmar_inscricao
-    Created on : 25/05/2010, 15:35:29
-    Author     : Caio
---%>
-<%-- 
-    Document   : part_confirmar_inscricao
-    Modified in : 04/05/2017, 21:18:01
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
 <%@page import="br.ufc.pet.evento.Atividade"%>
@@ -28,6 +18,10 @@
         <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon"/>
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <title>SEven</title>
+        <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
+        <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Script.js"></script>
     </head>
     <body>
         <div id="container">
@@ -38,28 +32,32 @@
             <div id="content">
                 <h1 class="titulo">Fazer Inscrição</h1>
                 <div class="panel panel-default">
-                    <div class="panel-heading text-center">Confirmação da inscrição</div>
+                    <div class="panel-heading text-center">Confirmação da Inscrição</div>
                     <div class="panel-body">  
                         <div class="col-lg-12 space-top">
 
                             <%//formata as datas para exibição em texto
                                 String data = UtilSeven.treatToLongString(i.getDataRealizada());
-                                String datapg = UtilSeven.treatToLongString(i.getDataPagamento());
+//                                String datapg = UtilSeven.treatToLongString(i.getDataPagamento());
                             %>
                             <p><strong>Evento:</strong> <%=i.getEvento().getNome()%></p>
                             <p><strong>Participante:</strong> <%=i.getParticipante().getUsuario().getNome()%></p>
                             <p><strong>Modalidade:</strong> <%=i.getModalidade().getTipo()%></p>
                             <p><strong>Data: </strong><%=data%></p>
-                            <p><strong>Prazo de pagamento: Até </strong><%=datapg%></p>
                             <p><strong>Atividades: </strong></p>
-                            <%for (Atividade a : i.getAtividades()) {%>
-                            <p><%=a.getNome()%>
-                                <%for (Horario h : a.getHorarios()) {%><%--Exibe horários de cada atividade--%>
-                                
-                                (<%=h.printHorario()%>)
-                                <%}%>
-                            </p>
+                             <ol>
+                                <%for (Atividade a : i.getAtividades()) {%>
+                           
+                                    <p><li><b><%=a.getNome()%></b></li>
+                                    <ul>
+                                        <%for (Horario h : a.getHorarios()) {%><%--Exibe horários de cada atividade--%>
+                                            <li>(<%=h.printHorario()%>)</li>
+                                        <%}%>
+                                    </ul>
+                                    </p>                            
                             <%}%>
+                            </ol>
+                                
                             <%
                                 InscricaoService IS = new InscricaoService();
                                 String preco = UtilSeven.precoFormater(IS.getPrecoInscricao(i));
@@ -72,7 +70,7 @@
 
             <form action="../ServletCentral?comando=CmdSubmeterInscricao" method="post">
                 <a href="" title="" onclick="history.back(); return false;" class="btn btn-default"><span aria-hidden="true">&larr;</span>Voltar</a>
-                <input type="submit" value="Submeter" class="btn btn-default" onclick="return confirm('Deseja realmente submeter essa inscrição?')" />
+                <input data-toggle="tooltip" title="Submeter Inscrição" type="submit" value="Submeter" class="btn btn-default" onclick="return confirm('Deseja realmente submeter essa inscrição?')" />
             </form>
         </div>
         </div>

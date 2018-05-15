@@ -1,13 +1,3 @@
-<%--
-    Document   : index
-    Created on : 23/07/2013, 02:35:48
-    Author     : Mardson
---%>
-<%-- 
-    Document   : organ_gerenciar_inscricoes
-    Modified in : 07/05/2017, 22:41:34
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
 <%@page import="br.ufc.pet.util.UtilSeven"%>
@@ -61,6 +51,7 @@
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
         <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Script.js"></script>
     </head>
     <body>
         <div id="container">
@@ -184,7 +175,7 @@
                                     <%} else {%>
                                     <p>Tipo de inscrição:</p><%--Modalidade da inscrição, Estudante ou profissional--%>
                                     <%for (ModalidadeInscricao m : modalidades) {%>
-                                    <p><input class="radio" type="radio" name="tipo_inscricao" value="<%=m.getId()%>" <%if (m.getId().equals(anterior.getModalidade().getId())) {%> checked="checked" <%}%>/> <%=m.getTipo()%></p>
+                                    <label<p><input class="radio" type="radio" name="tipo_inscricao" value="<%=m.getId()%>" <%if (m.getId().equals(anterior.getModalidade().getId())) {%> checked="checked" <%}%>/> <%=m.getTipo()%></p></label>
                                     <%}%>
                                     <%}%>
                                     <br/>
@@ -206,7 +197,7 @@
                             </div>
                         </div>
                     </div>
-                    <center><input type="submit" value="Atualizar" class=" btn btn-default" /></center>
+                    <center><input data-toggle="tooltip" title="Atualizar Inscrição" type="submit" value="Atualizar" class=" btn btn-default" /></center>
                 </form>
                 <a href="" title="" onclick="history.back(); return false;" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
             </div>

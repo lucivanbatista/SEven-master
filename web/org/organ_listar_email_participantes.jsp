@@ -1,9 +1,3 @@
-<%-- 
-    Document   : organ_listar_email_participantes
-    Created on : 06/09/2012, 10:44:24
-    Author     : gleyson
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList, br.ufc.pet.evento.Participante,br.ufc.pet.evento.Evento,br.ufc.pet.evento.Atividade" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"

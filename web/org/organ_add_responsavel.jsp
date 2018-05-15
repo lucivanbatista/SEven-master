@@ -1,13 +1,3 @@
-<%-- 
-    Document   : orga_add_responsavel
-    Created on : 15/07/2010, 16:52:42
-    Author     : Escritorio projetos
---%>
-<%-- 
-    Document   : orga_add_responsavel
-    Modified in : 07/05/2017, 04:02:57
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
@@ -25,6 +15,7 @@
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
         <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Script.js"></script>
     </head>
     <body>
         <% ArrayList<Usuario> us = (ArrayList<Usuario>) session.getAttribute("usuarios");
@@ -71,15 +62,15 @@
                             <form name="formAddResponsavel" action="../ServletCentral" method="POST">
                                 <input type="hidden" name="comando" value="CmdBuscarUsuarioResponsavel">
                                 <div class="form-group form-inline">
-                                    <input type="text" name="nome_busca" placeholder="Nome" class="form-control"/>
-                                    <input type="submit" name="btnBuscar" value="Buscar" class="btn btn-default">
+                                    <input data-toggle="tooltip" title="Nome do Responsável" type="text" name="nome_busca" placeholder="Nome" class="form-control"/>
+                                    <input data-toggle="tooltip" title="Buscar Responsável" type="submit" name="btnBuscar" value="Buscar" class="btn btn-default">
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
                 <a href="" title="" onclick="history.back(); return false;" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
-                <a href="organ_add_novo_responsavel.jsp" title="Adicionar Responsavel" class="btn btn-default">Cadastrar um novo responsável</a>
+                <a data-toggle="tooltip" href="organ_add_novo_responsavel.jsp" title="Adicionar um Novo Responsável" class="btn btn-default">Cadastrar Novo Responsável</a>
                 <% if (us != null && us.size() > 0) {%>
                 <table id="data_table" class="table table-hover text-center space-top">
                     <thead>

@@ -1,19 +1,9 @@
-<%--
-    Document   : part_fazer_inscricao
-    Created on : 26/03/2010, 16:35:48
-    Author     : Caio
---%>
-<%-- 
-    Document   : part_fazer_inscricao
-    Modified in : 04/05/2017, 20:53:43
-    Author     : Joao Mateus, Fagner Pinheiro
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
 <%@page import="br.ufc.pet.util.UtilSeven"%>
 <%@page import="br.ufc.pet.evento.Atividade"%>
 <%@page import="br.ufc.pet.evento.Evento"%>
-<%@page import="br.ufc.pet.evento.Horario"%>
+<%@page import="br.ufc.pet.evento.Horario"%>    
 <%@page import="br.ufc.pet.evento.Inscricao"%>
 <%@page import="br.ufc.pet.evento.ModalidadeInscricao"%>
 <%@page import="br.ufc.pet.evento.TipoAtividade"%>
@@ -51,6 +41,9 @@
         //pega array de tipos de atividades da sessão para gerar a tabela de preços
         ArrayList<TipoAtividade> arrayDeTipos = (ArrayList<TipoAtividade>) session.getAttribute("arrayDeTipos");
         //pega da sessão alguma mensagem de erro, caso algum problema retorne para esta pagina
+
+        ArrayList<String> dias = (ArrayList<String>) session.getAttribute("dias");
+        ArrayList<String> horarios = (ArrayList<String>) session.getAttribute("horarios");
     %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -59,16 +52,17 @@
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <title>SEven</title>
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
+        <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
-
+        <script type="text/javascript" src="../Script.js"></script>
     </head>
     <body>
         <div id="container">
-
             <%-- Incluindo Menu --%>
             <%@include file="part_menu.jsp" %>
 
             <div id="content">
+                <%@include file="/error.jsp"%>
                 <%if (modalidades.isEmpty()) {
                         session.setAttribute("erro", "Atenção: erro interno - não foram recuperadas as modalidades de inscricao com sucesso.");
                     }
@@ -76,10 +70,7 @@
                         session.setAttribute("erro", "Atenção: erro interno - não foram recuperados os tipos de atividade com sucesso.");
                     }
                 %>
-
-
                 <h1 class="titulo"><%=e.getNome()%></h1>
-                <%@include file="/error.jsp"%>
                 <div class="panel panel-default space-top">
                     <div class="panel-cor panel-heading text-center">Tabela de preços</div>
                     <div class="panel-body">                       
@@ -144,42 +135,59 @@
                             <p>Oferta de atividades opcionais:</p>
 
 
-                            <table class="data_table table table-hover">
+
+
+                            <%--Tabela interativa--%>
+                            <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Nome da Atividade</th>
                                         <th>Horários</th>
-                                        <th>Tipo</th>
-                                        <th>Selecionar</th>
-                                        <th>Vagas</th>
-                                        <th>Vagas Disponíveis</th>
+
+                                        <%for (String a : dias) {%>
+                                        <th>
+                                            (<%=a%>)
+                                        </th>
+                                        <%}%>
+
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <%for (Atividade a : oferta) {%> <%--Exibindo elementos do array de oferta--%>
+                                    <%for (String h : horarios) {%>
                                     <tr>
-                                        <td><%=a.getNome()%></td>
                                         <td>
-                                            <%for (Horario h : a.getHorarios()) {%>
-                                            (<%=h.printHorario()%>)
+                                            (<%=h%>)
+                                        </td>
+                                        <%for (String d : dias) {%>
+                                        <td>
+                                            <%for (Atividade a : oferta) {%> 
+                                                <%--Exibindo elementos do array de oferta--%>
+                                                <%for (Horario b : a.getHorarios()) {%>
+                                                <%if (b.printH().equals(h) && UtilSeven.treatToString(b.getDia()).equals(d)) {%>
+                                                    <label><%=a.getNome()%></label> || 
+                                                    <label><%=a.getTipo().getNome()%></label><br/>
+                                                    <%int vagas = a.getVagas();
+                                                        br.ufc.pet.services.InscricaoService IS = new br.ufc.pet.services.InscricaoService();
+                                                        long vagasDisponiveis = vagas - IS.getInscritosByAtividadeId(a.getId());
+                                                    %>
+                                                    <label>Vagas Disponiveis: </label> <%=vagasDisponiveis%><br/>
+                                                    <a data-toggle="tooltip" href="../ServletCentral?comando=CmdSelecionarAtividade&ativ=<%=a.getId()%>" title="Selecionar Atividade" class="btn btn-sm btm-primary btn-primary-new"><strong>Adicionar Atividade</strong></a><br/><br/>
+                                                    <%--O link redireciona ao comando, que por sua vez pega o id da atividade em questão e insere a mesma no array das atividades selecionadas--%>
+                                                    <%}%>
+                                                <%}%>
                                             <%}%>
                                         </td>
-                                        <td><%=a.getTipo().getNome()%></td>
-                                        <td><a href="../ServletCentral?comando=CmdSelecionarAtividade&ativ=<%=a.getId()%>" title="SelecionarAtividade">Selecionar</a></td>
-                                        <%int vagas = a.getVagas();
-                                            br.ufc.pet.services.InscricaoService IS = new br.ufc.pet.services.InscricaoService();
-                                            long vagasOcupadas = IS.getInscritosByAtividadeId(a.getId());
-                                        %>
-                                        <td><%=vagas%>
-                                        </td>
-                                        <td><%=vagas - vagasOcupadas%>
-                                        </td>
-                                        <%--O link redireciona ao comando, que por sua vez pega o id da atividade em questão e insere a mesma no array das atividades selecionadas--%>
+                                        <%}%>
                                     </tr>
                                     <%}%>
+
                                 </tbody>
                             </table>
                             <%}%>
+                            <%--Tabela interativa--%>
+
+
+
+
                             <hr style="height: 10px; border: 0; box-shadow: 0 10px 10px -10px #8c8b8b inset;"/>
 
                             <%if (modalidades.isEmpty()) {%>
@@ -208,7 +216,7 @@
                             <p class="space-top text-bold"> <%=m.getTipo()%> : <%=preco%></p>
                             <%}%>
                         </div></div>
-                    <center><input type="submit" value="Inscrever-se" class="btn btn-default" /></center><br />
+                    <center><input data-toggle="tooltip" title="Inscrever-se no Evento" type="submit" value="Inscrever-se" class="btn btn-default" /></center><br />
                 </form>
             </div>
             <a href="" title="" onclick="history.back(); return false;" class="btn btn-default"><span aria-hidden="true">&larr;</span>Voltar</a>

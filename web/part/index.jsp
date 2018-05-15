@@ -1,13 +1,3 @@
-<%--
-    Document   : index
-    Created on : 26/03/2010, 16:35:48
-    Author     : fernando
---%>
-<%-- 
-    Document   : index
-    Modified in : 04/05/2017, 21:40:57
-    Author     : João Mateus
---%>
 <%@page import="br.ufc.pet.evento.Participante"%>
 <%
     java.util.ArrayList<br.ufc.pet.evento.Evento> eventos = (java.util.ArrayList<br.ufc.pet.evento.Evento>) session.getAttribute("eventosAbertos");
@@ -32,17 +22,18 @@
         <div id="container">
 
                 <%-- Incluindo Menu --%>
-                <%@include file="part_menu.jsp" %> 
+        <%@include file="part_menu.jsp" %> 
 
          
         <div id="content">
+                    <%@include file="/error.jsp" %>
           <div class="row">   
             <div class="col-lg-6">               
                <div class="panel">   
                 <div class="col-lg-12 jumbotron">
                     <h1 class="text-center text-bold">Olá, <%= nomeSaudacao%></h1>
                     <h5 class="text-center">Esta é a página inicial do Participante. Quando desejar retornar a esta página, 
-                        clique na opção <span class="label label-info text-uppercase"><em>Home</em></span> no menu acima.</h><br/>
+                        clique na opção <span class="label label-default text-uppercase"><em>Home</em></span> no menu acima.</h><br/>
                 </div>
                </div>              
             </div>

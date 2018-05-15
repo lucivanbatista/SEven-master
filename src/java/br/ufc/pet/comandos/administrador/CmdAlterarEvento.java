@@ -19,7 +19,6 @@ public class CmdAlterarEvento implements Comando {
 
     @Override
     public String executa(HttpServletRequest request, HttpServletResponse response) {
-
         HttpSession session = request.getSession(true);
         Administrador admin = (Administrador) session.getAttribute("user");
 
@@ -41,17 +40,16 @@ public class CmdAlterarEvento implements Comando {
         session.setAttribute("fimInscricao", fimInscricao);
         String limiteDeAtividadesPorParticipante = request.getParameter("limite_de_atividades_por_participante");
         session.setAttribute("limiteDeAtividadesPorParticipante", limiteDeAtividadesPorParticipante);
+        String gratuito = request.getParameter("gratuito");
+        session.setAttribute("gratuito", gratuito);
 
-
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        Date date = new Date();
-        Date data = UtilSeven.treatToDate(dateFormat.format(date));
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//        Date date = new Date();
+//        Date data = UtilSeven.treatToDate(dateFormat.format(date));
 
         int limiteDeAtividades;
 
         Evento E = null;
-
-
         if (nomeEvento==null || nomeEvento.trim().equals("") || 
             siglaEvento==null || siglaEvento.trim().equals("") ||
             descricao==null || descricao.trim().equals("") ||
@@ -76,38 +74,38 @@ public class CmdAlterarEvento implements Comando {
                 return "/admin/edit_events.jsp";
             }
 
-            if (UtilSeven.treatToDate(inicioEvento).before(data)) {
-                session.setAttribute("erro", "Data de início do evento anterior a data de hoje.");
-                return "/admin/edit_events.jsp";
-            }
-            if (UtilSeven.treatToDate(inicioEvento).after(UtilSeven.treatToDate(fimEvento))) {
-                session.setAttribute("erro", "Data de início do evento posterior ao término do evento.");
-                return "/admin/edit_events.jsp";
-            }
-            if (UtilSeven.treatToDate(inicioInscricao).before(data)) {
-                session.setAttribute("erro", "Data de início das incrições anterior a data de hoje.");
-                return "/admin/edit_events.jsp";
-            }
-            if (UtilSeven.treatToDate(inicioInscricao).after(UtilSeven.treatToDate(fimEvento))) {
-                session.setAttribute("erro", "Data de início das inscrições posterior ao término do evento.");
-                return "/admin/edit_events.jsp";
-            }
-            if (UtilSeven.treatToDate(inicioInscricao).after(UtilSeven.treatToDate(inicioEvento))) {
-                session.setAttribute("erro", "Data de início das inscrições posterior ao início do evento.");
-                return "/admin/edit_events.jsp";
-            }
-            if (UtilSeven.treatToDate(inicioInscricao).after(UtilSeven.treatToDate(fimInscricao))) {
-                session.setAttribute("erro", "Data de início das inscrições posterior ao término das inscrições.");
-                return "/admin/edit_events.jsp";
-            }
-            if (UtilSeven.treatToDate(fimInscricao).after(UtilSeven.treatToDate(inicioEvento))) {
-                session.setAttribute("erro", "Data de fim das inscrições posterior ao início do evento.");
-                return "/admin/edit_events.jsp";
-            }
+//            if (UtilSeven.treatToDate(inicioEvento).before(data)) {
+//                session.setAttribute("erro", "Data de início do evento anterior a data de hoje.");
+//                return "/admin/edit_events.jsp";
+//            }
+//            if (UtilSeven.treatToDate(inicioEvento).after(UtilSeven.treatToDate(fimEvento))) {
+//                session.setAttribute("erro", "Data de início do evento posterior ao término do evento.");
+//                return "/admin/edit_events.jsp";
+//            }
+//            if (UtilSeven.treatToDate(inicioInscricao).before(data)) {
+//                session.setAttribute("erro", "Data de início das incrições anterior a data de hoje.");
+//                return "/admin/edit_events.jsp";
+//            }
+//            if (UtilSeven.treatToDate(inicioInscricao).after(UtilSeven.treatToDate(fimEvento))) {
+//                session.setAttribute("erro", "Data de início das inscrições posterior ao término do evento.");
+//                return "/admin/edit_events.jsp";
+//            }
+//            if (UtilSeven.treatToDate(inicioInscricao).after(UtilSeven.treatToDate(inicioEvento))) {
+//                session.setAttribute("erro", "Data de início das inscrições posterior ao início do evento.");
+//                return "/admin/edit_events.jsp";
+//            }
+//            if (UtilSeven.treatToDate(inicioInscricao).after(UtilSeven.treatToDate(fimInscricao))) {
+//                session.setAttribute("erro", "Data de início das inscrições posterior ao término das inscrições.");
+//                return "/admin/edit_events.jsp";
+//            }
+//            if (UtilSeven.treatToDate(fimInscricao).after(UtilSeven.treatToDate(inicioEvento))) {
+//                session.setAttribute("erro", "Data de fim das inscrições posterior ao início do evento.");
+//                return "/admin/edit_events.jsp";
+//            }
 
                 EventoService es = new EventoService();
 
-
+                
 
                 admin.removerEventoById(E.getId());
                 E.setNome(nomeEvento);
@@ -120,7 +118,13 @@ public class CmdAlterarEvento implements Comando {
                 E.setLimiteAtividadePorParticipante(limiteDeAtividades);
                 E.setAdministrador(admin);
                 E.setDescricao(descricao);
-  
+                
+                if(gratuito.equals("true")){
+                    E.setGratuito(true);
+                }else{ 
+                    E.setGratuito(false);
+                }
+                
                 es.atualizar(E);
                 admin.addEvento(E);
                 

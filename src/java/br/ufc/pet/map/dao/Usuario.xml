@@ -40,6 +40,13 @@
         instituicao=#instituicao#, rua=#rua#, bairro=#bairro#, num_casa=#numero#, cidade=#cidade#, uf=#uf#, certificado_gerado=#certificadoGerado# 
         WHERE  id=#id#;
     </update>
+    
+    <update id="updateUsuarioSemSenha" parameterClass="usuario">
+        UPDATE evento.usuario
+        SET nome=#nome#, fone=#fone#, data_nasc=#dataNascimento#, email=#email#, sexo=#sexo#,
+        instituicao=#instituicao#, rua=#rua#, bairro=#bairro#, num_casa=#numero#, cidade=#cidade#, uf=#uf#, certificado_gerado=#certificadoGerado# 
+        WHERE  id=#id#;
+    </update>
 
     <update id="updateSenhaUsuario" parameterClass="usuario">
         UPDATE evento.usuario

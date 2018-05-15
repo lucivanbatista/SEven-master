@@ -1,13 +1,3 @@
-<%-- 
-    Document   : index_inicial
-    Created on : 14/03/2011, 17:56:46
-    Author     : ismaily
---%>
-<%-- 
-    Document   : menu_inicial_org
-    Modified in : 06/05/2017, 18:48:57
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 

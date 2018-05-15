@@ -1,13 +1,3 @@
-<%-- 
-    Document   : organ_add_tipo_ativ
-    Created on : 03/09/2010, 15:56:35
-    Author     : Escritorio projetos
---%>
-<%-- 
-    Document   : organ_add_tipo_ativ
-    Modified in : 07/05/2017, 16:28:57
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <%@page import="java.util.ArrayList,br.ufc.pet.evento.TipoAtividade,br.ufc.pet.evento.ModalidadeInscricao"%>
@@ -46,11 +36,11 @@
                 <h1 class="titulo"><%=titulo%> Tipo de Atividade</h1>
                 <form action="../ServletCentral?comando=CmdAdicionarTipoAtividade" method="post">
                     <div class="form-group">
-                        <label>Nome:</label><br/>
-                        <input type="text" name="tipo_nome" value="<%=ativNome%>" class="form-control"/>
+                        <label>Nome</label><br/>
+                        <input data-toggle="tooltip" title="Nome da Atividade" type="text" name="tipo_nome" value="<%=ativNome%>" class="form-control"/>
                     </div>
-                    <a href="../ServletCentral?comando=CmdListarTipoAtividade" title="" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
-                    <input type="submit" value="Enviar" class="btn btn-default" onclick="return confirm('Deseja realmente enviar esses dados?')"/>
+                    <a href="../ServletCentral?comando=CmdListarTipoAtividade" title="Voltar" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
+                    <input data-toggle="tooltip" title="Confirmar Atividade" type="submit" value="Confirmar" class="btn btn-default" onclick="return confirm('Deseja realmente enviar esses dados?')"/>
                 </form>
             </div>
             <div class="footer-top">

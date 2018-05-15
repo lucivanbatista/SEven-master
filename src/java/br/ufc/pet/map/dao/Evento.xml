@@ -38,18 +38,20 @@
             descricao= #descricao#,
             inicio=#inicioPeriodoEvento#,
             fim=#fimPeriodoEvento#,
-            limite_atividade_por_participante = #limiteAtividadePorParticipante#
+            limite_atividade_por_participante = #limiteAtividadePorParticipante#,
             gratuito = #gratuito#
         WHERE id = #id#;
     </update>
     
     <update id="encerrarEvento" parameterClass="long">
-
         UPDATE evento.evento SET ativo = FALSE
         WHERE id = #id#;
-        
     </update>
-
+    
+    <update id="ativarEvento" parameterClass="long">
+        UPDATE evento.evento SET ativo = TRUE
+        WHERE id = #id#;
+    </update>
 
     <delete id="deleteEvento" parameterClass="long">
         DELETE FROM evento.evento WHERE id = #var#;
@@ -85,19 +87,25 @@
 
     <select id="getAllEventos" resultClass="evento" resultMap="eventoResult">
         SELECT *
-        FROM evento.evento;
+        FROM evento.evento
+        ORDER BY inicio_inscricao
+        DESC;
     </select>
 
     <select id="getAllEventosNaoEncerrados" resultClass="evento" resultMap="eventoResult">
         SELECT *
         FROM evento.evento
-        WHERE ativo = true;
+        WHERE ativo = true
+        ORDER BY inicio_inscricao
+        DESC;
     </select>
 
     <select id="getAllEventosEncerrados" resultClass="evento" resultMap="eventoResult">
         SELECT *
         FROM evento.evento
-        WHERE ativo = false;
+        WHERE ativo = false
+        ORDER BY inicio_inscricao
+        DESC;
     </select>
 
     <select id="getMaxIdEvento" resultClass="long">

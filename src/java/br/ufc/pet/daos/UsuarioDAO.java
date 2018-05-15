@@ -22,6 +22,10 @@ public class UsuarioDAO {
     public void editar(Usuario user) throws SQLException {
         PostgresMapConfig.getSqlMapClient().update("updateUsuario", user);
     }
+    
+    public void editarSemSenha(Usuario user) throws SQLException {
+        PostgresMapConfig.getSqlMapClient().update("updateUsuarioSemSenha", user);
+    }
 
     public void editarSenha(Usuario user) throws SQLException {
         PostgresMapConfig.getSqlMapClient().update("updateSenhaUsuario", user);

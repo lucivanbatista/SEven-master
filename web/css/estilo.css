@@ -395,6 +395,10 @@ body {
 .space-top{
     margin-top: 10px;
 }
+
+.space-top-camp{
+    margin-top: 50px;
+}
 .footer-top {
   margin-top: 40px;
 }
@@ -472,13 +476,11 @@ footer img{
     margin: 0 0 20px;
 }
 #img-centro{
-     width:170px;
-      height:140px;
-      position:absolute;
-      top:50%;
-      left:50%;
-      margin-top: -140px;
-      margin-left: 20px;
+    width:170px;
+    height:140px;
+    position:absolute;
+    margin-top: -140px;
+    margin-left: 20px;
    
 }
 .panel-cor{
@@ -519,8 +521,6 @@ footer img{
       width:200px;
       height:200px;
       position:absolute;
-      top:50%;
-      left:50%;
       margin-top: -160px;
       margin-left: -220px;
 }
@@ -616,6 +616,7 @@ a{
 .titulo-manege{
     font-size: 25px !important;
 }
+
 h1{
     font-size: 28px !important;
 }
@@ -627,6 +628,29 @@ h1{
 
 .margin-contato{
     margin-top: 90px;
+    top: 50%;
+    left: 50%;
+    position:absolute;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+.margin-contato-address{
+    margin-top: 90px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: -150px;
+}
+
+.centralizar_contato{    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
 }
 
 .dataTables_wrapper .dataTables_filter input {
@@ -635,4 +659,33 @@ h1{
     margin-bottom: 5px;
     margin-top: 5px;
     color: #000;
+}
+
+.btn-primary-new {
+  color: #fff !important;
+  background-color: #2E8394 !important;
+  border-color: #2e6da4;
+}
+
+.overflowController {
+    height:400px; 
+    overflow:auto;
+}
+
+.radiosCheck:hover {
+    background: #FAFAFA !important;
+    width: 870px;
+}
+
+#datenasc_up{
+    padding: 0 !important;
+}
+
+button#datenasc.btn.btn-outline-secondary.glyphicon.glyphicon-calendar.form-control{
+    top: 0 !important;
+    border: 1px transparent !important;
+}
+
+span#datenasc_up.input-group-addon{
+    border: 0 !important;
 }

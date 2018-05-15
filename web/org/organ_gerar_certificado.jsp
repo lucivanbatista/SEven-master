@@ -1,9 +1,3 @@
-<%-- 
-    Document   : organ_gerar_certificado
-    Created on : 08/03/2011, 13:38:58
-    Author     : Welligton
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">

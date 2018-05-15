@@ -49,34 +49,34 @@ public class CmdAlterarPeriodoInscricaoeEvento implements Comando {
             return "/org/organ_periodos_inscricao_e_evento.jsp";
         }
 
-        if (UtilSeven.treatToDate(inicioEvento).before(data)) {
-            session.setAttribute("erro", "Data de início do evento anterior a data de hoje.");
-            return "/org/organ_periodos_inscricao_e_evento.jsp";
-        }
-        if (UtilSeven.treatToDate(inicioEvento).after(UtilSeven.treatToDate(fimEvento))) {
-            session.setAttribute("erro", "Data de início do evento posterior ao término do evento.");
-            return "/org/organ_periodos_inscricao_e_evento.jsp";
-        }
-        if (UtilSeven.treatToDate(inicioInscricao).before(data)) {
-            session.setAttribute("erro", "Data de início das incrições anterior a data de hoje.");
-            return "/org/organ_periodos_inscricao_e_evento.jsp";
-        }
-        if (UtilSeven.treatToDate(inicioInscricao).after(UtilSeven.treatToDate(fimEvento))) {
-            session.setAttribute("erro", "Data de início das inscrições posterior ao término do evento.");
-            return "/org/organ_periodos_inscricao_e_evento.jsp";
-        }
-        if (UtilSeven.treatToDate(inicioInscricao).after(UtilSeven.treatToDate(inicioEvento))) {
-            session.setAttribute("erro", "Data de início das inscrições posterior ao início do evento.");
-            return "/org/organ_periodos_inscricao_e_evento.jsp";
-        }
-        if (UtilSeven.treatToDate(inicioInscricao).after(UtilSeven.treatToDate(fimInscricao))) {
-            session.setAttribute("erro", "Data de início das inscrições posterior ao término das inscrições.");
-            return "/org/organ_periodos_inscricao_e_evento.jsp";
-        }
-        if (UtilSeven.treatToDate(fimInscricao).after(UtilSeven.treatToDate(inicioEvento))) {
-            session.setAttribute("erro", "Data de fim das inscrições posterior ao início do evento.");
-            return "/org/organ_periodos_inscricao_e_evento.jsp";
-        }
+//        if (UtilSeven.treatToDate(inicioEvento).before(data)) {
+//            session.setAttribute("erro", "Data de início do evento anterior a data de hoje.");
+//            return "/org/organ_periodos_inscricao_e_evento.jsp";
+//        }
+//        if (UtilSeven.treatToDate(inicioEvento).after(UtilSeven.treatToDate(fimEvento))) {
+//            session.setAttribute("erro", "Data de início do evento posterior ao término do evento.");
+//            return "/org/organ_periodos_inscricao_e_evento.jsp";
+//        }
+//        if (UtilSeven.treatToDate(inicioInscricao).before(data)) {
+//            session.setAttribute("erro", "Data de início das incrições anterior a data de hoje.");
+//            return "/org/organ_periodos_inscricao_e_evento.jsp";
+//        }
+//        if (UtilSeven.treatToDate(inicioInscricao).after(UtilSeven.treatToDate(fimEvento))) {
+//            session.setAttribute("erro", "Data de início das inscrições posterior ao término do evento.");
+//            return "/org/organ_periodos_inscricao_e_evento.jsp";
+//        }
+//        if (UtilSeven.treatToDate(inicioInscricao).after(UtilSeven.treatToDate(inicioEvento))) {
+//            session.setAttribute("erro", "Data de início das inscrições posterior ao início do evento.");
+//            return "/org/organ_periodos_inscricao_e_evento.jsp";
+//        }
+//        if (UtilSeven.treatToDate(inicioInscricao).after(UtilSeven.treatToDate(fimInscricao))) {
+//            session.setAttribute("erro", "Data de início das inscrições posterior ao término das inscrições.");
+//            return "/org/organ_periodos_inscricao_e_evento.jsp";
+//        }
+//        if (UtilSeven.treatToDate(fimInscricao).after(UtilSeven.treatToDate(inicioEvento))) {
+//            session.setAttribute("erro", "Data de fim das inscrições posterior ao início do evento.");
+//            return "/org/organ_periodos_inscricao_e_evento.jsp";
+//        }
 
         //Variáveis usadas para pegar o periodo(data) antiga
         //que o evento iria ocorrer.
@@ -95,8 +95,10 @@ public class CmdAlterarPeriodoInscricaoeEvento implements Comando {
         evento.setInicioPeriodoInscricao(UtilSeven.treatToDate(inicioInscricao));
         evento.setFimPeriodoInscricao(UtilSeven.treatToDate(fimInscricao));
         EventoService eventoService = new EventoService();
+        
         if (!eventoService.atualizar(evento)) {
             session.setAttribute("erro", "Modificação sem sucesso");
+            return "/org/organ_gerenciar_atividades.jsp";
         }
         
         //Enviando email para todos os organizadores 
@@ -110,6 +112,7 @@ public class CmdAlterarPeriodoInscricaoeEvento implements Comando {
                 "  para\n"+
                 "De: "+inicioInscricao+" até "+fimInscricao+"\n"+
                 "\nPor favor verifique as datas das atividades!";
+        
         for(Organizador org : evento.getOrganizadores()){
             try {
                 SendMail.sendMail(org.getUsuario().getEmail(), "(SEVEN) Alteração de data no evento "+evento.getNome(), msg);

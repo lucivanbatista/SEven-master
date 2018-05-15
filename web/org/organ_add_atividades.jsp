@@ -1,13 +1,3 @@
-<%--
-    Document   : organ_add_atividades
-    Created on : 26/03/2010, 16:35:48
-    Author     : fernando
---%>
-<%-- 
-    Document   : organ_add_atividades
-    Modified in : 07/05/2017, 01:57:34
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList,java.util.List, br.ufc.pet.evento.TipoAtividade,br.ufc.pet.evento.ResponsavelAtividade,br.ufc.pet.evento.Horario,br.ufc.pet.evento.Atividade,br.ufc.pet.evento.Evento" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
@@ -22,6 +12,7 @@
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
         <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>        
         <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Script.js"></script>
         <script type="text/javascript">
             function forceSubmitListarRelatoriosAtividades(formName) {
                 document.forms[formName].action = "organ_add_responsavel.jsp";
@@ -95,30 +86,38 @@
                         </div>
                     </div>
 
-                    <a href="#" onclick="forceSubmitListarRelatoriosAtividades('formAddAtividade')" class="btn btn-default pull-right">Adicionar Responsável</a><br/><br/>
-
+                    <a data-toggle="tooltip" title="Adicionar um Responsável" href="#" onclick="forceSubmitListarRelatoriosAtividades('formAddAtividade')" class="btn btn-default pull-right">Adicionar Responsável</a><br/><br/>
+                
                     <div class="panel panel-default space-top">
                         <div class="panel-cor panel-heading text-center">Dados da atividade</div>
-                        <div class="panel-body">
-                            <div class="col-lg-12 space-top">
+                        <div class="panel-body">                            
+                            <div class="col-lg-9 space-top">
                                 <div class="form-group">
                                     <label>Nome:</label>
-                                    <input type="text" name="nome_atividade" value="<%=nome%>" class="form-control"/>
+                                    <input data-toggle="tooltip" title="Nome da Atividade" type="text" name="nome_atividade" value="<%=nome%>" class="form-control"/>
                                 </div>
                                 <div class="form-group">
                                     <label>Local:</label>
-                                    <input type="text" name="local" value="<%=local%>" class="form-control"/>
+                                    <input data-toggle="tooltip" title="Local da Atividade" type="text" name="local" value="<%=local%>" class="form-control"/>
                                 </div>
+                            </div>  
+                             <div class="col-lg-2 space-top">    
                                 <div class="form-group">
-                                    <label>Vagas:</label><br />
-                                    <input type="text" maxlength="5" onkeypress="return validaNumerosSilencioso(event)" name="vagas" value="<%=vagas%>" class="form-control"/>
+                                    <label>N° de Vagas:</label><br />
+                                    <input data-toggle="tooltip" title="Quantidade de Vagas Disponibilizadas" type="number" min="0" max="999" onkeypress="return validaNumerosSilencioso(event)" name="vagas" value="<%=vagas%>" class="form-control"/>
                                 </div>
-
-                                <label>É inscritível? (Aceitará inscrições de participantes?):</label><br/>
+                             </div>
+                             <div class="col-lg-3">       
+                                <label>Aceitar inscrições?</label><br/>
                                 <div class="radio-inline">
                                     <% if (a == null) {%>
-                                    <input type="radio" name="inscritivel" value="SIM" class="radio" checked="checked"/><label>Sim</label><br/>
-                                    <input type="radio" name="inscritivel" value="NAO" class="radio"/><label>Não</label>
+                                     <label class="radio-inline">
+                                        <input type="radio" name="inscritivel" value="SIM" class="radio" checked="checked"/>Sim
+                                     </label>
+                                     <label class="radio-inline">
+                                        <input type="radio" name="inscritivel" value="NAO" class="radio"/>Não
+                                     </label>
+                                     
                                     <%} else {
                                         String checkedSIM = "";
                                         String checkedNAO = "";
@@ -128,14 +127,19 @@
                                             checkedNAO = "checked=\"checked\"";
                                         }
                                     %>
-                                    <input type="radio" name="inscritivel" value="SIM" class="radio" <%=checkedSIM%>/><label>Sim</label><br/>
-                                    <input type="radio" name="inscritivel" value="NAO" class="radio"  <%=checkedNAO%>/><label>Não</label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="inscritivel" value="SIM" class="radio" <%=checkedSIM%>/>Sim
+                                    </label >
+                                    <label class="radio-inline">
+                                       <input type="radio" name="inscritivel" value="NAO" class="radio"  <%=checkedNAO%>/>Não
+                                    </label>
                                     <%}%>
                                 </div>
-
                             </div>
                         </div>
                     </div>
+                   </div>
+                                
                     <div class="panel panel-default space-top">
                         <div class="panel-cor panel-heading text-center">Tipo da atividade</div>
                         <div class="panel-body">
@@ -147,8 +151,8 @@
                                         <label><input type="radio" name="tipo_id" value="<%=ta.getId()%>"  checked="checked"/><strong><%=ta.getNome()%></strong></label>
                                     </div>
                                         <%} else {%>
-                                        <div class="radio">
-                                            <label><input type="radio" name="tipo_id" value="<%=ta.getId()%>"/><label><strong><%=ta.getNome()%></strong></label>
+                                        <div class="radio radiosCheck" id="rdCurso">
+                                            <label><input type="radio" name="tipo_id" value="<%=ta.getId()%>"/><strong><%=ta.getNome()%></strong></label>
                                         </div>
                                         <%}
                                             }%>
@@ -160,7 +164,7 @@
                         <div class="panel-cor panel-heading text-center">Horários da atividade</div>
                         <div class="panel-body">
                             <div class="col-lg-12 space-top">
-                                <table class="table table-hover text-center">
+                                <table class="table table-hover text-center" id="checkTable">
                                     <thead> 
                                         <tr>
                                             <th>Marcar</th>
@@ -180,13 +184,15 @@
                                                         checked = "checked=\"checked\"";
                                                     }%>
                                         <%}%>
-                                        <tr>
-                                            <td><input type="checkbox" name="cb_horario_<%=h1.getId()%>" value="ON" <%=checked%> class="chk_box"/></td>
-                                            <td><label><%=h1.printHorario()%></label></td>
+                                         <tr>
+                                            <td>
+                                                <input type="checkbox" name="cb_horario_<%=h1.getId()%>" id="chekbox" value="ON" <%=checked%> class="chk_box"/></td>
+                                            <td><label > <%=h1.printHorario()%></label></td>
                                         </tr>
-                                        <%} else {%>
+                                         <%} else {%>
                                         <tr>
-                                            <td><input type="checkbox" name="cb_horario_<%=h1.getId()%>" value="ON" class="chk_box"/></td>
+                                            <td>
+                                                <input type="checkbox" id="checkbox" name="cb_horario_<%=h1.getId()%>" value="ON" class="chk_box"/></td>
                                             <td><label><%=h1.printHorario()%></label></td>
                                         </tr>
                                         <%}
@@ -196,7 +202,7 @@
                             </div>
                         </div>
                     </div>
-                    <input type="submit" value="Enviar" class="btn btn-default pull-right" onclick="return confirm('Deseja realmente enviar esses dados?')" />
+                    <input data-toggle="tooltip" title="Confirmar Atividade" type="submit" value="Confirmar" class="btn btn-default pull-right" onclick="return confirm('Deseja realmente confirmar esses dados?')" />
                     <a href="" title="" onclick="history.back();return false;" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
                 </form>
             </div>

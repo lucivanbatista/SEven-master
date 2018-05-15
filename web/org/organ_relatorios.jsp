@@ -1,13 +1,3 @@
-<%--
-    Document   : index
-    Created on : 26/03/2010, 16:35:48
-    Author     : fernando
---%>
-<%-- 
-    Document   : organ_relatorios
-    Modified in : 06/05/2017, 20:47:57
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.Organizador" %>
 <%@page import="br.ufc.pet.evento.Evento" %>

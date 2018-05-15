@@ -71,6 +71,13 @@ public class Horario extends Bean implements Comparable<Horario> {
         data = data + ", de " + String.format("%02d", this.getHoraInicial()) + ":" + String.format("%02d", this.getMinutoInicial()) + " às " + String.format("%02d", this.getHoraFinal()) + ":" + String.format("%02d", this.getMinutoFinal());
         return data;
     }
+    
+    public String printH() {
+        return String.format("%02d", this.getHoraInicial()) + ":" + String.format("%02d", this.getMinutoInicial()) + " às " + String.format("%02d", this.getHoraFinal()) + ":" + String.format("%02d", this.getMinutoFinal());
+    }
+    public String printD() {
+        return UtilSeven.treatToString(this.getDia());
+    }
 
     public boolean isEqual(Horario horario) {
         if (this.id.compareTo(horario.getId()) == 0) {

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : admin_menu
-    Created on : 14/07/2010, 16:08:24
-    Author     : fernando
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -17,7 +11,8 @@
         <ul class="nav navbar-nav">
             <li><a href="index.jsp" title="Página Inicial">Home</a></li>
             <!-- <li><a href="ServletCentral?comando=CmdVisualizarTodasProgramacoes">Programação</a></li>-->
-            <li><a href="manege_orgs.jsp" title="Gerenciar Organizadores">Gerenciar Organizadores</a></li>
+            <!--<li><a href="manege_orgs.jsp" title="Gerenciar Organizadores">Gerenciar Organizadores</a></li>-->
+            <li><a href="eventos_encerrados.jsp" title="Gerenciar Eventos Encerrados">Gerenciar Eventos Encerrados</a></li>
             <li><a href="edit_senha_admin.jsp" title="Alterar Senha">Alterar Senha</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">

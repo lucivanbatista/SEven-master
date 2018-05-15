@@ -1,13 +1,3 @@
-<%--
-    Document   : part_visualizar_inscricoes
-    Created on : 26/03/2010, 16:35:48
-    Author     : Caio
---%>
-<%-- 
-    Document   : part_visualizar_inscricoes
-    Modified in : 
-    Author     : 
---%>
 <%@page import="br.ufc.pet.services.UsuarioService"%>
 <%@page import="br.ufc.pet.evento.InscricaoAtividade"%>
 <%@page import="br.ufc.pet.services.AtividadeService"%>
@@ -43,8 +33,8 @@
         <title>SEven</title>
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
         <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
-        <script src="../Script.js" ></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script src="../Script.js" ></script>
     </head>
     <body>
         <div id="container">
@@ -66,7 +56,7 @@
                                     <th>Tipo</th>
                                     <th>Nome do Evento</th>
                                     <th>Status do Pagamento</th>
-                                    <th>Gerar boleto</th>
+                                    <!--<th>Gerar boleto</th>-->
                                     <th>Gerar certificado</th>
                                     <th>Visualizar</th>
                                     <th>Excluir</th>
@@ -92,8 +82,8 @@
 
                                 %>
                                 <tr>
-                                    <td><%=i.getModalidade().getTipo()%></td>
-                                    <td><%=i.getEvento().getNome()%></td>
+                                    <td><center><%=i.getModalidade().getTipo()%></center></td>
+                                    <td><center><%=i.getEvento().getNome()%></center></td>
                                     <%
                                         if (i.isConfirmada()) {
                                             estado = "Efetuado";
@@ -101,23 +91,23 @@
                                             estado = "Não Efetuado";
                                         }
                                     %>
-                                    <td><%=estado%></td>
-                                    <% if (!i.isConfirmada()) {%>
+                                    <td><center><%=estado%></center></td>
+                                    <!--<% if (!i.isConfirmada()) {%>
                                     <td><a href="../ServletCentral?comando=CmdGerarBoletoPagamento&id=<%=i.getId()%>"title=""><span class="text-uppercase label label-success">Gerar Boleto</span></a></td>
                                     <% } else {%>
                                     <td> - </td>
-                                    <% }%>
+                                    <% }%>!-->
                                     <% if (liberarCertificado) {%>
-                                    <td><a href="../ServletCentral?comando=CmdGerarCertificado&insc_id=<%=i.getId()%>" title="Gerar Certificado" onclick="return clickGerarCerticiado(<%=p.getUsuario().isCertificadoGerado()%>, <%=i.getId()%>);" ><span class=" text-uppercase label label-warning">Gerar Certificado</span></a> </td>
+                                    <td><center><a href="../ServletCentral?comando=CmdGerarCertificado&insc_id=<%=i.getId()%>" title="Gerar Certificado" onclick="return clickGerarCerticiado(<%=p.getUsuario().isCertificadoGerado()%>, <%=i.getId()%>);" ><span class=" text-uppercase label label-warning">Gerar Certificado</span></a></center> </td>
                                     <% } else {%>
-                                    <td> Indisponível </td>
+                                    <td> <center>Indisponível </center></td>
                                     <% }%>
                                     <% if (!i.isConfirmada()) {%><%--link chama o comando de visualização/edição--%>
-                                    <td><a href="../ServletCentral?comando=CmdVisualizarInscricao&iId=<%=i.getId()%>" title="Visualizar/Editar"><span class="text-uppercase label label-info">Visualizar</span></a></td>
+                                    <td><center><a href="../ServletCentral?comando=CmdVisualizarInscricao&iId=<%=i.getId()%>" title="Visualizar/Editar"><span class="text-uppercase label label-info">Visualizar</span></a></center></td>
                                     <% } else {%>
-                                    <td> - </td>
+                                    <td><center> -</center> </td>
                                     <% }%>
-                                    <td><a href="../ServletCentral?comando=CmdExcluirInscricao&iId=<%=i.getId()%>" onclick="return confirm('ATENÇÃO: Se você excluir uma inscrição que já foi paga ela não estará mais no sistema e você não poderá recuperar a quantia gasta. Você também poderá perder as vagas e os certificados relacionados com esta inscrição. Tem certeza que dejesa excluir esta inscrição?');" title="Excluir"><span class="text-uppercase label label-danger">Excluir</span></a></td>
+                                    <td><center><a href="../ServletCentral?comando=CmdExcluirInscricao&iId=<%=i.getId()%>" onclick="return confirm('ATENÇÃO: Se você excluir uma inscrição que já foi paga ela não estará mais no sistema e você não poderá recuperar a quantia gasta. Você também poderá perder as vagas e os certificados relacionados com esta inscrição. Tem certeza que dejesa excluir esta inscrição?');" title="Excluir"><span class="text-uppercase label label-danger">Excluir</span></a></center></td>
                                 </tr>
                                 <%}%> 
                             </tbody>
@@ -127,7 +117,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="../ServletCentral?comando=CmdListarEventosAbertos" title="Nova Inscrição" class="btn btn-default">Nova Inscrição</a>
+                <a data-toggle="tooltip" href="../ServletCentral?comando=CmdListarEventosAbertos" title="Nova Inscrição" class="btn btn-default">Nova Inscrição</a>
             </div>
         </div>
 

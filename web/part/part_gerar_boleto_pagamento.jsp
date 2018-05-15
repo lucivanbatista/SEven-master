@@ -1,13 +1,3 @@
-<%-- 
-    Document   : part_gerar_boleto_pagamento
-    Created on : 14/07/2010, 09:41:33
-    Author     : welligton
---%>
-<%-- 
-    Document   : part_gerar_boleto_pagamento
-    Modified in : 
-    Author     : 
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.Inscricao" %>
 <%@page import="java.util.*"%>

@@ -102,7 +102,7 @@ public class UtilSeven {
 
         for (int i = 0; i < data.length(); i++) {
 
-            System.out.println(data.charAt(i));
+//            System.out.println(data.charAt(i));
             if (i != 2 && i != 5) {
                 if (isNumeber(data.charAt(i)) != true) {
                     return false;

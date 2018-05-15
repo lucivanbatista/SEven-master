@@ -1,14 +1,8 @@
-<%-- 
-    Document   : organ_menu
-    Created on : 13/07/2010, 14:37:36
-    Author     : fernando
---%>
-<%-- 
-    Document   : organ_menu
-    Modified in : 06/05/2017, 18:48:57
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="br.ufc.pet.evento.Evento"%>
+
+<%            Evento eventSelected = (Evento) session.getAttribute("evento");
+%>
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -20,9 +14,11 @@
         
         <ul class="nav navbar-nav">
             <li><a href="../ServletCentral?comando=CmdRecarregarEventosOrganizador" title="Página Inicial">Home</a></li>
-        <li><a href="organ_selecionar_evento.jsp" title="Gerenciar Atividades">Eventos e Atividades</a></li>
-        <li><a href="organ_financeiro.jsp" title="Módulo Financeiro">Financeiro</a></li>
-        <li><a href="organ_inscricoes.jsp" title="Gerenciar Inscrições">Inscrições</a></li>
+        <!--<li><a href="organ_selecionar_evento.jsp" title="Gerenciar Atividades">Eventos e Atividades</a></li>-->
+        <li><a href="../ServletCentral?comando=CmdGerenciarEvento&cod_evento=<%= eventSelected.getId()%>">Eventos e Atividades</a></li>
+        <li><a href="../ServletCentral?comando=CmdListarMovimentacaoFinanceira" title="Módulo Financeiro">Financeiro</a></li>
+        <!--<li><a href="organ_inscricoes.jsp" title="Gerenciar Inscrições">Inscrições</a></li>-->
+        <li><a href="../ServletCentral?comando=CmdGerenciarInscricoes&cod_evento=<%= eventSelected.getId()%>">Inscrições</a></li>
         <li><a href="organ_relatorios.jsp" title="Relatórios">Relatórios</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">

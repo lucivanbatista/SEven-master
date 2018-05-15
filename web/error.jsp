@@ -1,9 +1,3 @@
-<%-- 
-    Document   : error
-    Created on : 18/03/2009, 15:00:41
-    Author     : jefferson
---%>
-
 <div id="error_msg">
     <%
                 String sucesso = (String) session.getAttribute("sucesso");

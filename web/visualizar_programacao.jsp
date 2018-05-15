@@ -1,9 +1,3 @@
-<%--
-    Document   : part_visualizar_programacao
-    Created on : 09/09/2010, 15:48:10
-    Author     : Welligton Abreu
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@page import="br.ufc.pet.evento.Evento"%>

@@ -1,13 +1,3 @@
-<%--
-    Document   : index
-    Created on : 26/03/2010, 16:35:48
-    Author     : fernando
---%>
-<%-- 
-    Document   : edi_organ
-    Modified in : 27/04/2017, 21:04:49
-    Author     : Fagner Pinheiro
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.Evento" %>
 <%@page import="br.ufc.pet.evento.Usuario" %>
@@ -38,6 +28,10 @@
         <link href="../css/estilo.css" rel="stylesheet" type="text/css" />
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <title>SEven</title>
+        <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
+        <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Script.js"> </script>
         
     </head>
     <body>
@@ -60,13 +54,13 @@
                         <label>Telefone:</label> <%=u.getFone()%><br />
                         <label>Instituição:</label> <%=u.getInstituicao()%><br/>
                         <label>Cidade:</label> <%=u.getCidade()%></label><br />
-                      <input type="checkbox"  <%=manterAtvi%> name="manterAtv" class="chk_box" /> Manter Atividade<br/>
-                      <input type="checkbox"  <%=manterMod%> name="manterMod" class="chk_box" /> Mater Módulo Financeiro<br/><br/>
+                        <label><input type="checkbox"  <%=manterAtvi%> name="manterAtv" class="chk_box" /> Manter Atividade</label><br/>
+                        <label><input type="checkbox"  <%=manterMod%> name="manterMod" class="chk_box" /> Mater Módulo Financeiro</label><br/><br/>
                       </div> 
                    </div>
                   </div>   
                     <div class="text-center">
-                     <button type="submit" class="btn btn-default">Incluir organizador</button> 
+                     <button data-toggle="tooltip" title="Incluir Organizador" type="submit" class="btn btn-default">Incluir organizador</button> 
                     </div>
                 </form> 
                    

@@ -1,15 +1,3 @@
- 
-<%--
-    Document   : index
-    Created on : 26/03/2010, 16:35:48
-    Author     : fernando
---%>
-<%-- 
-    Document   : organ_listar_movimentacao
-    Modified in : 24/04/2017, 16:42:49
-    Author     : Fagner Pinheiro
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.Evento" %>
 <%@page import="br.ufc.pet.services.EventoService"%>
@@ -30,6 +18,7 @@
         <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
        
         <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Script.js"> </script>
     </head>
     <body>
         <div id="container">   
@@ -83,7 +72,7 @@
                    <a class="btn btn-default" href="" 
                       title="" onclick="history.back(); return false;" class="voltar">← Voltar</a>
                         
-                   <a  class="btn btn-default pull-right" href="admin_buscar_organ.jsp" 
+                   <a data-toggle="tooltip" class="btn btn-default pull-right" href="admin_buscar_organ.jsp" 
                       title="Adicionar Organizador">Adicionar Organizador</a>  
                 </div>
         </div>

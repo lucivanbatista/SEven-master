@@ -1,13 +1,3 @@
-<%--
-    Document   : organ_gerenciar_atividades
-    Created on : 26/03/2010, 16:35:48
-    Author     : fernando
---%>
-<%-- 
-    Document   : organ_gerenciar_atividades
-    Modified in : 06/05/2017, 19:49:57
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList" %>
 <%@page import="br.ufc.pet.evento.Atividade,br.ufc.pet.evento.Organizador,br.ufc.pet.evento.Organizacao,br.ufc.pet.evento.ResponsavelAtividade" %>
@@ -52,7 +42,7 @@
                         </div>
                     </div>
                     <div class="panel panel-default space-top">
-                        <div class="panel-cor panel-heading text-center">Gerenciamento dos aipos de atividade</div>
+                        <div class="panel-cor panel-heading text-center">Gerenciamento dos tipos de atividade</div>
                         <div class="panel-body text-center">
                             <label><a href="../ServletCentral?comando=CmdListarTipoAtividade" title="Gerencia Tipo de Atividade">Gerenciar os Tipos de Atividades que o evento possui</a></label>
                         </div>

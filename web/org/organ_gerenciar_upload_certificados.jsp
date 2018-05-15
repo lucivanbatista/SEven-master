@@ -1,13 +1,3 @@
-<%--
-    Document   : index
-    Created on : 23/07/2014, 16:35:48
-    Author     : Junior
---%>
-<%-- 
-    Document   : organ_gerenciar_upload_certificados
-    Modified in : 07/05/2017, 16:40:57
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList" %>
 <%@page import="br.ufc.pet.evento.Atividade,br.ufc.pet.evento.Organizador,br.ufc.pet.evento.Organizacao,br.ufc.pet.evento.ResponsavelAtividade" %>
@@ -20,6 +10,10 @@
         <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon"/>
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <title>SEven</title>
+        <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
+        <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Script.js"></script>
         <script type="text/javascript">
             function checkFile() {
                 var fileElement = document.getElementById("uploadFile");
@@ -48,6 +42,7 @@
 
             <div id="content">
                 <h1 class="titulo">Gerenciar emissão de certificados<br/><%=e.getNome()%></h1>
+                <%@include file="../error.jsp" %>
                 <div class="panel panel-warning">
                     <div class="panel-heading text-center">Atenção!<br/>Deve ser feito o upload de um template seguindo os passos abaixo</div>
                     <div class="panel-body">
@@ -63,9 +58,10 @@
                 </div>  
                 <form action="../ServletCentral?comando=CmdUploadModeloCertificado&id_evento=<%=e.getId()%>" method="post" enctype="multipart/form-data" onsubmit="return checkFile();">
                     <div class="form-group">
-                        <input type="file" name="arquivo" id="uploadFile"/>
+                        <input data-toggle="tooltip" title="Selecione um Template" type="file" name="arquivo" id="uploadFile"/>
                     </div>
-                    <input type="submit" value="Enviar" class="btn btn-default"/>
+                    <input data-toggle="tooltip" title="Enviar Template" type="submit" value="Enviar" class="btn btn-default pull-right"/>
+                    <a href="" title="" onclick="history.back(); return false;" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
                 </form>
                
             </div>

@@ -1,14 +1,3 @@
-<%--
-    Document   : organ_receber_pagamento
-    Created on : 26/03/2010, 16:35:48
-    Author     : fernando
---%>
-<%-- 
-    Document   : organ_receber_pagamento
-    Modified in : 06/05/2017, 23:39:39
-    Author     : João Mateus
---%>
-
 <%@page import="br.ufc.pet.services.InscricaoService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.Inscricao"%>
@@ -38,6 +27,10 @@
         <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon"/>
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <title>SEven</title>
+        <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
+        <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>        
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Script.js"></script>
     </head>
     <body>
         <div id="container">
@@ -53,13 +46,18 @@
                             <label>Email: </label><%=inscrito.getParticipante().getUsuario().getEmail()%><br/>
                             <label>Fone:</label> <%=inscrito.getParticipante().getUsuario().getFone()%><br/>
                             <label>Atividade(s):</label>
-                            <%for (Atividade insc : inscrito.getAtividades()) {%>
-                            <br/>
-                            <label><%=insc.getNome()%>:</label>
-                            <%for (Horario h : insc.getHorarios()) {%><%--Exibe horários de cada atividade--%>
-                            (<%=h.printHorario()%>)
+                            
+                            <ol>
+                                <%for (Atividade a : inscrito.getAtividades()) {%>
+                                    <p><li><b><%=a.getNome()%></b></li>
+                                    <ul>
+                                        <%for (Horario h : a.getHorarios()) {%><%--Exibe horários de cada atividade--%>
+                                            <li>(<%=h.printHorario()%>)</li>
+                                        <%}%>
+                                    </ul>
+                                    </p>                            
                             <%}%>
-                            <%}%>
+                            </ol>
                             <br/>
                             <label>Valor da Inscrição: </label><%=is.getPrecoInscricao(inscrito)%> R$<br/>
                             <label>Status do pagamento: </label><%= status%><br/>
@@ -68,8 +66,9 @@
                 </div>
                 <form action="../ServletCentral?comando=CmdReceberPagamento&id_confirm=<%=inscrito.getId()%>" method="post" class="center-block">
                     <!--<%session.setAttribute("confirmado", inscrito);%>-->
-                    <a href="../ServletCentral?comando=CmdBuscarParticipantedeEvento" title="" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
-                    <input type="submit" name="ok" value="Receber Pagamento" class="btn btn-default" onclick="return confimar()" />
+                    <!--<a href="../ServletCentral?comando=CmdBuscarParticipantedeEvento" title="" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>-->
+                    <a href="" title="" onclick="history.back();return false;" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
+                    <input data-toggle="tooltip" title="Receber Pagamento" type="submit" name="ok" value="Receber Pagamento" class="btn btn-default" onclick="return confimar()" />
                 </form>
                 <%session.setAttribute("confirmado", null);%>
             </div>

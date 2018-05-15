@@ -1,13 +1,3 @@
-<%--
-    Document   : organ_listar_atividades_frequencia_html
-    Created on : 03/02/2011, 10:28:50
-    Author     : Welligton Abreu
---%>
-<%-- 
-    Document   : organ_listar_atividades_frequencia_html
-    Modified in : 07/05/2017, 23:18:57
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.Atividade" %>
 <%@page import="br.ufc.pet.evento.Participante" %>

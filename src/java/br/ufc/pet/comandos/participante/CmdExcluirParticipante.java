@@ -15,15 +15,15 @@ public class CmdExcluirParticipante implements Comando{
     @Override
     public String executa(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession(true);
-        Participante part= (Participante) session.getAttribute("user");
-        ParticipanteService ps= new ParticipanteService();
+        Participante part = (Participante) session.getAttribute("user");
+        ParticipanteService ps = new ParticipanteService();
         if(ps.deleteParticipanteUsuario(part)){
         
         session.setAttribute("sucesso","Conta Excluída com sucesso!");        
-        return "/index.jsp";
+            return "/index.jsp";
         }else{
-        session.setAttribute("erro","Erro ao Excluir conta, por favor relate ao Administrador!");
-        return "/part/gerencia_conta.jsp";
+            session.setAttribute("erro","Erro ao Excluir conta, por favor relate ao Administrador!");
+            return "/part/gerencia_conta.jsp";
         }
     }
 

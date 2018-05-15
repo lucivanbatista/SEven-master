@@ -69,7 +69,7 @@ public class CmdOrgSelecionarAtividade implements Comando {
             }
             int tam = nomesConflitantes.length();
             nomesConflitantes = nomesConflitantes.substring(0, tam - 2); //retira a ultima virgula, desnecessÃ¡ria.
-            session.setAttribute("erro", "AtenÃ§Ã£o: A atividade " + selecionada.getNome() + " conflita com as seguintes atividades: " + nomesConflitantes + ". Para selecionÃ¡-la, vocÃª deve retirar primeiramente as conflitantes da seleÃ§Ã£o.");
+            session.setAttribute("erro", "Atenção: A atividade " + selecionada.getNome() + " conflita com as seguintes atividades: " + nomesConflitantes + ". Para selecioná-la, você deve retirar primeiramente as conflitantes da seleção.");
         }
         return "/org/org_editar_inscricao.jsp";
     }

@@ -47,6 +47,16 @@ public class EventoService {
             return false;
         }
     }
+    
+    public boolean ativar(Long id) {
+        try {
+            eventoDAO.ativar(id);
+            return true;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
 
     public boolean excluir(Evento evento) {
         try {
@@ -61,6 +71,15 @@ public class EventoService {
     public ArrayList<Evento> buscarEventosAbertos() {
         try {
             return eventoDAO.getAllEventosAbertos();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+    
+    public ArrayList<Evento> buscarAllEventos() {
+        try {
+            return eventoDAO.getAllEventos();
         } catch (SQLException ex) {
             ex.printStackTrace();
             return null;

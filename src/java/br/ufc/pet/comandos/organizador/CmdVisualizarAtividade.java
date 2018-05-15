@@ -24,6 +24,6 @@ public class CmdVisualizarAtividade implements Comando {
         Atividade atividade = eventoSessao.recuperarAtividadeCadastrada(id);
         Collections.sort(atividade.getHorarios());
         session.setAttribute("atividade", atividade);
-        return "/org/organ_visualizar_atividade.jsp";    }
-
+        return "/org/organ_visualizar_atividade.jsp";
+    }
 }

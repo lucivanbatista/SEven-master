@@ -2,6 +2,7 @@ package br.ufc.pet.services;
 
 import br.ufc.pet.daos.InscricaoDAO;
 import br.ufc.pet.evento.Atividade;
+import br.ufc.pet.evento.Evento;
 import br.ufc.pet.evento.Inscricao;
 import br.ufc.pet.evento.InscricaoAtividade;
 import br.ufc.pet.evento.PrecoAtividade;
@@ -54,7 +55,7 @@ public class InscricaoService {
             if (en != null) {
                 en.setEvento(eS.getEventoById(en.getEvento().getId()));
                 en.setParticipante(pS.getById(en.getParticipante().getId()));
-                System.out.println(en.getParticipante() == null);
+//                System.out.println(en.getParticipante() == null);
                 en.setModalidade(mS.getModalidadeInscricaoById(en.getModalidade().getId()));
                 en.setAtividades(aS.getAtividadeByInscricaoId(en.getId()));
             }
@@ -71,7 +72,7 @@ public class InscricaoService {
             if (en != null) {
                 en.setEvento(eS.getEventoById(en.getEvento().getId()));
                 en.setParticipante(pS.getById(en.getParticipante().getId()));
-                System.out.println(en.getParticipante() == null);
+//                System.out.println(en.getParticipante() == null);
                 en.setModalidade(mS.getModalidadeInscricaoById(en.getModalidade().getId()));
                 en.setAtividades(aS.getAtividadeByInscricaoId(en.getId()));
             }
@@ -89,7 +90,7 @@ public class InscricaoService {
             if (en != null) {
                 en.setEvento(eS.getEventoById(en.getEvento().getId()));
                 en.setParticipante(pS.getById(en.getParticipante().getId()));
-                System.out.println(en.getParticipante() == null);
+//                System.out.println(en.getParticipante() == null);
                 en.setModalidade(mS.getModalidadeInscricaoById(en.getModalidade().getId()));
                 en.setAtividades(aS.getAtividadeByInscricaoId(en.getId()));
             }
@@ -144,11 +145,10 @@ public class InscricaoService {
         } catch (SQLException ex) {
             Logger.getLogger(InscricaoService.class.getName()).log(Level.SEVERE, null, ex);
         }
+        Evento evento = eS.getEventoById(id);
         for (Inscricao en : a) {
-            en.setEvento(eS.getEventoById(id));
+            en.setEvento(evento);
             en.setParticipante(pS.getById(en.getParticipante().getId()));
-            en.setModalidade(mS.getModalidadeInscricaoById(en.getModalidade().getId()));
-            en.setAtividades(aS.getAtividadeByInscricaoId(en.getId()));
         }
         return a;
     }

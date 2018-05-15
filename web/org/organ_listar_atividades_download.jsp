@@ -1,13 +1,3 @@
-<%--
-    Document   : index
-    Created on : 26/03/2010, 16:35:48
-    Author     : ismaily
---%>
-<%-- 
-    Document   : organ_listar_atividades_download
-    Modified in : 07/05/2017, 23:08:57
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.Atividade" %>
 <%@page import="java.util.*"%>

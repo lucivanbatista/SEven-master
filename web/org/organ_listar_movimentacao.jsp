@@ -1,13 +1,3 @@
-<%--
-    Document   : organ_listar_movimentacao
-    Created on : 26/03/2010, 16:35:48
-    Author     : fernando
---%>
-<%-- 
-    Document   : organ_listar_movimentacao
-    Modified in : 06/05/2017, 21:37:57
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.MovimentacaoFinanceira"%>
 <%@page import="java.util.*"%>
@@ -48,6 +38,7 @@
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
         <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Script.js"></script>
     </head>
     <body>
         <div id="container">
@@ -140,7 +131,7 @@
                         </tbody>
                     </table>
                     <a href="organ_financeiro.jsp" title=""  class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a><!--onclick="history.back(); return false;"-->
-                    <a href="organ_add_movimentacao.jsp" title="Adicionar Organizador" onclick="return permissao()" class="btn btn-default pull-right">Adicionar nova movimentação</a>
+                    <a data-toggle="tooltip" href="organ_add_movimentacao.jsp" title="Adicionar uma Nova Movimentação" onclick="return permissao()" class="btn btn-default pull-right">Adicionar nova movimentação</a>
                 </div>
             </div>
             <div class="footer-top">

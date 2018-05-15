@@ -1,14 +1,3 @@
-<%-- 
-    Document   : organ_visualizar_atividade
-    Created on : 20/07/2010, 23:50:06
-    Author     : Escritorio projetos
---%>
-<%-- 
-    Document   : organ_visualizar_atividade
-    Modified in : 07/05/2017, 01:57:34
-    Author     : João Mateus
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList, br.ufc.pet.evento.TipoAtividade,br.ufc.pet.evento.ResponsavelAtividade,br.ufc.pet.evento.Horario,br.ufc.pet.evento.Atividade" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">

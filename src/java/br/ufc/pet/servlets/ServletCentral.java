@@ -10,6 +10,7 @@ import br.ufc.pet.comandos.CmdVisualizarTodasProgramacoes;
 import br.ufc.pet.comandos.administrador.CmdAddOrganizadorNovo;
 import br.ufc.pet.comandos.administrador.CmdAdicionarEvento;
 import br.ufc.pet.comandos.administrador.CmdAlterarEvento;
+import br.ufc.pet.comandos.administrador.CmdAtivarEvento;
 import br.ufc.pet.comandos.administrador.CmdBuscarEvento;
 import br.ufc.pet.comandos.administrador.CmdBuscarUsuario;
 import br.ufc.pet.comandos.administrador.CmdEditAdmin;
@@ -79,6 +80,7 @@ import br.ufc.pet.comandos.organizador.CmdSelecionarResponsavelEdicao;
 import br.ufc.pet.comandos.organizador.CmdUpdateMovimentacaoFinanceira;
 import br.ufc.pet.comandos.organizador.CmdUploadModeloCertificado;
 import br.ufc.pet.comandos.organizador.CmdVisualizarAtividade;
+import br.ufc.pet.comandos.participante.CmdEditPart;
 import br.ufc.pet.comandos.participante.CmdEditarInscricao;
 import br.ufc.pet.comandos.participante.CmdEditarParticipante;
 import br.ufc.pet.comandos.participante.CmdExcluirInscricao;
@@ -109,7 +111,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ServletCentral extends HttpServlet {
 
     private Hashtable comandos;
-    private boolean debug = true;
+    private boolean debug = false;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -125,7 +127,7 @@ public class ServletCentral extends HttpServlet {
 
                     System.out.print("Tela:" + tela + " - ");
                     System.out.print("IP Máquima" + request.getRemoteAddr() + " - ");
-                    System.out.println("Hora" + new Date());
+//                    System.out.println("Hora" + new Date());
                 }
                 response.sendRedirect(request.getContextPath() + tela);
             }
@@ -251,6 +253,8 @@ public class ServletCentral extends HttpServlet {
         comandos.put("CmdRecuperarSenha", cmdo);
         cmdo = new CmdEncerrarEvento();
         comandos.put("CmdEncerrarEvento", cmdo);
+        cmdo = new CmdAtivarEvento();
+        comandos.put("CmdAtivarEvento", cmdo);
         cmdo = new CmdListarTipoAtividade();
         comandos.put("CmdListarTipoAtividade", cmdo);
         cmdo = new CmdAdicionarTipoAtividade();
@@ -304,6 +308,8 @@ public class ServletCentral extends HttpServlet {
         comandos.put("CmdBuscarEvento", cmdo);
         cmdo = new CmdEditAdmin();
         comandos.put("CmdEditAdmin",cmdo);
+        cmdo = new CmdEditPart();
+        comandos.put("CmdEditPart",cmdo);
         cmdo = new CmdBuscarInscricao();
         comandos.put("CmdBuscarInscricao", cmdo);
         cmdo = new CmdAtualizarInscricao();

@@ -25,8 +25,16 @@ public class CmdAdicionarModalidade implements Comando {
         ModalidadeInscricao modalidade = new ModalidadeInscricao();
         ModalidadeInscricaoService ms = new ModalidadeInscricaoService();
 
+        
+        if(nomeModalidade == null || nomeModalidade.equals("") || request.getParameter("nomeModalidade").equals("")){
+            session.setAttribute("erro", "Preencha a modalidade com um nome!");
+            return "/org/organ_add_modalidade.jsp";
+        }
+        
         ArrayList<TipoAtividade> tipos = UtilSeven.getTiposDeAtividadeByEventoId(evento.getId());
         String id = request.getParameter("id_atualizar");
+        
+        
         if (id != null && id.isEmpty() == false) {
             modalidade = ms.getModalidadeInscricaoById(Long.parseLong(id));
             modalidade.setTipo(nomeModalidade);
@@ -41,7 +49,7 @@ public class CmdAdicionarModalidade implements Comando {
                     preco.setValor(Double.parseDouble( (request.getParameter("preco_" + t.getId().toString())).replace(",", ".")));
                 } catch(NumberFormatException e){
                     session.setAttribute("erro", "Valor inválido!");
-                    return "/ServletCentral?comando=CmdListarTipoModalidade";
+                    return "/org/organ_add_modalidade.jsp";
                 }
                 precos.add(preco);
             }

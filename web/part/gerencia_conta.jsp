@@ -1,13 +1,3 @@
-<%-- 
-    Document   : gerencia_conta
-    Created on : 02/02/2011, 22:26:01
-    Author     : ismaily
---%>
-<%-- 
-    Document   : gerencia_conta
-    Modified in : 04/05/2017, 13:56:25
-    Author     : João Mateus
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.ufc.pet.evento.Participante" %>
 <%@page import="br.ufc.pet.util.UtilSeven" %>
@@ -64,7 +54,9 @@
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <title>SEven</title>
         <script language="javascript" src="../jquery/jquery-1.10.2.js"></script>
+        <script language="javascript" src="../jquery/jquery-ui-1.10.4.custom.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript"  language="javascript" src="../Script.js"></script> 
     </head>
     <body>
         <div id="container">
@@ -85,9 +77,9 @@
                                 <label>Instituição: </label> <%=instituicao%><br/>
                                 <label>Rua: </label> <%=rua%><br/>
                                 <label>Bairro: </label> <%=bairro%><br/>
-                                <label>Número: </label> <%=numero%><br/>
+                                <label>Número/Complemento: </label> <%=numero%><br/>
+                                <label>Estado: </label> <%=uf%><br/>
                                 <label>Cidade: </label> <%=cidade%><br/>
-                                <label>UF: </label> <%=uf%><br/>
                             </div>
                         </div>
                     </form>
@@ -95,8 +87,8 @@
                 <div class="center-block">
                     <form action="../ServletCentral" method="post">
                         <a href="" title="" onclick="history.back(); return false;" class="btn btn-default"><span aria-hidden="true">&larr;</span> Voltar</a>
-                        <a class="btn btn-default margin-btn-left" href="part_conta.jsp">Editar Dados</a>
-                        <a class="btn btn-default pull-right " href="../ServletCentral?comando=CmdExcluirParticipante" onclick="return confirm('Tem certeza que deseja excluir conta?')" title="">Excluir Conta</a>
+                        <a data-toggle="tooltip" title="Editar Dados" class="btn btn-default pull-right" href="part_conta.jsp">Editar Dados</a>
+                        <!--<a data-toggle="tooltip" title="Excluir Conta" class="btn btn-default pull-right " href="../ServletCentral?comando=CmdExcluirParticipante" onclick="return confirm('Tem certeza que deseja excluir conta?')" title="">Excluir Conta</a>-->
                     </form>
                 </div>
             </div>
