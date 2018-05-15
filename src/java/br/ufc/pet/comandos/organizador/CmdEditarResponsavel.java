@@ -39,12 +39,12 @@ public class CmdEditarResponsavel implements Comando {
         if (nome == null || nome.trim().equals("") || email == null || email.trim().equals("")
                 || senha == null || senha.trim().equals("") || confSenha == null || confSenha.trim().equals("") || tempoldsenha.equals("")) {
             session.setAttribute("erro", "Preencha todos os campos obrigatórios.");
-            return "/part/part_conta.jsp";
+            return "/org/organ_editar_responsavel.jsp";
         }
 
         if (!senha.trim().equals(confSenha)) {
             session.setAttribute("erro", "A senha não confere com a sua confirmação.");
-            return "/part/part_conta.jsp";
+            return "/org/organ_editar_responsavel.jsp";
         }
         
         Usuario usUpdate = responsavel.getUsuario();

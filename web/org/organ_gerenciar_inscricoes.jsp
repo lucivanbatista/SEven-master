@@ -104,8 +104,6 @@
                                 <thead>
                                     <tr>
                                         <th>Nome do inscrito</th>
-                                        <th>Tipo</th>
-                                        <th>Atividades</th>
                                         <th>Status do Pagamento</th>
                                         <th>Editar</th>
                                         <th>Excluir</th>
@@ -118,12 +116,6 @@
                                     <tr>
 
                                         <td><%= i.getParticipante().getUsuario().getNome()%></td>
-                                        <td><%= i.getModalidade().getTipo()%></td>
-                                        <td>
-                                            <%for (Atividade a : i.getAtividades()) {%>
-                                            <a style="margin-right: 5px;" href="../ServletCentral?comando=CmdListarInscritosEmAtividade&aId=<%=a.getId()%>"><%=a.getNome()%></a>
-                                            <%}%>
-                                        </td>
                                         <%
                                             if (i.isConfirmada()) {
                                                 estado = "Efetuado";

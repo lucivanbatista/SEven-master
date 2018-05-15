@@ -46,13 +46,18 @@
                             <label>Email: </label><%=inscrito.getParticipante().getUsuario().getEmail()%><br/>
                             <label>Fone:</label> <%=inscrito.getParticipante().getUsuario().getFone()%><br/>
                             <label>Atividade(s):</label>
-                            <%for (Atividade insc : inscrito.getAtividades()) {%>
-                            <br/>
-                            <label><%=insc.getNome()%>:</label>
-                            <%for (Horario h : insc.getHorarios()) {%><%--Exibe horários de cada atividade--%>
-                            (<%=h.printHorario()%>)
+                            
+                            <ol>
+                                <%for (Atividade a : inscrito.getAtividades()) {%>
+                                    <p><li><b><%=a.getNome()%></b></li>
+                                    <ul>
+                                        <%for (Horario h : a.getHorarios()) {%><%--Exibe horários de cada atividade--%>
+                                            <li>(<%=h.printHorario()%>)</li>
+                                        <%}%>
+                                    </ul>
+                                    </p>                            
                             <%}%>
-                            <%}%>
+                            </ol>
                             <br/>
                             <label>Valor da Inscrição: </label><%=is.getPrecoInscricao(inscrito)%> R$<br/>
                             <label>Status do pagamento: </label><%= status%><br/>
