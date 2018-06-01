@@ -39,6 +39,9 @@
             <property name="JDBC.ConnectionURL" value="jdbc:postgresql://localhost:5432/seven"/>
             <property name="JDBC.Username" value="postgres"/>
             <property name="JDBC.Password" value="postgres"/>
+<!--            <property name="JDBC.ConnectionURL" value="jdbc:postgresql://arruda.quixada.ufc.br:5432/seven_db"/>
+            <property name="JDBC.Username" value="seven_user"/>
+            <property name="JDBC.Password" value="!@seven!@"/>-->
         </dataSource>
     </transactionManager>
 

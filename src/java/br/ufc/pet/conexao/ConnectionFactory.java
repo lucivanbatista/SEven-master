@@ -20,7 +20,7 @@ public class ConnectionFactory {
             Class.forName("org.postgresql.Driver");
             
           return DriverManager.getConnection("jdbc:postgresql://localhost:5432/seven", "postgres", "postgres");
-          //  return DriverManager.getConnection("jdbc:postgresql://arruda.quixada.ufc.br:5432/seven_db", "seven_user", "!@seven!@");
+//            return DriverManager.getConnection("jdbc:postgresql://arruda.quixada.ufc.br:5432/seven_db", "seven_user", "!@seven!@");
         } catch (Exception ex) {
             throw new Exception(ex.getMessage());
         }
