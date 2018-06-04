@@ -32,16 +32,12 @@
     <typeAlias alias="utility" type="br.ufc.pet.evento.Utility"/>
     <typeAlias alias="inscricaoAtividade" type="br.ufc.pet.evento.InscricaoAtividade"/>
     
-<!--configuration jdbc:postgresql://arruda.quixada.ufc.br:5432/seven_db, seven_user, !@seven!@-->
     <transactionManager type="JDBC">
         <dataSource type="SIMPLE">
             <property name="JDBC.Driver" value="org.postgresql.Driver"/>
             <property name="JDBC.ConnectionURL" value="jdbc:postgresql://localhost:5432/seven"/>
             <property name="JDBC.Username" value="postgres"/>
             <property name="JDBC.Password" value="postgres"/>
-<!--            <property name="JDBC.ConnectionURL" value="jdbc:postgresql://arruda.quixada.ufc.br:5432/seven_db"/>
-            <property name="JDBC.Username" value="seven_user"/>
-            <property name="JDBC.Password" value="!@seven!@"/>-->
         </dataSource>
     </transactionManager>
 
